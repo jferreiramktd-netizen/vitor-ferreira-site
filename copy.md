@@ -139,6 +139,33 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 
 ---
 
+### 2.4.1. Painel de Impacto (`#impacto`) — continuação da Tríade
+
+{{Componente `.vf-impact-panel` do design system: folha de ponta a ponta com cantos de cima esculpidos, que continua o fundo escuro do Método sem corte. Sem eyebrow acima do título.}}
+
+**Título**
+> Experiência que vira **resultado de verdade**
+
+**Subtítulo**
+> Mais de 30 anos de campo, um método em três passos e treinamento desenhado para a realidade de cada empresa e de cada profissional.
+
+**4 Métricas** (só números autorizados pela Regra Anti-Claim, mais um fato da oferta)
+| Número | Rótulo | Descrição |
+|---|---|---|
+| **+30** | Anos de experiência comercial | Três décadas vivendo vendas, negócios e liderança de equipes. |
+| **+3.000** | Pessoas treinadas | Vendedores, gestores e profissionais que levaram o método para a rotina. |
+| **100%** | Prático e aplicável | Exercícios e ferramentas que a equipe já usa na semana seguinte. |
+| **4** | Formatos de experiência | Palestras, workshops, treinamentos e programas, para cada momento. |
+
+**3 Selos** (fatos da trajetória e do método, sem "homologado" nem "validado": não há como comprovar)
+1. **Vivência de campo** — Balcão, metas e liderança de equipes: o que eu ensino foi vivido antes de ser ensinado.
+2. **Método em tríade** — Conhecimento, comportamento e resultado: um caminho simples da teoria à prática.
+3. **Formato sob medida** — Diagnóstico antes de qualquer proposta. Não existe treinamento de prateleira.
+
+{{Fora de propósito: "98.4% Índice de Aprovação" (número não comprovado) e os selos "Palestrante Homologado" e "Metodologia Validada". O +3.000 ainda precisa de confirmação do Vitor.}}
+
+---
+
 ### 2.5. Soluções & Temas em Profundidade (`#solucoes`)
 
 **Título**
