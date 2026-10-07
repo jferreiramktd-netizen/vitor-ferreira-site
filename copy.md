@@ -70,29 +70,29 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 ### 2.2. As Duas Portas de Entrada (Bifurcação de Público — 2ª Dobra)
 
 **Título da Dobra:**
-> Escolha o caminho que faz sentido para o seu momento
+> Escolha a solução ideal para o momento da sua empresa ou da sua carreira
 
 #### Card A — Soluções para Profissionais
 * **Rótulo:** Para Você / Profissionais
-* **Título:** Desenvolva o seu próximo nível
-* **Para quem:** Vendedores, profissionais liberais, prestadores de serviços, líderes e pessoas que querem destravar sua performance.
+* **Título:** Desenvolva o seu próximo nível profissional
+* **Para quem:** Profissionais liberais, gestores, consultores, prestadores de serviços, vendedores e quem deseja ganhar mais clareza, segurança e autoridade.
 * **O que entregamos:**
-  * Mentorias individuais e em grupo
-  * Segurança em vendas e negociação de valor
-  * Comunicação assertiva e influência
-  * Posicionamento e marketing pessoal
-* **Foco:** Menos teoria acumulada. Mais habilidade desenvolvida.
+  * Mentorias individuais e direcionamento estratégico
+  * Comunicação assertiva, escuta ativa e influência
+  * Segurança para negociar e defender o valor do seu trabalho
+  * Posicionamento, postura executiva e marketing pessoal
+* **Foco:** Menos teoria acumulada. Mais habilidade e segurança na prática.
 
 #### Card B — Soluções para Empresas
 * **Rótulo:** Para Empresas
-* **Título:** Desenvolva sua equipe comercial
-* **Para quem:** Donos de empresas, diretores e gestores de RH que precisam de um time protagonista e focado em bater metas.
+* **Título:** Desenvolva as pessoas e os resultados da sua equipe
+* **Para quem:** Donos de empresas, diretores e gestores de RH em escritórios contábeis, empresas de serviços, tecnologia, saúde, comércio e indústria.
 * **O que entregamos:**
-  * Palestras dinâmicas para convenções e eventos
-  * Treinamentos práticos com dinâmicas e simulações
-  * Workshops interativos focados em competências específicas
-  * Programas contínuos de capacitação e liderança
-* **Foco:** Treinamento sob medida que a equipe aplica na semana seguinte.
+  * Palestras inspiradoras para convenções, encontros e eventos corporativos
+  * Treinamentos práticos de atendimento, vendas e relacionamento com clientes
+  * Workshops interativos para integração, comunicação e protagonismo
+  * Programas contínuos de desenvolvimento de lideranças e equipes
+* **Foco:** Experiências sob medida que transformam o comportamento e elevam o padrão de entrega do time.
 
 ---
 
