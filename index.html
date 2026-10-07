@@ -345,11 +345,9 @@
       position: relative; isolation: isolate;
       padding: clamp(4rem, 7vw, 7.5rem) var(--gutter);
       scroll-margin-top: 4.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background:
-        radial-gradient(60% 48% at 0% 100%, rgba(253, 86, 42, 0.11) 0%, rgba(253, 86, 42, 0) 70%),
-        radial-gradient(52% 44% at 100% 0%, rgba(34, 29, 82, 0.9) 0%, rgba(34, 29, 82, 0) 70%),
-        var(--color-navy-950);
+      /* fundo claro: alterna com a hero escura. Tokens do tema claro do design system */
+      background: #F6F8FC;
+      color: var(--color-navy-950);
     }
     .solutions__inner { max-width: 1180px; margin-inline: auto; }
     .solutions__head { text-align: center; max-width: 46rem; margin: 0 auto clamp(2.5rem, 5vw, 4rem); }
@@ -359,11 +357,12 @@
       letter-spacing: -.02em; text-wrap: balance;
     }
     .solutions__title span, .solutions__title strong { display: block; }
-    .solutions__title strong { font-weight: 800; color: var(--color-orange-400); }
+    /* laranja mais fechado no fundo claro: #FF7552 não passa em contraste sobre branco */
+    .solutions__title strong { font-weight: 800; color: #DF3D12; }
     .solutions__lead {
       margin: 1.25rem auto 0; max-width: 36rem;
-      font-size: var(--text-lead); font-weight: 300; line-height: 1.6;
-      color: var(--color-text-secondary); text-wrap: pretty;
+      font-size: var(--text-lead); font-weight: 400; line-height: 1.6;
+      color: #3D395E; text-wrap: pretty;
     }
 
     .solutions__grid { display: grid; grid-template-columns: 1fr; gap: clamp(1.25rem, 2.5vw, 2rem); }
@@ -373,10 +372,11 @@
       position: relative; overflow: hidden;
       display: flex; flex-direction: column;
       padding: clamp(1.25rem, 3.5vw, 3rem);
+      color: var(--color-text-primary);
       background: linear-gradient(180deg, rgba(16, 12, 42, 0.95) 0%, rgba(8, 6, 24, 0.98) 100%);
       border: 1px solid rgba(255, 226, 179, 0.25);
       border-radius: 20px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 18px 40px -12px rgba(13, 10, 34, 0.35);
       transition: border-color .3s var(--ease-out), transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
     }
     /* luz de canto que dá profundidade ao cartão */
@@ -386,9 +386,9 @@
       pointer-events: none;
     }
     .sol-card > * { position: relative; z-index: 1; }
-    .sol-card:hover { border-color: var(--color-orange-400); transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), var(--shadow-glow-sm); }
+    .sol-card:hover { border-color: var(--color-orange-400); transform: translateY(-4px); box-shadow: 0 24px 48px -12px rgba(13, 10, 34, 0.45), var(--shadow-glow-sm); }
     /* o cartão de empresas é a porta principal do site: borda já acesa */
-    .sol-card--featured { border-color: rgba(253, 86, 42, 0.55); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 40px rgba(253, 86, 42, 0.12); }
+    .sol-card--featured { border-color: rgba(253, 86, 42, 0.55); box-shadow: 0 18px 40px -12px rgba(13, 10, 34, 0.35), 0 0 36px rgba(253, 86, 42, 0.14); }
 
     .sol-card__head { display: flex; align-items: center; gap: .9rem; margin-bottom: 1.25rem; }
     .sol-card__icon {
@@ -417,6 +417,238 @@
     .sol-card__cta .btn { width: 100%; min-height: 3.5rem; }
     .sol-card__cta p { margin: .9rem 0 0; font-size: .875rem; line-height: 1.45; color: var(--color-text-muted); }
     @media (min-width: 600px) { .sol-card__cta .btn { width: auto; } }
+
+    /* ---------- Terceira dobra: O Método Vitor Ferreira (Stack Interativo da Tríade) ---------- */
+    .vf-process-stage {
+      position: relative;
+      isolation: isolate;
+      padding: clamp(4.5rem, 7vw, 7rem) var(--gutter);
+      scroll-margin-top: 4.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        radial-gradient(60% 50% at 50% 0%, rgba(253, 86, 42, 0.12) 0%, transparent 70%),
+        var(--color-navy-950);
+    }
+    .vf-process-stage__inner {
+      max-width: 1180px;
+      margin-inline: auto;
+    }
+    .vf-process-head {
+      text-align: center;
+      max-width: 48rem;
+      margin: 0 auto clamp(2rem, 4vw, 3rem);
+    }
+    .vf-process-eyebrow {
+      display: inline-block;
+      font: 700 0.8125rem/1.2 var(--font-display);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-brand-primary);
+      margin-bottom: 0.85rem;
+    }
+    .vf-process-title {
+      margin: 0;
+      font: 300 clamp(1.85rem, 1.15rem + 2.4vw, 3.25rem)/1.15 var(--font-display);
+      letter-spacing: -.02em;
+      text-wrap: balance;
+      color: #FFFFFF;
+    }
+    .vf-process-title span {
+      display: block;
+    }
+    .vf-process-title strong {
+      font-weight: 800;
+      color: var(--color-orange-400);
+    }
+    .vf-process-lead {
+      margin: 1.25rem auto 0;
+      max-width: 44rem;
+      font-size: var(--text-lead);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      text-wrap: pretty;
+    }
+
+    /* Stack Container */
+    .vf-process-stack {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      position: relative;
+      margin: clamp(2rem, 4vw, 3.5rem) auto 0;
+      padding-bottom: 1.5rem;
+      list-style: none;
+      padding-left: 0;
+      max-width: 100%;
+    }
+
+    /* Process Card Architecture (Adaptado do Design System para os 3 cards da Tríade) */
+    .vf-process-card {
+      position: relative;
+      color: #FFFFFF;
+      background: linear-gradient(180deg, rgba(16, 12, 42, 0.95) 0%, rgba(8, 6, 24, 0.98) 100%);
+      padding: clamp(1.75rem, 3vw, 2.25rem);
+      border-radius: 20px;
+      width: 19rem;
+      min-height: 22rem;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+      user-select: none;
+      outline: none;
+    }
+
+    .vf-process-card:not(:first-child) {
+      margin-left: -60px;
+    }
+
+    .vf-process-card .top {
+      max-width: 7.5rem;
+      margin-left: auto;
+      text-align: right;
+      transition: all 0.35s ease;
+    }
+
+    .vf-process-card .top .step-num {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 300;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-muted);
+      transition: color 0.3s ease, font-size 0.3s ease;
+    }
+
+    .vf-process-card .top .title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.125rem;
+      line-height: 1.25;
+      color: var(--color-text-secondary);
+      word-wrap: break-word;
+      max-width: 7.5rem;
+      transition: color 0.3s ease;
+      margin: 0;
+    }
+
+    .vf-process-card .description {
+      display: none;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-top: 0.75rem;
+    }
+
+    .vf-process-card .tag-pill {
+      display: none;
+      font-size: 0.725rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-orange-400);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Z-Index decrescente para empilhamento harmonioso de 3 cards */
+    .vf-process-card:nth-child(1) { z-index: 3; }
+    .vf-process-card:nth-child(2) { z-index: 2; }
+    .vf-process-card:nth-child(3) { z-index: 1; }
+
+    /* Estado Ativo / Expandido (.active ou :hover ou :focus-visible) */
+    .vf-process-card.active,
+    .vf-process-card:hover,
+    .vf-process-card:focus-visible {
+      width: 29rem;
+      z-index: 10 !important;
+      border-color: var(--color-orange-400);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), 0 0 35px rgba(253, 86, 42, 0.35);
+      background: linear-gradient(180deg, rgba(28, 22, 68, 0.98) 0%, rgba(13, 10, 34, 1) 100%);
+      transform: translateY(-4px);
+    }
+
+    .vf-process-card.active .top,
+    .vf-process-card:hover .top,
+    .vf-process-card:focus-visible .top {
+      max-width: 100%;
+      margin-left: 0;
+      text-align: left;
+    }
+
+    .vf-process-card.active .top .step-num,
+    .vf-process-card:hover .top .step-num,
+    .vf-process-card:focus-visible .top .step-num {
+      color: var(--color-orange-500);
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+
+    .vf-process-card.active .top .title,
+    .vf-process-card:hover .top .title,
+    .vf-process-card:focus-visible .top .title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      max-width: 100%;
+    }
+
+    .vf-process-card.active .description,
+    .vf-process-card:hover .description,
+    .vf-process-card:focus-visible .description {
+      display: block;
+      animation: vfFadeIn 0.35s ease;
+    }
+
+    .vf-process-card.active .tag-pill,
+    .vf-process-card:hover .tag-pill,
+    .vf-process-card:focus-visible .tag-pill {
+      display: inline-block;
+    }
+
+    @keyframes vfFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsividade perfeitamente adaptada para todos os breakpoints */
+    @media (max-width: 960px) {
+      .vf-process-stack {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      .vf-process-card {
+        width: 100% !important;
+        max-width: 34rem;
+        margin-left: 0 !important;
+        min-height: auto;
+        padding: 1.5rem;
+      }
+      .vf-process-card .top {
+        max-width: 100%;
+        margin-left: 0;
+        text-align: left;
+      }
+      .vf-process-card .top .step-num {
+        color: var(--color-orange-500);
+        font-weight: 800;
+      }
+      .vf-process-card .top .title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #FFFFFF;
+      }
+      .vf-process-card .description {
+        display: block;
+      }
+      .vf-process-card .tag-pill {
+        display: inline-block;
+      }
+    }
 
     /* entrada ao rolar: sobe uma vez, em sequência, e devolve o controle ao hover */
     .js-reveal .sol-reveal:not(.is-in) { opacity: 0; }
@@ -586,6 +818,62 @@
         </div>
       </div>
     </section>
+
+    <!-- SEÇÃO 3: O MÉTODO VITOR FERREIRA (A TRÍADE PRÁTICA INTERATIVA) -->
+    <section class="vf-process-stage" id="metodo" aria-labelledby="method-title">
+      <div class="vf-process-stage__inner">
+
+        <header class="vf-process-head sol-reveal">
+          <span class="vf-process-eyebrow">01 · Método Autoral</span>
+          <h2 class="vf-process-title" id="method-title">
+            <span>Como funciona a</span>
+            <strong>Tríade Vitor Ferreira</strong>
+          </h2>
+          <p class="vf-process-lead">
+            Passe o mouse ou clique em cada etapa abaixo para expandir o card. Um processo simples e estruturado para transformar conhecimento em atitude e resultado sustentável.
+          </p>
+        </header>
+
+        <ul class="vf-process-stack sol-reveal" id="process-stack" role="list">
+          <!-- Passo 1: Conhecimento -->
+          <li class="vf-process-card active" data-step="1" tabindex="0" role="button" aria-expanded="true">
+            <div class="top">
+              <span class="step-num">01</span>
+              <p class="title">Conhecimento Prático</p>
+            </div>
+            <div>
+              <span class="tag-pill">Pilar 1 · Fundamento</span>
+              <p class="description">Conceitos claros, técnicas de comunicação e métodos aplicáveis à realidade do seu setor — seja para equipes de vendas, atendimento ao cliente, escritórios contábeis ou prestadores de serviços.</p>
+            </div>
+          </li>
+
+          <!-- Passo 2: Comportamento -->
+          <li class="vf-process-card" data-step="2" tabindex="0" role="button" aria-expanded="false">
+            <div class="top">
+              <span class="step-num">02</span>
+              <p class="title">Mudança de Comportamento</p>
+            </div>
+            <div>
+              <span class="tag-pill">Pilar 2 · Transformação</span>
+              <p class="description">Desenvolvimento de postura profissional, escuta ativa, iniciativa, inteligência emocional e compromisso genuíno com a satisfação do cliente e com o sucesso da empresa.</p>
+            </div>
+          </li>
+
+          <!-- Passo 3: Resultado -->
+          <li class="vf-process-card" data-step="3" tabindex="0" role="button" aria-expanded="false">
+            <div class="top">
+              <span class="step-num">03</span>
+              <p class="title">Resultado Sustentável</p>
+            </div>
+            <div>
+              <span class="tag-pill">Pilar 3 · Evolução</span>
+              <p class="description">Profissionais protagonistas, clientes fidelizados, processos de atendimento e negociação mais fluidos e crescimento sustentável para o negócio.</p>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </section>
   </main>
 
   <script>
@@ -601,6 +889,36 @@
       burger.addEventListener('click', function () { setOpen(burger.getAttribute('aria-expanded') !== 'true'); });
       panel.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    /* Interação da Stack do Método (.vf-process-card) */
+    (function () {
+      var cards = document.querySelectorAll('.vf-process-card');
+      if (!cards.length) return;
+
+      function activateCard(target) {
+        cards.forEach(function (c) {
+          c.classList.remove('active');
+          c.setAttribute('aria-expanded', 'false');
+        });
+        target.classList.add('active');
+        target.setAttribute('aria-expanded', 'true');
+      }
+
+      cards.forEach(function (card) {
+        card.addEventListener('mouseenter', function () {
+          activateCard(card);
+        });
+        card.addEventListener('click', function () {
+          activateCard(card);
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activateCard(card);
+          }
+        });
+      });
     })();
 
     /* Entrada ao rolar: os elementos .sol-reveal sobem uma vez, quando entram na tela. */

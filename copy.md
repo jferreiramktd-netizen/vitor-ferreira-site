@@ -119,18 +119,23 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 
 ### 2.4. O Método Vitor Ferreira (A Tríade Prática — `#metodo`)
 
-**Faixa Escultural de Impacto:**
-> ## "Pessoas melhores geram resultados melhores."
-> *Treinamento que não chega ao comportamento vira só conteúdo esquecido. O desenvolvimento real acontece quando o conhecimento vira atitude prática no dia a dia da equipe.*
+**Eyebrow:**
+> 01 · Método Autoral
 
-**A Tríade em 3 Cards:**
+**Título da Seção:**
+> Como funciona a **Tríade Vitor Ferreira**
 
-1. **Card 01 · CONHECIMENTO**  
-   *Conceitos claros, técnicas de comunicação e métodos aplicáveis à realidade do seu setor — seja para equipes de vendas, atendimento ao cliente, escritórios ou prestadores de serviços.*
-2. **Card 02 · COMPORTAMENTO**  
-   *Desenvolvimento de postura, escuta ativa, iniciativa, inteligência emocional e compromisso genuíno com o cliente e com a empresa.*
-3. **Card 03 · RESULTADO**  
-   *Profissionais protagonistas, clientes fidelizados, processos mais fluidos e crescimento sustentável para o negócio.*
+**Subtítulo / Instrução:**
+> Passe o mouse ou clique em cada etapa abaixo para expandir o card. Um processo simples e estruturado para transformar conhecimento em atitude e resultado sustentável.
+
+**A Tríade em 3 Cards Interativos (Process Stack Expandível):**
+
+1. **Card 01 · CONHECIMENTO PRÁTICO** (`Pilar 1 · Fundamento`)
+   *Conceitos claros, técnicas de comunicação e métodos aplicáveis à realidade do seu setor — seja para equipes de vendas, atendimento ao cliente, escritórios contábeis ou prestadores de serviços.*
+2. **Card 02 · MUDANÇA DE COMPORTAMENTO** (`Pilar 2 · Transformação`)
+   *Desenvolvimento de postura profissional, escuta ativa, iniciativa, inteligência emocional e compromisso genuíno com a satisfação do cliente e com o sucesso da empresa.*
+3. **Card 03 · RESULTADO SUSTENTÁVEL** (`Pilar 3 · Evolução`)
+   *Profissionais protagonistas, clientes fidelizados, processos de atendimento e negociação mais fluidos e crescimento sustentável para o negócio.*
 
 ---
 
