@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vitor Ferreira | Treinamentos, Palestras e Mentorias</title>
+  <meta name="description" content="Treinamentos, palestras, workshops e mentorias em vendas e desenvolvimento de pessoas, com mais de 30 anos de experiência prática. Fale com o Vitor.">
+  <meta name="theme-color" content="#060412">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+  <link rel="preload" as="image" href="assets/images/vitor-hero.webp" type="image/webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Fontes ----------
+       Poppins 800 (título) e Open Sans 300 (apoio) vêm do Google Fonts, como no design system.
+       As cópias locais abaixo são só reserva caso o Google Fonts não carregue. */
+    @font-face { font-family: "Poppins Local"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-400.woff2") format("woff2"); }
+    @font-face { font-family: "Poppins Local"; font-weight: 600; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-600.woff2") format("woff2"); }
+    @font-face { font-family: "Poppins Local"; font-weight: 700 800; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-700.woff2") format("woff2"); }
+    @font-face { font-family: "Open Sans Local"; font-weight: 300 600; font-style: normal; font-display: swap; src: url("assets/fonts/open-sans.woff2") format("woff2"); }
+    @font-face { font-family: "FA Brands"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/fa-brands-400.woff2") format("woff2"); }
+
+    /* ---------- Tokens (DESIGN.md v3.0.0) ---------- */
+    :root {
+      --color-orange-300: #FFA086;
+      --color-orange-400: #FF7552;
+      --color-orange-500: #FD562A;
+      --color-orange-700: #BF2902;
+
+      --color-navy-950: #060412;
+      --color-navy-900: #0D0A22;
+      --color-navy-800: #19153D;
+
+      --color-brand-primary: var(--color-orange-500);
+      --color-text-primary: #FFFFFF;
+      --color-text-secondary: #D1CFE2;
+      --color-text-muted: #9B97B8;
+
+      --surface-glass-border: rgba(255, 255, 255, 0.10);
+      --grad-dark-pill: linear-gradient(270deg, rgba(6, 4, 18, 0.95) 0%, rgba(22, 19, 65, 0.92) 100%);
+
+      --font-display: "Poppins", "Poppins Local", system-ui, sans-serif;
+      --font-body: "Open Sans", "Open Sans Local", system-ui, sans-serif;
+
+      --text-display: clamp(1.625rem, 7.6vw, 3rem);
+      --text-lead: clamp(1.0625rem, 0.95rem + 0.45vw, 1.25rem);
+      --text-caption: 0.875rem;
+
+      --radius-pill: 9999px;
+      --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+      --shadow-glow-sm: 0 0 16px rgba(253, 86, 42, 0.30);
+      --focus-ring: 0 0 0 3px rgba(253, 86, 42, 0.55);
+
+      --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+      --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+      --gutter: clamp(1.25rem, 5vw, 4.5rem);
+      --photo-ratio: 1200 / 1343;
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scrollbar-color: var(--color-orange-500) var(--color-navy-950); }
+    body {
+      margin: 0;
+      background: var(--color-navy-950);
+      color: var(--color-text-primary);
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--color-orange-500); color: var(--color-navy-950); }
+    :focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-pill); }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--color-navy-950); }
+    ::-webkit-scrollbar-thumb { background: var(--color-navy-800); border-radius: var(--radius-pill); border: 2px solid var(--color-navy-950); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--color-orange-500); }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -4rem; z-index: 100;
+      padding: .6rem 1rem; background: var(--color-orange-500); color: var(--color-navy-950);
+      font: 600 .875rem var(--font-display); border-radius: var(--radius-pill);
+      transition: top .2s var(--ease-out);
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ---------- Menu: pílula flutuante de vidro ---------- */
+    .nav {
+      position: fixed; z-index: 50;
+      top: max(1rem, env(safe-area-inset-top));
+      left: 50%; transform: translateX(-50%);
+      width: min(92%, 1220px);
+    }
+    .nav__bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: .5rem .5rem .5rem 1.25rem;
+      background: var(--grad-dark-pill);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: var(--radius-pill);
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-md);
+    }
+    .nav__logo { display: flex; align-items: center; flex-shrink: 0; border-radius: var(--radius-pill); }
+    .nav__logo img { height: 2rem; width: auto; }
+    .nav__links { display: none; align-items: center; gap: .25rem; margin: 0; padding: 0; list-style: none; }
+    .nav__links a {
+      display: block; padding: .5rem .85rem;
+      font: 600 .875rem/1 var(--font-display);
+      color: var(--color-text-secondary);
+      border-radius: var(--radius-pill);
+      transition: color .15s var(--ease-out), background-color .15s var(--ease-out);
+    }
+    .nav__links a:hover { color: var(--color-orange-300); background: rgba(255, 255, 255, 0.06); }
+    .nav__actions { display: flex; align-items: center; gap: .5rem; }
+    .nav__cta { padding: .7rem 1.25rem; font-size: .8125rem; }
+
+    .burger {
+      width: 2.75rem; height: 2.75rem; padding: 0; border: 0; cursor: pointer;
+      background: rgba(255, 255, 255, 0.06); border-radius: var(--radius-pill);
+      display: grid; place-content: center; gap: 5px;
+    }
+    .burger span {
+      display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px;
+      transition: transform .3s var(--ease-bounce), opacity .15s var(--ease-out);
+    }
+    .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav__panel {
+      display: none; margin-top: .5rem; padding: .75rem;
+      background: rgba(13, 10, 34, 0.92);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: 1.5rem;
+      -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-md);
+    }
+    .nav__panel.is-open { display: block; animation: panelIn .3s var(--ease-expo) both; }
+    .nav__panel a {
+      display: block; padding: .9rem 1rem;
+      font: 600 1rem var(--font-display); color: var(--color-text-secondary);
+      border-radius: 1rem;
+    }
+    .nav__panel a:hover { color: var(--color-orange-300); background: rgba(255, 255, 255, 0.05); }
+
+    @media (min-width: 1100px) {
+      .nav__links { display: flex; }
+      .burger, .nav__panel { display: none !important; }
+    }
+    .nav .nav__cta { white-space: nowrap; }
+    @media (max-width: 600px) {
+      .nav__bar { padding-left: 1rem; }
+      .nav__logo img { height: 1.625rem; width: auto; }
+      .nav .nav__cta { padding: .65rem 1rem; font-size: .75rem; letter-spacing: .03em; }
+    }
+    @media (max-width: 349px) {
+      .nav .nav__cta { display: none; }
+    }
+
+    /* ---------- Botões ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; text-align: center;
+      padding: 1.05rem 1.9rem;
+      font: 600 .875rem/1.2 var(--font-display);
+      letter-spacing: .05em; text-transform: uppercase;
+      border: 2px solid transparent; border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background-color .3s var(--ease-out), color .3s var(--ease-out),
+                  border-color .3s var(--ease-out), transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+    }
+    .btn:active { transform: translateY(1px) scale(.99); }
+    /* Texto escuro sobre o laranja: branco sobre #FD562A dá 3,2:1 e não passa. */
+    .btn--primary { background: var(--color-orange-500); color: var(--color-navy-950); box-shadow: 0 10px 28px -10px rgba(253, 86, 42, 0.7); }
+    .btn--primary:hover { background: transparent; color: #fff; border-color: #fff; transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.6); }
+    .btn--outline { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.55); }
+    .btn--outline:hover { background: #fff; color: var(--color-navy-950); border-color: #fff; transform: translateY(-2px); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative; isolation: isolate;
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      overflow: clip;
+      background:
+        radial-gradient(circle at 82% 16%, rgba(253, 86, 42, 0.14) 0%, rgba(253, 86, 42, 0) 46%),
+        radial-gradient(circle at 6% 88%, rgba(34, 29, 82, 0.95) 0%, rgba(34, 29, 82, 0) 56%),
+        linear-gradient(180deg, var(--color-navy-900) 0%, var(--color-navy-950) 72%);
+    }
+    /* nome gigante em contorno, no fundo (assinatura do design system) */
+    .hero__watermark {
+      position: absolute; z-index: 0; left: 50%; top: 56%;
+      transform: translate(-50%, -50%);
+      font: 800 clamp(3.25rem, 9.2vw, 10rem)/1 var(--font-display);
+      letter-spacing: -.03em; text-transform: uppercase; white-space: nowrap;
+      color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.045);
+      user-select: none; pointer-events: none;
+    }
+    .hero__inner {
+      position: relative; z-index: 1; flex: 1;
+      width: 100%; max-width: 1680px; margin-inline: auto;
+      display: flex; flex-direction: column;
+    }
+
+    /* Vitor + luz de palco */
+    .hero__media {
+      position: relative; z-index: 0;
+      width: min(100%, 21.5rem); margin: 5.5rem auto 0;
+      aspect-ratio: var(--photo-ratio);
+    }
+    .hero__halo {
+      position: absolute; z-index: -1;
+      left: 50%; top: 40%; width: 150%; aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(closest-side, rgba(253, 86, 42, 0.62) 0%, rgba(253, 86, 42, 0.26) 42%, rgba(253, 86, 42, 0) 72%);
+      animation: breathe 9s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    .hero__photo {
+      width: 100%; height: 100%;
+      /* contorno de luz segue o recorte real do Vitor; deslocado, como luz vinda de trás e de cima */
+      filter: drop-shadow(-12px -6px 22px rgba(255, 117, 82, 0.5)) drop-shadow(0 26px 34px rgba(0, 0, 0, 0.55));
+      animation: photoIn 1.3s var(--ease-expo) .15s both;
+    }
+    /* degradê que esconde o corte da foto na cintura e liga com a próxima seção */
+    .hero__media::after {
+      content: ""; position: absolute; z-index: 1; left: -10%; right: -10%; bottom: -1px; height: 42%;
+      background: linear-gradient(180deg, rgba(6, 4, 18, 0) 0%, var(--color-navy-950) 88%);
+      pointer-events: none;
+    }
+
+    /* cartão de vidro sobre a foto: nome, tempo de estrada e atalho para o WhatsApp */
+    .hero__card {
+      position: absolute; z-index: 2; left: 4%; right: 4%; bottom: 1.25rem;
+      display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+      padding: .8rem .9rem .8rem 1.1rem;
+      background: rgba(13, 10, 34, 0.9);
+      border: 1px solid rgba(253, 86, 42, 0.45);
+      border-radius: 8px;
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.6);
+      animation: rise .95s var(--ease-expo) .8s both;
+    }
+    .hero__card strong { display: block; font: 700 .9375rem/1.25 var(--font-display); color: #fff; }
+    .hero__card span { display: block; margin-top: 2px; font-size: .75rem; line-height: 1.3; color: var(--color-orange-300); }
+    .btn--wa { flex-shrink: 0; padding: .6rem 1rem; font-size: .75rem; letter-spacing: .04em; background: #25D366; color: var(--color-navy-950); }
+    .btn--wa:hover { background: #1EBE5D; transform: translateY(-2px); }
+
+    /* Texto */
+    .hero__copy {
+      position: relative; z-index: 2;
+      padding: 0 var(--gutter) 3.5rem;
+      margin-top: .75rem;
+      max-width: 40rem; margin-inline: auto; width: 100%;
+    }
+    .hero__tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin: 0 0 1.1rem; padding: .35rem 1rem;
+      font: 600 .8125rem/1.35 var(--font-display);
+      color: var(--color-orange-300);
+      background: rgba(253, 86, 42, 0.12);
+      border: 1px solid rgba(253, 86, 42, 0.35);
+      border-radius: 1rem;
+      text-wrap: balance;
+      animation: rise .95s var(--ease-expo) both;
+    }
+    .hero__tag svg { flex-shrink: 0; }
+    .hero__title {
+      margin: 0;
+      font: 800 var(--text-display)/1.08 var(--font-display);
+      letter-spacing: -.02em;
+      text-wrap: balance;
+    }
+    .hero__title span { display: block; animation: rise .95s var(--ease-expo) both; }
+    .hero__title span:nth-child(1) { animation-delay: .05s; }
+    .hero__title span:nth-child(2) { animation-delay: .17s; }
+    .hero__title span:nth-child(3) { animation-delay: .29s; color: var(--color-brand-primary); }
+
+    .hero__lead {
+      margin: 1.5rem 0 0; max-width: 34rem;
+      font-size: var(--text-lead); font-weight: 300; line-height: 1.6;
+      color: var(--color-text-secondary);
+      text-wrap: pretty;
+      animation: rise .95s var(--ease-expo) .42s both;
+    }
+    .hero__actions {
+      display: flex; flex-direction: column; gap: .75rem;
+      margin-top: 2rem;
+      animation: rise .95s var(--ease-expo) .54s both;
+    }
+    .btn svg { margin-left: .6rem; flex-shrink: 0; transition: transform .3s var(--ease-out); }
+    .btn:hover svg { transform: translateX(4px); }
+
+    /* faixa de autoridade */
+    .hero__stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+      margin: 2rem 0 0; padding: 1.4rem 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      animation: rise .95s var(--ease-expo) .66s both;
+    }
+    .hero__stats div { min-width: 0; }
+    .hero__stats dt { font: 800 clamp(1.3rem, 5.4vw, 1.75rem)/1.1 var(--font-display); color: #fff; white-space: nowrap; }
+    .hero__stats dt b { color: var(--color-orange-500); font-weight: 800; }
+    .hero__stats dd { margin: .35rem 0 0; font-size: .6875rem; line-height: 1.35; letter-spacing: .05em; text-transform: uppercase; color: var(--color-text-muted); }
+
+    /* Desktop: texto à esquerda, Vitor à direita sangrando na base */
+    @media (min-width: 900px) {
+      .hero__inner { justify-content: center; }
+      .hero__media {
+        position: absolute; right: 0; bottom: 0; margin: 0;
+        width: min(49vw, calc(94svh * 0.8935));
+      }
+      .hero__halo { top: 36%; width: 135%; }
+      .hero__card { left: 9%; right: 9%; bottom: 2rem; padding: .95rem 1rem .95rem 1.35rem; }
+      .hero__card strong { font-size: 1rem; }
+      .hero__card span { font-size: .8125rem; }
+      .hero__copy {
+        margin: 0; max-width: none; width: auto;
+        padding: 6.75rem var(--gutter) 3.5rem;
+      }
+      .hero__tag { border-radius: var(--radius-pill); }
+      /* a linha mais longa precisa parar antes da mão com o microfone: ≈ 0,6 da largura útil à esquerda do Vitor */
+      .hero__title { font-size: clamp(2.1rem, 3.8vw, 3.75rem); }
+      .hero__title span { white-space: nowrap; }
+      .hero__lead { max-width: 30rem; }
+      .hero__actions { flex-direction: row; flex-wrap: wrap; align-items: center; }
+      .hero__stats { max-width: 31rem; }
+      .hero__stats dd { font-size: .75rem; }
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(26px); filter: blur(6px); }
+      to   { opacity: 1; transform: none; filter: blur(0); }
+    }
+    @keyframes photoIn {
+      from { opacity: 0; transform: translateY(40px) scale(.985); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes breathe {
+      from { opacity: .82; transform: translate(-50%, -50%) scale(1); }
+      to   { opacity: 1;   transform: translate(-50%, -50%) scale(1.07); }
+    }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ---------- WhatsApp flutuante ---------- */
+    .wa {
+      position: fixed; z-index: 60;
+      right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom));
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .85rem 1.25rem .85rem 1rem;
+      background: #25D366; color: var(--color-navy-950);
+      font: 600 .9375rem/1 var(--font-display);
+      border-radius: var(--radius-pill);
+      box-shadow: 0 10px 26px -6px rgba(37, 211, 102, 0.55), 0 4px 10px rgba(0, 0, 0, 0.35);
+      transition: transform .3s var(--ease-out), background-color .3s var(--ease-out);
+    }
+    .wa:hover { background: #1EBE5D; transform: translateY(-2px); }
+    .wa i { font: 400 1.5rem/1 "FA Brands"; font-style: normal; }
+    .wa i::before { content: "\f232"; }
+    .wa { transition: transform .3s var(--ease-out), background-color .3s var(--ease-out), opacity .3s var(--ease-out); }
+    /* a hero já tem o cartão e os botões: o flutuante só entra depois que eles saem da tela */
+    .wa.is-away { opacity: 0; transform: translateY(12px); pointer-events: none; }
+    /* celular: só o ícone, para não cobrir o texto */
+    @media (max-width: 600px) {
+      .wa { width: 3.5rem; height: 3.5rem; padding: 0; justify-content: center; }
+      .wa span { display: none; }
+      .wa i { font-size: 1.75rem; }
+    }
+
+    /* ---------- Movimento reduzido ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+
+  <header class="nav">
+    <div class="nav__bar">
+      <a class="nav__logo" href="#inicio" aria-label="Vitor Ferreira, início">
+        <img src="assets/images/logo1-1.png" alt="Vitor Ferreira" width="118" height="32">
+      </a>
+      <ul class="nav__links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#desafio">Desafios</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a class="btn btn--primary nav__cta" href="#contato">Quero conversar</a>
+        <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav__panel" id="menu" aria-label="Menu principal">
+      <a href="#inicio">Início</a>
+      <a href="#desafio">Desafios</a>
+      <a href="#metodo">Método</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Quero conversar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__watermark" aria-hidden="true">Vitor Ferreira</div>
+      <div class="hero__inner">
+
+        <div class="hero__media">
+          <div class="hero__halo" aria-hidden="true"></div>
+          <img class="hero__photo"
+               src="assets/images/vitor-hero.webp" width="1200" height="1343"
+               alt="Vitor Ferreira palestrando, com o microfone em uma mão e o celular erguido na outra"
+               fetchpriority="high" decoding="async">
+          <div class="hero__card">
+            <div>
+              <strong>Vitor Ferreira</strong>
+              <span>Mais de 30 anos no campo de batalha</span>
+            </div>
+            <a class="btn btn--wa" href="https://wa.me/5521990587160?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20do%20Vitor%20Ferreira." target="_blank" rel="noopener">Falar agora</a>
+          </div>
+        </div>
+
+        <div class="hero__copy">
+          <p class="hero__tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            Treinador • Mentor • Especialista em Vendas e Desenvolvimento de Pessoas
+          </p>
+          <h1 class="hero__title" id="hero-title">
+            <span>Desenvolva pessoas.</span>
+            <span>Transforme comportamentos.</span>
+            <span>Gere resultados.</span>
+          </h1>
+
+          <p class="hero__lead">
+            Treinamentos, palestras, workshops e mentorias para equipes, empresas e profissionais que querem evoluir de verdade.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contato">Quero desenvolver minha equipe
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a class="btn btn--outline" href="#servicos">Quero conhecer as mentorias</a>
+          </div>
+
+          <dl class="hero__stats">
+            <div><dt><b>+</b>30 anos</dt><dd>Experiência comercial</dd></div>
+            <div><dt><b>+</b>3.000</dt><dd>Pessoas treinadas</dd></div>
+            <div><dt>100%</dt><dd>Prático e aplicável</dd></div>
+          </dl>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <a class="wa" href="https://wa.me/5521990587160?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20do%20Vitor%20Ferreira." target="_blank" rel="noopener" aria-label="Fale com Vitor no WhatsApp">
+    <i aria-hidden="true"></i><span>Fale com Vitor</span>
+  </a>
+
+  <script>
+    (function () {
+      var burger = document.querySelector('.burger');
+      var panel = document.getElementById('menu');
+      if (!burger || !panel) return;
+      function setOpen(open) {
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        panel.classList.toggle('is-open', open);
+      }
+      burger.addEventListener('click', function () { setOpen(burger.getAttribute('aria-expanded') !== 'true'); });
+      panel.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    /* No celular, o WhatsApp flutuante só aparece depois que os botões da hero saem da tela. */
+    (function () {
+      var wa = document.querySelector('.wa');
+      var actions = document.querySelector('.hero__actions');
+      if (!wa || !actions || !('IntersectionObserver' in window)) return;
+      new IntersectionObserver(function (entries) {
+        wa.classList.toggle('is-away', entries[0].isIntersecting);
+      }, { threshold: 0.2 }).observe(actions);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+{
+  "$schema": "https://raw.githubusercontent.com/impeccable/design-tokens-schema/main/schema.json",
+  "meta": {
+    "name": "Vitor Ferreira Vendas Design System",
+    "version": "2.0.0",
+    "methodology": "Pé Direito AI System / Impeccable",
+    "client": "Vitor Ferreira",
+    "description": "Design System oficial para o site institucional e landing pages de Vitor Ferreira Vendas.",
+    "lastUpdated": "2026-10-06T19:31:00Z"
+  },
+  "tokens": {
+    "color": {
+      "primitive": {
+        "orange": {
+          "50": { "value": "#FFF5F2", "type": "color" },
+          "100": { "value": "#FFE6DF", "type": "color" },
+          "200": { "value": "#FFC5B5", "type": "color" },
+          "300": { "value": "#FFA086", "type": "color" },
+          "400": { "value": "#FF7552", "type": "color" },
+          "500": { "value": "#FD562A", "type": "color", "description": "Official Brand Primary Color" },
+          "600": { "value": "#DF3D12", "type": "color" },
+          "700": { "value": "#BF2902", "type": "color", "description": "Primary Hover" },
+          "800": { "value": "#932002", "type": "color", "description": "Primary Active" },
+          "900": { "value": "#6B1701", "type": "color" }
+        },
+        "neutral": {
+          "0": { "value": "#FFFFFF", "type": "color" },
+          "50": { "value": "#F8F9FA", "type": "color" },
+          "100": { "value": "#F1F3F5", "type": "color" },
+          "200": { "value": "#E9ECEF", "type": "color" },
+          "300": { "value": "#DEE2E6", "type": "color" },
+          "400": { "value": "#CED4DA", "type": "color" },
+          "500": { "value": "#868E96", "type": "color" },
+          "600": { "value": "#666666", "type": "color" },
+          "700": { "value": "#495057", "type": "color" },
+          "800": { "value": "#343A40", "type": "color" },
+          "900": { "value": "#212529", "type": "color" },
+          "950": { "value": "#111111", "type": "color" }
+        },
+        "navy": {
+          "900": { "value": "#161341", "type": "color", "description": "Dark Section Background" },
+          "950": { "value": "#0E0C2B", "type": "color" }
+        },
+        "status": {
+          "success": { "value": "#198754", "type": "color" },
+          "error": { "value": "#DC3545", "type": "color" },
+          "warning": { "value": "#FFC107", "type": "color" }
+        },
+        "social": {
+          "whatsapp": { "value": "#25D366", "type": "color" },
+          "whatsappDark": { "value": "#1EBE5D", "type": "color" }
+        }
+      },
+      "semantic": {
+        "brand": {
+          "primary": { "value": "{color.primitive.orange.500}", "type": "color" },
+          "primaryHover": { "value": "{color.primitive.orange.700}", "type": "color" },
+          "primaryActive": { "value": "{color.primitive.orange.800}", "type": "color" },
+          "primarySubtle": { "value": "{color.primitive.orange.50}", "type": "color" },
+          "primaryBorder": { "value": "{color.primitive.orange.300}", "type": "color" }
+        },
+        "text": {
+          "primary": { "value": "{color.primitive.neutral.900}", "type": "color" },
+          "secondary": { "value": "{color.primitive.neutral.700}", "type": "color" },
+          "muted": { "value": "{color.primitive.neutral.600}", "type": "color" },
+          "subtle": { "value": "{color.primitive.neutral.500}", "type": "color" },
+          "onDark": { "value": "{color.primitive.neutral.0}", "type": "color" },
+          "onDarkMuted": { "value": "#B0AAC0", "type": "color" },
+          "onPrimary": { "value": "{color.primitive.neutral.0}", "type": "color" }
+        },
+        "surface": {
+          "base": { "value": "{color.primitive.neutral.0}", "type": "color" },
+          "subtle": { "value": "#F2F5FB", "type": "color" },
+          "card": { "value": "{color.primitive.neutral.0}", "type": "color" },
+          "dark": { "value": "{color.primitive.navy.900}", "type": "color" },
+          "darkCard": { "value": "rgba(255, 255, 255, 0.05)", "type": "color" }
+        },
+        "border": {
+          "subtle": { "value": "{color.primitive.neutral.200}", "type": "color" },
+          "default": { "value": "{color.primitive.neutral.300}", "type": "color" },
+          "focus": { "value": "{color.primitive.orange.400}", "type": "color" }
+        }
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "heading": { "value": "Poppins, sans-serif", "type": "fontFamily" },
+        "body": { "value": "Open Sans, sans-serif", "type": "fontFamily" }
+      },
+      "fontWeights": {
+        "regular": { "value": 400, "type": "fontWeight" },
+        "medium": { "value": 500, "type": "fontWeight" },
+        "semiBold": { "value": 600, "type": "fontWeight" },
+        "bold": { "value": 700, "type": "fontWeight" }
+      },
+      "fontSizes": {
+        "display": { "value": "clamp(2.5rem, 5vw + 1rem, 4.0rem)", "type": "fontSize" },
+        "h1": { "value": "clamp(2.0rem, 3.5vw + 0.5rem, 3.0rem)", "type": "fontSize" },
+        "h2": { "value": "clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem)", "type": "fontSize" },
+        "h3": { "value": "clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem)", "type": "fontSize" },
+        "h4": { "value": "1.125rem", "type": "fontSize" },
+        "lead": { "value": "1.25rem", "type": "fontSize" },
+        "body": { "value": "1.125rem", "type": "fontSize" },
+        "bodySm": { "value": "1.0rem", "type": "fontSize" },
+        "caption": { "value": "0.875rem", "type": "fontSize" },
+        "eyebrow": { "value": "0.875rem", "type": "fontSize" }
+      },
+      "lineHeights": {
+        "tight": { "value": 1.15, "type": "lineHeight" },
+        "snug": { "value": 1.3, "type": "lineHeight" },
+        "normal": { "value": 1.6, "type": "lineHeight" },
+        "loose": { "value": 1.75, "type": "lineHeight" }
+      },
+      "letterSpacing": {
+        "tight": { "value": "-0.02em", "type": "letterSpacing" },
+        "normal": { "value": "0em", "type": "letterSpacing" },
+        "wide": { "value": "0.05em", "type": "letterSpacing" },
+        "widest": { "value": "0.12em", "type": "letterSpacing" }
+      }
+    },
+    "spacing": {
+      "1": { "value": "0.25rem", "type": "spacing" },
+      "2": { "value": "0.5rem", "type": "spacing" },
+      "3": { "value": "0.75rem", "type": "spacing" },
+      "4": { "value": "1.0rem", "type": "spacing" },
+      "5": { "value": "1.25rem", "type": "spacing" },
+      "6": { "value": "1.5rem", "type": "spacing" },
+      "8": { "value": "2.0rem", "type": "spacing" },
+      "10": { "value": "2.5rem", "type": "spacing" },
+      "12": { "value": "3.0rem", "type": "spacing" },
+      "16": { "value": "4.0rem", "type": "spacing" },
+      "20": { "value": "5.0rem", "type": "spacing" },
+      "24": { "value": "6.0rem", "type": "spacing" },
+      "sectionY": { "value": "clamp(4.5rem, 8vw, 7.0rem)", "type": "spacing" },
+      "sectionYSm": { "value": "clamp(3.0rem, 5vw, 4.5rem)", "type": "spacing" }
+    },
+    "layout": {
+      "containerMax": { "value": "1280px", "type": "dimension" },
+      "containerGutter": { "value": "clamp(1rem, 4vw, 2rem)", "type": "dimension" }
+    },
+    "borderRadius": {
+      "xs": { "value": "4px", "type": "borderRadius" },
+      "sm": { "value": "6px", "type": "borderRadius" },
+      "md": { "value": "8px", "type": "borderRadius" },
+      "lg": { "value": "12px", "type": "borderRadius" },
+      "xl": { "value": "16px", "type": "borderRadius" },
+      "full": { "value": "9999px", "type": "borderRadius" }
+    },
+    "boxShadow": {
+      "sm": { "value": "0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03)", "type": "boxShadow" },
+      "md": { "value": "0 4px 12px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -2px rgba(0, 0, 0, 0.04)", "type": "boxShadow" },
+      "lg": { "value": "0 12px 28px -4px rgba(0, 0, 0, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.06)", "type": "boxShadow" },
+      "xl": { "value": "0 20px 40px -6px rgba(0, 0, 0, 0.16), 0 8px 16px -4px rgba(0, 0, 0, 0.08)", "type": "boxShadow" },
+      "glow": { "value": "0 0 24px rgba(253, 86, 42, 0.35)", "type": "boxShadow" },
+      "focusRing": { "value": "0 0 0 3px rgba(253, 86, 42, 0.3)", "type": "boxShadow" }
+    },
+    "breakpoints": {
+      "sm": { "value": "640px", "type": "breakpoint" },
+      "md": { "value": "768px", "type": "breakpoint" },
+      "lg": { "value": "1024px", "type": "breakpoint" },
+      "xl": { "value": "1280px", "type": "breakpoint" }
+    },
+    "motion": {
+      "duration": {
+        "fast": { "value": "150ms", "type": "time" },
+        "normal": { "value": "250ms", "type": "time" },
+        "slow": { "value": "400ms", "type": "time" }
+      },
+      "easing": {
+        "standard": { "value": "cubic-bezier(0.4, 0.0, 0.2, 1)", "type": "cubicBezier" },
+        "out": { "value": "cubic-bezier(0.0, 0.0, 0.2, 1)", "type": "cubicBezier" },
+        "in": { "value": "cubic-bezier(0.4, 0.0, 1, 1)", "type": "cubicBezier" }
+      }
+    }
+  },
+  "components": {
+    "button": {
+      "variants": ["primary", "secondary", "outline", "ghost"],
+      "sizes": ["sm", "md", "lg"],
+      "borderRadius": "{borderRadius.md}",
+      "fontFamily": "{typography.fontFamilies.heading}",
+      "fontWeight": "{typography.fontWeights.semiBold}"
+    },
+    "serviceCard": {
+      "borderRadius": "{borderRadius.lg}",
+      "surface": "{color.semantic.surface.card}",
+      "border": "1px solid {color.semantic.border.subtle}",
+      "hoverShadow": "{boxShadow.lg}",
+      "iconSize": "64px"
+    },
+    "benefitItem": {
+      "iconRadius": "{borderRadius.full}",
+      "iconBackground": "{color.semantic.brand.primary}",
+      "iconColor": "{color.primitive.neutral.0}"
+    },
+    "formControl": {
+      "borderRadius": "{borderRadius.sm}",
+      "height": "48px",
+      "borderColor": "{color.semantic.border.default}",
+      "focusBorderColor": "{color.semantic.border.focus}",
+      "focusRing": "{boxShadow.focusRing}"
+    },
+    "sectionHeader": {
+      "eyebrowColor": "{color.semantic.brand.primary}",
+      "titleColor": "{color.semantic.text.primary}",
+      "titleFont": "{typography.fontFamilies.heading}",
+      "titleSize": "{typography.fontSizes.h1}"
+    }
+  }
+}

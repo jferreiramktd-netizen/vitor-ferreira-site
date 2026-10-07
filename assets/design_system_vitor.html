@@ -1,0 +1,3014 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System v3.0 · Vitor Ferreira | Treinador & Mentor Comercial</title>
+  <meta name="description" content="Biblioteca viva, design tokens semânticos, componentes interativos e blueprints de conversão do ecossistema Vitor Ferreira. Inspirado em engenharia de design de alto nível e no Pé Direito AI System.">
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="images/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/favicon-180.png">
+
+  <!-- Fontes Oficiais: Poppins (Display/Headings/UI), Open Sans (Body/Forms) e JetBrains Mono (Tokens/Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       01. DESIGN TOKENS OFICIAIS (Vitor Ferreira v3.0 — High Impact System)
+       ========================================================================== */
+    :root {
+      /* --- Primitivos de Marca (Laranja Vitor Ferreira) --- */
+      --color-orange-50:  #FFF5F2; /* Fundo de tags e badges sutis */
+      --color-orange-100: #FFE6DF;
+      --color-orange-200: #FFC5B5;
+      --color-orange-300: #FFA086; /* Gradientes & Acentos Luminosos */
+      --color-orange-400: #FF7552;
+      --color-orange-500: #FD562A; /* COR PRIMÁRIA OFICIAL DA MARCA */
+      --color-orange-600: #DF3D12;
+      --color-orange-700: #BF2902; /* Hover primário */
+      --color-orange-800: #932002; /* Active primário */
+      --color-orange-900: #6B1701;
+
+      /* Ouro & Champanhe (Destaque Premium & Bordas Laranja-Ouro) */
+      --color-gold-300:   #FFE2B3;
+      --color-gold-400:   #FFD285;
+      --color-gold-glow:  rgba(253, 86, 42, 0.35);
+
+      /* --- Neutros e Superfícies Noturnas Nobres --- */
+      --color-neutral-0:   #FFFFFF;
+      --color-neutral-50:  #F8F9FA;
+      --color-neutral-100: #F1F3F5;
+      --color-neutral-200: #E9ECEF;
+      --color-neutral-300: #DEE2E6;
+      --color-neutral-400: #CED4DA;
+      --color-neutral-500: #868E96;
+      --color-neutral-600: #666666;
+      --color-neutral-700: #495057;
+      --color-neutral-800: #343A40;
+      --color-neutral-900: #212529;
+      --color-neutral-950: #111111;
+
+      /* --- Profundidade Executiva (Navy & Noir) --- */
+      --color-navy-950:    #060412; /* Fundo ultra profundo / Noir */
+      --color-navy-900:    #0D0A22; /* Fundo primário do sistema */
+      --color-navy-850:    #120F2E; /* Fundo de seções intermediárias */
+      --color-navy-800:    #19153D; /* Cards e superfícies */
+      --color-navy-750:    #221D52; /* Cards hover */
+      --color-navy-700:    #2C266B;
+      --color-surface-subtle: #F2F5FB;
+
+      /* --- Status Semântico & Social --- */
+      --color-status-success:        #198754;
+      --color-status-success-subtle: #E8F5E9;
+      --color-status-error:          #DC3545;
+      --color-status-error-subtle:   #FFEBEE;
+      --color-status-warning:        #F59E0B;
+      --color-status-warning-subtle: #FFFBEB;
+      --color-status-info:           #0D6EFD;
+
+      --color-social-whatsapp:       #25D366;
+      --color-social-whatsapp-dark:  #1EBE5D;
+      --color-social-instagram:      #E4405F;
+      --color-social-linkedin:       #0A66C2;
+      --color-social-youtube:        #FF0000;
+
+      /* --- Papéis Semânticos (Color Roles) --- */
+      --color-brand-primary:         var(--color-orange-500);
+      --color-brand-primary-hover:   var(--color-orange-700);
+      --color-brand-primary-active:  var(--color-orange-800);
+      --color-brand-primary-subtle:  rgba(253, 86, 42, 0.12);
+      --color-brand-primary-border:  rgba(253, 86, 42, 0.35);
+
+      --color-text-primary:          var(--color-neutral-0);
+      --color-text-secondary:        #D1CFE2;
+      --color-text-muted:            #9B97B8;
+      --color-text-subtle:           #6F6B8A;
+      --color-text-on-dark:          var(--color-neutral-0);
+      --color-text-on-primary:       var(--color-neutral-0);
+
+      /* --- Superfícies e Vidros (Glassmorphism & Luminous) --- */
+      --surface-glass-dark:          rgba(13, 10, 34, 0.85);
+      --surface-glass-card:          rgba(255, 255, 255, 0.04);
+      --surface-glass-card-hover:    rgba(255, 255, 255, 0.08);
+      --surface-glass-border:        rgba(255, 255, 255, 0.10);
+      --surface-glass-border-glow:   rgba(253, 86, 42, 0.45);
+      --surface-glass-border-gold:   rgba(255, 226, 179, 0.40);
+      --surface-glass-blur:          blur(16px);
+
+      /* --- Gradientes de Assinatura --- */
+      --grad-brand:            linear-gradient(135deg, #FD562A 0%, #FFA086 100%);
+      --grad-brand-glow:       linear-gradient(90deg, #FD562A 0%, #FF7552 50%, #FFA086 100%);
+      --grad-dark-pill:        linear-gradient(270deg, rgba(6, 4, 18, 0.95) 0%, rgba(22, 19, 65, 0.92) 100%);
+      --grad-dark-card:        linear-gradient(90deg, rgba(8, 6, 22, 0.98) 0%, rgba(25, 21, 61, 0.95) 100%);
+      --grad-impact-panel:     linear-gradient(1.86deg, rgba(6, 4, 18, 0.98) 15%, rgba(34, 29, 82, 0.90) 100%);
+      --grad-process-card:     linear-gradient(180deg, rgba(16, 12, 42, 0.95) 0%, rgba(8, 6, 24, 0.98) 100%);
+      --grad-glass-card:       linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+      /* --- Tipografia (Typography Tokens) --- */
+      --font-heading: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-body:    "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+      /* Escala Fluida com clamp() */
+      --text-display: clamp(2.5rem, 5vw + 1rem, 4.25rem); /* 40px - 68px */
+      --text-h1:      clamp(2.0rem, 3.5vw + 0.5rem, 3.125rem); /* 32px - 50px */
+      --text-h2:      clamp(1.5rem, 2.5vw + 0.5rem, 2.375rem); /* 24px - 38px */
+      --text-h3:      clamp(1.25rem, 1.5vw + 0.5rem, 1.625rem); /* 20px - 26px */
+      --text-h4:      1.125rem; /* 18px */
+      --text-lead:    1.25rem;  /* 20px */
+      --text-body:    1.125rem; /* 18px */
+      --text-body-sm: 1.0rem;   /* 16px */
+      --text-caption: 0.875rem; /* 14px */
+      --text-eyebrow: 0.8125rem;/* 13px */
+
+      --leading-tight:  1.12;
+      --leading-snug:   1.28;
+      --leading-normal: 1.6;
+      --leading-loose:  1.75;
+
+      --tracking-tight:   -0.02em;
+      --tracking-normal:   0em;
+      --tracking-wide:     0.06em;
+      --tracking-widest:   0.14em;
+
+      /* --- Espaçamento Modular (Grade 4px / 8px) --- */
+      --space-1:  0.25rem;  /*  4px */
+      --space-2:  0.5rem;   /*  8px */
+      --space-3:  0.75rem;  /* 12px */
+      --space-4:  1.0rem;   /* 16px */
+      --space-5:  1.25rem;  /* 20px */
+      --space-6:  1.5rem;   /* 24px */
+      --space-8:  2.0rem;   /* 32px */
+      --space-10: 2.5rem;   /* 40px */
+      --space-12: 3.0rem;   /* 48px */
+      --space-16: 4.0rem;   /* 64px */
+      --space-20: 5.0rem;   /* 80px */
+      --space-24: 6.0rem;   /* 96px */
+
+      /* --- Layout Containers --- */
+      --container-max:        1260px;
+      --container-narrow:     980px;
+      --container-gutter:     clamp(1rem, 4vw, 2rem);
+      --space-section-y:      clamp(4.5rem, 8vw, 7.5rem);
+
+      /* --- Raios de Borda (Border Radii) --- */
+      --radius-xs:   4px;
+      --radius-sm:   6px;
+      --radius-md:   8px;    /* Botões Padrão & Inputs */
+      --radius-lg:   14px;   /* Cards de Serviço & Imagens */
+      --radius-xl:   20px;   /* Modais & Painéis */
+      --radius-2xl:  32px;   /* Containers Destacados */
+      --radius-pill: 9999px; /* Headers Flutuantes & Pílulas */
+      --radius-sculpted-top: clamp(3rem, 7vw, 6.5rem) clamp(3rem, 7vw, 6.5rem) 0 0; /* Painel de Impacto */
+
+      /* --- Elevação, Glows e Sombras --- */
+      --shadow-sm:      0 2px 6px rgba(0, 0, 0, 0.35);
+      --shadow-md:      0 8px 24px -4px rgba(0, 0, 0, 0.45);
+      --shadow-lg:      0 16px 36px -6px rgba(0, 0, 0, 0.60);
+      --shadow-xl:      0 24px 56px -8px rgba(0, 0, 0, 0.75);
+      --shadow-glow:    0 0 35px rgba(253, 86, 42, 0.45);
+      --shadow-glow-sm: 0 0 16px rgba(253, 86, 42, 0.30);
+      --shadow-glow-gold: 0 0 24px rgba(255, 210, 133, 0.35);
+      --border-focus-ring: 0 0 0 3px rgba(253, 86, 42, 0.40);
+
+      /* --- Motion Tokens --- */
+      --duration-fast:   150ms;
+      --duration-normal: 300ms;
+      --duration-slow:   500ms;
+      --duration-lazy:   800ms;
+      --ease-standard:   cubic-bezier(0.4, 0.0, 0.2, 1);
+      --ease-out:        cubic-bezier(0.0, 0.0, 0.2, 1);
+      --ease-in:         cubic-bezier(0.4, 0.0, 1, 1);
+      --ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
+
+      /* --- Shell Tokens --- */
+      --ds-bg:           var(--color-navy-950);
+      --ds-surface:      var(--color-navy-900);
+      --ds-surface-card: var(--color-navy-800);
+      --ds-border:       rgba(255, 255, 255, 0.08);
+      --ds-border-light: rgba(255, 255, 255, 0.16);
+      --ds-text:         #FFFFFF;
+      --ds-text-muted:   #A7A3C5;
+      --ds-accent:       var(--color-orange-500);
+    }
+
+    /* Light Theme (Modo Alternativo) */
+    [data-theme="light"] {
+      --ds-bg:           #F6F8FC;
+      --ds-surface:      #FFFFFF;
+      --ds-surface-card: #FFFFFF;
+      --ds-border:       #E2E8F0;
+      --ds-border-light: #CBD5E1;
+      --ds-text:         #151326;
+      --ds-text-muted:   #5D597A;
+      --surface-glass-dark: rgba(255, 255, 255, 0.90);
+      --surface-glass-card: #FFFFFF;
+      --surface-glass-border: #E2E8F0;
+      --color-text-primary: #151326;
+      --color-text-secondary: #3D395E;
+      --grad-dark-pill:  linear-gradient(270deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 242, 248, 0.95) 100%);
+      --grad-impact-panel: linear-gradient(1.86deg, #FFFFFF 15%, #F0F3FA 100%);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-body-sm);
+      line-height: var(--leading-normal);
+      color: var(--ds-text);
+      background-color: var(--ds-bg);
+      overflow-x: hidden;
+      padding-top: 5rem;
+      transition: background-color var(--duration-normal) ease, color var(--duration-normal) ease;
+    }
+
+    img, svg, video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button, input, textarea, select {
+      font: inherit;
+      color: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-brand-primary);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Container Global */
+    .ds-container {
+      max-width: var(--container-max);
+      width: 90%;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .ds-section {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--ds-border);
+      position: relative;
+      scroll-margin-top: 5rem;
+    }
+
+    .ds-section--dark {
+      background: var(--color-navy-950);
+    }
+
+    .ds-section--navy {
+      background: var(--color-navy-900);
+    }
+
+    /* Section Headers */
+    .ds-section-head {
+      margin-bottom: var(--space-10);
+      position: relative;
+    }
+
+    .ds-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-heading);
+      font-size: var(--text-eyebrow);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-widest);
+      color: var(--color-brand-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .ds-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 300;
+      line-height: var(--leading-tight);
+      color: var(--ds-text);
+      margin-bottom: var(--space-3);
+    }
+
+    .ds-title strong {
+      color: var(--color-orange-400);
+      font-weight: 800;
+    }
+
+    .ds-lead {
+      font-size: var(--text-lead);
+      line-height: var(--leading-normal);
+      color: var(--ds-text-muted);
+      max-width: 52rem;
+      font-weight: 300;
+    }
+
+    .ds-code {
+      font-family: var(--font-mono);
+      font-size: 0.8em;
+      padding: 0.15em 0.45em;
+      background: rgba(253, 86, 42, 0.12);
+      border: 1px solid rgba(253, 86, 42, 0.28);
+      border-radius: var(--radius-xs);
+      color: var(--color-orange-300);
+    }
+
+    .ds-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.65rem;
+      border: 1px solid currentColor;
+      border-radius: var(--radius-pill);
+      color: var(--ds-text-muted);
+    }
+
+    .ds-sub {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: var(--leading-snug);
+      margin: 4rem 0 0.5rem;
+      color: var(--ds-text);
+    }
+    .ds-sub:first-of-type { margin-top: 0; }
+
+    .ds-sub__meta {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ds-text-muted);
+      max-width: 52rem;
+      margin-bottom: 2rem;
+    }
+
+    .ds-note {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: var(--ds-text-muted);
+    }
+
+    /* Grids */
+    .ds-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+    .ds-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .ds-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+
+    /* Cards Base */
+    .ds-card {
+      background: var(--ds-surface-card);
+      border: 1px solid var(--ds-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      transition: all var(--duration-normal) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ds-card:hover {
+      border-color: var(--ds-border-light);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .ds-card--glow:hover {
+      border-color: rgba(253, 86, 42, 0.45);
+      box-shadow: var(--shadow-glow-sm);
+    }
+
+    /* ==========================================================================
+       02. FLOATING PILL TOP NAVIGATION (Inspirado no Conquer .JShPa)
+       ========================================================================== */
+    .ds-nav-pill-wrapper {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92%;
+      max-width: 1220px;
+      z-index: 1000;
+      transition: all var(--duration-normal) ease;
+    }
+
+    .ds-nav-pill {
+      width: 100%;
+      height: 4rem;
+      background: var(--grad-dark-pill);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-pill);
+      padding: 0 var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(253, 86, 42, 0.12);
+      transition: border-radius var(--duration-normal) ease, height var(--duration-normal) ease;
+    }
+
+    .ds-nav-pill.expanded {
+      height: 22rem;
+      border-radius: var(--radius-2xl);
+    }
+
+    .ds-nav-pill__left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-shrink: 0;
+    }
+
+    .ds-nav-pill__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .ds-nav-pill__logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .ds-nav-pill__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      background: rgba(253, 86, 42, 0.15);
+      border: 1px solid rgba(253, 86, 42, 0.35);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-orange-300);
+      letter-spacing: 0.04em;
+    }
+
+    .ds-nav-pill__badge-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-orange-500);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--color-orange-500);
+      animation: vfPulseDot 2s infinite;
+    }
+
+    @keyframes vfPulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+
+    .ds-nav-pill__menu {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      list-style: none;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .ds-nav-pill__menu::-webkit-scrollbar { display: none; }
+
+    .ds-nav-pill__item a {
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-pill);
+      transition: all var(--duration-fast) ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ds-nav-pill__item a:hover, .ds-nav-pill__item a.is-active {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .ds-nav-pill__item a:hover {
+      color: var(--color-orange-300);
+    }
+
+    .ds-nav-pill__right {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-shrink: 0;
+    }
+
+    /* Hambúrguer que vira X (Inspirado no Conquer .eFbCXB) */
+    .vf-burger {
+      display: none;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .vf-burger span {
+      display: block;
+      width: 1.8rem;
+      height: 2.5px;
+      background: var(--color-orange-500);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all var(--duration-normal) var(--ease-bounce);
+    }
+
+    .vf-burger.open span:first-child {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    .vf-burger.open span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-8px);
+    }
+    .vf-burger.open span:last-child {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    @media (max-width: 960px) {
+      .ds-nav-pill__menu { display: none; }
+      .vf-burger { display: block; }
+    }
+
+    /* ==========================================================================
+       03. HERO STAGE & VISUAL DNA
+       ========================================================================== */
+    .ds-hero-stage {
+      padding: 7rem 0 5.5rem;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 80% 20%, rgba(253, 86, 42, 0.22) 0%, transparent 45%),
+                  radial-gradient(circle at 10% 80%, rgba(34, 29, 82, 0.95) 0%, transparent 55%),
+                  var(--color-navy-950);
+      border-bottom: 1px solid var(--ds-border);
+    }
+
+    .ds-watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 15vw, 15rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .ds-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-12);
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ds-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-1) var(--space-4);
+      background: rgba(253, 86, 42, 0.12);
+      border: 1px solid rgba(253, 86, 42, 0.35);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-orange-300);
+      margin-bottom: var(--space-4);
+    }
+
+    .ds-hero-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-display);
+      font-weight: 800;
+      line-height: var(--leading-tight);
+      color: #FFFFFF;
+      margin-bottom: var(--space-4);
+    }
+
+    .ds-hero-title strong {
+      background: var(--grad-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ds-hero-desc {
+      font-size: var(--text-lead);
+      line-height: var(--leading-normal);
+      color: var(--color-text-secondary);
+      max-width: 40rem;
+      margin-bottom: var(--space-8);
+      font-weight: 300;
+    }
+
+    .ds-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+      margin-bottom: var(--space-8);
+    }
+
+    .ds-hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--ds-border);
+    }
+
+    .ds-stat-number {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+
+    .ds-stat-number span {
+      color: var(--color-orange-500);
+    }
+
+    .ds-stat-label {
+      font-size: 0.8125rem;
+      color: var(--ds-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    .ds-hero-card {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      background: linear-gradient(145deg, rgba(34, 29, 82, 0.7) 0%, rgba(13, 10, 34, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-xl), 0 0 50px rgba(253, 86, 42, 0.2);
+      overflow: hidden;
+    }
+
+    .ds-hero-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(253, 86, 42, 0.28) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .ds-hero-preview-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform var(--duration-slow) var(--ease-out);
+    }
+
+    .ds-hero-card:hover .ds-hero-preview-img {
+      transform: scale(1.02);
+    }
+
+    .ds-hero-floating-badge {
+      position: absolute;
+      bottom: var(--space-8);
+      left: var(--space-8);
+      right: var(--space-8);
+      padding: var(--space-4) var(--space-5);
+      background: rgba(13, 10, 34, 0.90);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(253, 86, 42, 0.45);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .ds-floating-badge-text h4 {
+      font-family: var(--font-heading);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .ds-floating-badge-text p {
+      font-size: 0.75rem;
+      color: var(--color-orange-300);
+    }
+
+    /* ==========================================================================
+       04. NOVO COMPONENTE: STACK DE PROCESSO COMERCIAL (O Efeito Conquer .bEDgpd)
+       ========================================================================== */
+    .vf-process-stage {
+      padding: 3rem 0;
+      position: relative;
+    }
+
+    .vf-process-stack {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      position: relative;
+      margin-top: 2.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .vf-process-card {
+      position: relative;
+      color: #FFFFFF;
+      background: var(--grad-process-card);
+      padding: 1.5rem 1.25rem;
+      border-radius: var(--radius-lg);
+      width: 12.5rem;
+      min-height: 20rem;
+      transition: all var(--duration-normal) var(--ease-out);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      user-select: none;
+    }
+
+    .vf-process-card:not(:first-child) {
+      margin-left: -70px;
+    }
+
+    .vf-process-card .top {
+      max-width: 6.5rem;
+      margin-left: auto;
+      transition: all var(--duration-normal) ease;
+    }
+
+    .vf-process-card .top .step-num {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 300;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--ds-text-muted);
+    }
+
+    .vf-process-card .top .title {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 1.0625rem;
+      line-height: 1.25;
+      color: var(--color-text-secondary);
+      word-wrap: break-word;
+      max-width: 6.5rem;
+      transition: color var(--duration-fast) ease;
+    }
+
+    .vf-process-card .description {
+      display: none;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: #E2E0EE;
+      margin-top: 1rem;
+    }
+
+    .vf-process-card .tag-pill {
+      display: none;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-orange-400);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Z-Index decrescente para empilhamento harmonioso */
+    .vf-process-card:nth-child(1) { z-index: 6; }
+    .vf-process-card:nth-child(2) { z-index: 5; }
+    .vf-process-card:nth-child(3) { z-index: 4; }
+    .vf-process-card:nth-child(4) { z-index: 3; }
+    .vf-process-card:nth-child(5) { z-index: 2; }
+    .vf-process-card:nth-child(6) { z-index: 1; }
+
+    /* Estado Ativo / Expandido (.active) */
+    .vf-process-card.active, .vf-process-card:hover {
+      width: 17rem;
+      z-index: 10 !important;
+      border-color: var(--color-orange-300);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+      background: linear-gradient(180deg, rgba(28, 22, 68, 0.98) 0%, rgba(13, 10, 34, 1) 100%);
+    }
+
+    .vf-process-card.active .top, .vf-process-card:hover .top {
+      max-width: 100%;
+      margin-left: 0;
+    }
+
+    .vf-process-card.active .top .step-num, .vf-process-card:hover .top .step-num {
+      color: var(--color-orange-500);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .vf-process-card.active .top .title, .vf-process-card:hover .top .title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      max-width: 100%;
+    }
+
+    .vf-process-card.active .description, .vf-process-card:hover .description {
+      display: block;
+      animation: vfFadeIn 0.3s ease;
+    }
+
+    .vf-process-card.active .tag-pill, .vf-process-card:hover .tag-pill {
+      display: inline-block;
+    }
+
+    @keyframes vfFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .vf-process-stack {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-4);
+      }
+      .vf-process-card {
+        width: 100% !important;
+        max-width: 32rem;
+        margin-left: 0 !important;
+        min-height: auto;
+      }
+      .vf-process-card .top { max-width: 100%; margin-left: 0; }
+      .vf-process-card .description { display: block; }
+    }
+
+    /* ==========================================================================
+       05. NOVO COMPONENTE: PAINEL ESCULPIDO DE IMPACTO (Inspirado no .eAjFkZ)
+       ========================================================================== */
+    .vf-impact-panel {
+      width: 100%;
+      border-radius: var(--radius-sculpted-top);
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4.5rem) 3.5rem;
+      color: #FFFFFF;
+      background: var(--grad-impact-panel);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: none;
+      box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vf-impact-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-orange-400), transparent);
+    }
+
+    .vf-impact-panel__header {
+      text-align: center;
+      max-width: 48rem;
+      margin: 0 auto 3.5rem;
+    }
+
+    .vf-impact-panel__title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 300;
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-3);
+    }
+    .vf-impact-panel__title strong {
+      color: var(--color-orange-400);
+      font-weight: 800;
+    }
+
+    .vf-impact-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      margin-bottom: 3rem;
+    }
+
+    .vf-impact-stat-item {
+      text-align: center;
+    }
+
+    .vf-impact-stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .vf-impact-stat-num strong {
+      color: var(--color-orange-400);
+      font-weight: 800;
+    }
+
+    .vf-impact-stat-label {
+      font-family: var(--font-heading);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 0.4rem;
+    }
+
+    .vf-impact-stat-desc {
+      font-size: 0.875rem;
+      line-height: 1.4;
+      color: var(--ds-text-muted);
+      font-weight: 300;
+    }
+
+    /* Selos de Autoridade */
+    .vf-seals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .vf-seal-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      transition: all var(--duration-normal) ease;
+    }
+
+    .vf-seal-card:hover {
+      background: rgba(253, 86, 42, 0.08);
+      border-color: rgba(253, 86, 42, 0.35);
+      transform: translateY(-4px);
+    }
+
+    .vf-seal-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(253, 86, 42, 0.15);
+      border: 1px solid rgba(253, 86, 42, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-orange-400);
+      font-size: 1.5rem;
+    }
+
+    .vf-seal-title {
+      font-family: var(--font-heading);
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .vf-seal-desc {
+      font-size: 0.8125rem;
+      line-height: 1.4;
+      color: var(--ds-text-muted);
+    }
+
+    @media (max-width: 860px) {
+      .vf-impact-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .vf-seals-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .vf-impact-stats-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ==========================================================================
+       06. NOVO COMPONENTE: LOGO MARQUEE INFINTIO (Inspirado no .lfBAhO)
+       ========================================================================== */
+    .vf-marquee-section {
+      background: var(--color-navy-950);
+      border-top: 1px solid var(--ds-border);
+      border-bottom: 1px solid var(--ds-border);
+      padding: 1.5rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .vf-marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      width: max-content;
+      animation: vfMarqueeScroll 40s linear infinite;
+      white-space: nowrap;
+    }
+
+    .vf-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .vf-marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--ds-text-muted);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+      filter: grayscale(1) opacity(0.65);
+      transition: all var(--duration-normal) ease;
+      cursor: default;
+    }
+
+    .vf-marquee-item:hover {
+      filter: grayscale(0) opacity(1);
+      color: #FFFFFF;
+      transform: scale(1.05);
+    }
+
+    .vf-marquee-item svg {
+      width: 28px;
+      height: 28px;
+      color: var(--color-orange-500);
+    }
+
+    @keyframes vfMarqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ==========================================================================
+       07. NOVO COMPONENTE: FORMULÁRIO EM VIDRO (Glass Card .TYfxn-inspired)
+       ========================================================================== */
+    .vf-glass-card {
+      width: 100%;
+      max-width: 32rem;
+      background: rgba(14, 11, 37, 0.75);
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(253, 86, 42, 0.35);
+      padding: var(--space-8);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(253, 86, 42, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vf-glass-card::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -30%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(circle, rgba(253, 86, 42, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .vf-glass-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .vf-glass-subtitle {
+      font-size: 0.875rem;
+      color: var(--ds-text-muted);
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+
+    .vf-form-field {
+      position: relative;
+      margin-bottom: var(--space-4);
+    }
+
+    .vf-form-input {
+      width: 100%;
+      height: 52px;
+      background: #060412;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 0 46px 0 var(--space-4);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      transition: all var(--duration-fast) ease;
+    }
+
+    .vf-form-input:focus {
+      outline: none;
+      border-color: var(--color-orange-500);
+      box-shadow: 0 0 0 3px rgba(253, 86, 42, 0.25);
+      background: #0B081E;
+    }
+
+    .vf-form-input::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .vf-field-check-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: rgba(255, 255, 255, 0.25);
+      pointer-events: none;
+      transition: color var(--duration-fast) ease;
+    }
+
+    .vf-form-field.is-valid .vf-form-input {
+      border-color: var(--color-status-success);
+    }
+    .vf-form-field.is-valid .vf-field-check-icon {
+      color: #4ade80;
+    }
+
+    .vf-form-field.is-invalid .vf-form-input {
+      border-color: var(--color-status-error);
+    }
+    .vf-form-field.is-invalid .vf-field-check-icon {
+      color: var(--color-status-error);
+    }
+
+    .vf-field-error-msg {
+      font-size: 0.75rem;
+      color: var(--color-status-error);
+      margin-top: 4px;
+      display: none;
+    }
+    .vf-form-field.is-invalid .vf-field-error-msg {
+      display: block;
+    }
+
+    /* ==========================================================================
+       08. CARD DE FORMATO CUSTOMIZADO (Inspirado no .eMlFsy)
+       ========================================================================== */
+    .vf-format-card {
+      background: linear-gradient(180deg, rgba(16, 12, 42, 0.95) 0%, rgba(8, 6, 24, 0.98) 100%);
+      border: 1px solid rgba(255, 226, 179, 0.25);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      position: relative;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .vf-format-card:hover {
+      border-color: var(--color-orange-400);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), var(--shadow-glow-sm);
+    }
+
+    .vf-format-card__badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-orange-400);
+      margin-bottom: var(--space-3);
+    }
+
+    .vf-format-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #FFFFFF;
+      margin-bottom: var(--space-4);
+    }
+    .vf-format-card__title strong {
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .vf-format-card__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+
+    .vf-format-card__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: var(--color-text-secondary);
+    }
+
+    .vf-format-card__list li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-orange-500);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ==========================================================================
+       09. ACCORDION COM DIMMING DE FOCO (Inspirado no .itYuIB)
+       ========================================================================== */
+    .vf-accordion-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      max-width: 48rem;
+    }
+
+    .vf-accordion-item {
+      background: var(--ds-surface-card);
+      border: 1px solid var(--ds-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all var(--duration-normal) ease;
+    }
+
+    /* Dimming do Conquer: não focados ficam a 0.4 de opacidade */
+    .vf-accordion-group:hover .vf-accordion-item:not(:hover):not(.is-open) {
+      opacity: 0.45;
+    }
+
+    .vf-accordion-item.is-open {
+      border-color: var(--color-orange-400);
+      background: rgba(25, 21, 61, 0.95);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      opacity: 1 !important;
+    }
+
+    .vf-accordion-trigger {
+      width: 100%;
+      padding: var(--space-5) var(--space-6);
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      text-align: left;
+      gap: var(--space-4);
+    }
+
+    .vf-accordion-chevron {
+      color: var(--color-orange-400);
+      transition: transform var(--duration-normal) var(--ease-bounce);
+      flex-shrink: 0;
+    }
+
+    .vf-accordion-item.is-open .vf-accordion-chevron {
+      transform: rotate(180deg);
+      color: var(--color-orange-300);
+    }
+
+    .vf-accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--duration-normal) var(--ease-out), padding var(--duration-normal) ease;
+      padding: 0 var(--space-6);
+      font-size: 0.9375rem;
+      line-height: var(--leading-normal);
+      color: var(--color-text-secondary);
+    }
+
+    .vf-accordion-item.is-open .vf-accordion-body {
+      max-height: 300px;
+      padding-bottom: var(--space-6);
+    }
+
+    /* ==========================================================================
+       10. MATRIZ DE BOTÕES & MICROINTERAÇÕES
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      border-radius: var(--radius-pill);
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--duration-normal) var(--ease-out);
+      position: relative;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .btn--sm {
+      height: 38px;
+      padding: 0 var(--space-5);
+      font-size: 0.8125rem;
+    }
+
+    .btn--md {
+      height: 48px;
+      padding: 0 var(--space-6);
+      font-size: 0.9375rem;
+    }
+
+    .btn--lg {
+      height: 56px;
+      padding: 0 var(--space-8);
+      font-size: 1.0625rem;
+    }
+
+    /* Variantes */
+    .btn--primary {
+      background-color: var(--color-brand-primary);
+      color: #FFFFFF;
+      border-color: var(--color-brand-primary);
+      box-shadow: 0 4px 16px rgba(253, 86, 42, 0.4);
+    }
+
+    .btn--primary:hover, .btn--primary.is-hover {
+      background-color: transparent;
+      color: #FFFFFF;
+      border-color: #FFFFFF;
+      box-shadow: 0 8px 26px rgba(253, 86, 42, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn--secondary {
+      background-color: #060412;
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn--secondary:hover, .btn--secondary.is-hover {
+      background-color: var(--color-brand-primary);
+      border-color: var(--color-brand-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow-sm);
+    }
+
+    .btn--outline {
+      background-color: transparent;
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn--outline:hover, .btn--outline.is-hover {
+      background-color: #FFFFFF;
+      color: var(--color-navy-950);
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .btn--ghost {
+      background-color: transparent;
+      color: var(--color-orange-400);
+      border-color: transparent;
+    }
+
+    .btn--ghost:hover, .btn--ghost.is-hover {
+      background-color: rgba(253, 86, 42, 0.12);
+      color: #FFFFFF;
+    }
+
+    .btn--whatsapp {
+      background-color: var(--color-social-whatsapp);
+      color: #FFFFFF;
+      border-color: var(--color-social-whatsapp);
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn--whatsapp:hover, .btn--whatsapp.is-hover {
+      background-color: var(--color-social-whatsapp-dark);
+      border-color: var(--color-social-whatsapp-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn:disabled, .btn.is-disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .btn.is-focus {
+      box-shadow: var(--border-focus-ring) !important;
+    }
+
+    /* Matriz de Componentes */
+    .ds-matrix-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--color-navy-950);
+      border: 1px solid var(--ds-border);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      margin-bottom: var(--space-8);
+    }
+
+    .ds-matrix-table th {
+      padding: var(--space-4) var(--space-5);
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ds-text-muted);
+      border-bottom: 1px solid var(--ds-border);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .ds-matrix-table th:first-child { text-align: left; }
+
+    .ds-matrix-table td {
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--ds-border);
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .ds-matrix-table tr:last-child td { border-bottom: none; }
+
+    .ds-matrix-label-cell {
+      text-align: left !important;
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .ds-matrix-label-cell small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--ds-text-muted);
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       11. DEVELOPER TOOLBAR & LIVE SPECIMEN FRAMES (.ds-frame)
+       ========================================================================== */
+    .ds-frame {
+      border: 1px solid var(--ds-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--color-navy-900);
+      margin-bottom: var(--space-8);
+    }
+
+    .ds-frame__bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem 1.5rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(6, 4, 18, 0.95);
+      border-bottom: 1px solid var(--ds-border);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: #FFFFFF;
+    }
+
+    .ds-frame__bar b {
+      color: var(--color-orange-400);
+      font-weight: 700;
+    }
+
+    .ds-frame__content {
+      padding: var(--space-8);
+      position: relative;
+    }
+
+    /* Device Preview Switcher */
+    .ds-device-bar {
+      display: flex;
+      gap: var(--space-2);
+      padding: var(--space-2);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--ds-border);
+      border-radius: var(--radius-md);
+      width: fit-content;
+      margin-bottom: var(--space-6);
+    }
+
+    .ds-device-btn {
+      padding: var(--space-2) var(--space-4);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ds-text-muted);
+      cursor: pointer;
+      transition: all var(--duration-fast) ease;
+    }
+
+    .ds-device-btn.is-active, .ds-device-btn:hover {
+      background: var(--color-brand-primary);
+      color: #FFFFFF;
+    }
+
+    .ds-preview-container {
+      width: 100%;
+      transition: max-width var(--duration-normal) ease;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       12. MOTION GALLERY INTERACTIVE TILES
+       ========================================================================== */
+    .ds-motion-tile {
+      background: var(--ds-surface-card);
+      border: 1px solid var(--ds-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-4);
+      min-height: 200px;
+    }
+
+    .ds-motion-tile__label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-orange-300);
+    }
+
+    .ds-motion-tile__preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4) 0;
+      flex: 1;
+    }
+
+    .ds-motion-tile__meta {
+      font-size: 0.75rem;
+      color: var(--ds-text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: var(--space-3);
+    }
+
+    /* Video Lightbox Play Hover */
+    .vf-play-btn {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--color-brand-primary);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(253, 86, 42, 0.6);
+      cursor: pointer;
+      transition: transform var(--duration-normal) var(--ease-bounce), box-shadow var(--duration-normal) ease;
+    }
+
+    .vf-play-btn:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 45px rgba(253, 86, 42, 0.85);
+    }
+
+    /* ==========================================================================
+       13. LIGHTBOX MODAL & FLOATING WHATSAPP
+       ========================================================================== */
+    .ds-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(6, 4, 18, 0.92);
+      backdrop-filter: blur(16px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-6);
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--duration-normal) ease;
+    }
+
+    .ds-modal-backdrop.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .ds-modal-box {
+      width: 100%;
+      max-width: 820px;
+      background: var(--color-navy-900);
+      border: 1px solid rgba(253, 86, 42, 0.35);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl), 0 0 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform var(--duration-normal) var(--ease-bounce);
+    }
+
+    .ds-modal-backdrop.is-open .ds-modal-box {
+      transform: scale(1);
+    }
+
+    .ds-modal-close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background var(--duration-fast) ease;
+    }
+
+    .ds-modal-close:hover {
+      background: var(--color-brand-primary);
+    }
+
+    .ds-modal-video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000000;
+    }
+
+    .ds-modal-video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Floating WhatsApp Widget */
+    .whatsapp-widget-container {
+      position: fixed;
+      bottom: var(--space-6);
+      right: var(--space-6);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: var(--space-3);
+    }
+
+    .whatsapp-widget-bubble {
+      width: 310px;
+      background: #141032;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      transform-origin: bottom right;
+      transform: scale(0.9) translateY(10px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--duration-normal) var(--ease-bounce);
+    }
+
+    .whatsapp-widget-bubble.is-open {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .whatsapp-bubble-header {
+      background: linear-gradient(135deg, #1EBE5D 0%, #25D366 100%);
+      padding: var(--space-3) var(--space-4);
+      color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .whatsapp-bubble-header h5 {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+
+    .whatsapp-bubble-close {
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-size: 1.25rem;
+      opacity: 0.8;
+    }
+
+    .whatsapp-bubble-body {
+      padding: var(--space-4);
+    }
+
+    .whatsapp-person-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background var(--duration-fast) ease;
+    }
+
+    .whatsapp-person-card:hover {
+      background: rgba(37, 211, 102, 0.15);
+    }
+
+    .whatsapp-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      object-fit: cover;
+    }
+
+    .whatsapp-person-info h6 {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .whatsapp-person-info span {
+      font-size: 0.75rem;
+      color: #A7A3C5;
+    }
+
+    .whatsapp-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: 0.85rem 1.4rem;
+      background: var(--color-social-whatsapp);
+      color: #FFFFFF;
+      border-radius: var(--radius-pill);
+      border: none;
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      transition: all var(--duration-fast) ease;
+    }
+
+    .whatsapp-toggle-btn:hover {
+      background: var(--color-social-whatsapp-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+    }
+
+    /* Toast Container */
+    .ds-toast-container {
+      position: fixed;
+      bottom: var(--space-6);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3000;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      pointer-events: none;
+    }
+
+    .ds-toast {
+      padding: var(--space-3) var(--space-5);
+      background: #19153D;
+      border: 1px solid rgba(253, 86, 42, 0.5);
+      border-radius: var(--radius-pill);
+      color: #FFFFFF;
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      animation: vfToastIn var(--duration-normal) var(--ease-bounce) forwards;
+      pointer-events: auto;
+    }
+
+    @keyframes vfToastIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.9); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       01. FLOATING PILL TOP NAVIGATION BAR (.JShPa-inspired)
+       ========================================================================== -->
+  <header class="ds-nav-pill-wrapper" aria-label="Menu Principal do Design System">
+    <nav class="ds-nav-pill" id="ds-main-nav">
+      <div class="ds-nav-pill__left">
+        <a class="ds-nav-pill__logo" href="#top" title="Vitor Ferreira · Design System">
+          <img src="images/logo1-1.png" alt="Vitor Ferreira Logo">
+        </a>
+        <span class="ds-nav-pill__badge">
+          <span class="ds-nav-pill__badge-dot"></span>
+          DS v3.0 · Living Library
+        </span>
+      </div>
+
+      <ul class="ds-nav-pill__menu">
+        <li class="ds-nav-pill__item"><a href="#showcase" class="is-active">Showcase</a></li>
+        <li class="ds-nav-pill__item"><a href="#processo">Processo Stack</a></li>
+        <li class="ds-nav-pill__item"><a href="#impacto">Impacto & Selos</a></li>
+        <li class="ds-nav-pill__item"><a href="#cores">Cores & Vidro</a></li>
+        <li class="ds-nav-pill__item"><a href="#tipografia">Tipografia</a></li>
+        <li class="ds-nav-pill__item"><a href="#botoes">Botões</a></li>
+        <li class="ds-nav-pill__item"><a href="#componentes">Formatos & Form</a></li>
+        <li class="ds-nav-pill__item"><a href="#movimento">Motion Sandbox</a></li>
+        <li class="ds-nav-pill__item"><a href="#blueprints">Blueprints</a></li>
+      </ul>
+
+      <div class="ds-nav-pill__right">
+        <button class="btn btn--sm btn--primary" id="btn-copy-tokens" title="Copiar CSS de Tokens">
+          <span>Copiar Tokens</span>
+        </button>
+        <button class="vf-burger" id="btn-burger" aria-label="Abrir Menu Mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         02. HERO & DNA SHOWCASE
+         ========================================================================== -->
+    <section class="ds-hero-stage" id="showcase">
+      <div class="ds-watermark">VITOR FERREIRA</div>
+
+      <div class="ds-container">
+        <div class="ds-hero-grid">
+          <div>
+            <div class="ds-hero-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              Treinador • Mentor • Especialista em Vendas & Desenvolvimento de Pessoas
+            </div>
+
+            <h1 class="ds-hero-title">
+              Desenvolva pessoas. <br>
+              Transforme comportamentos. <br>
+              <strong>Gere resultados.</strong>
+            </h1>
+
+            <p class="ds-hero-desc">
+              Biblioteca viva, tokens semânticos e componentes de alta conversão. Uma experiência que une autoridade executiva, dinamismo comercial e clareza visual impecável.
+            </p>
+
+            <div class="ds-hero-actions">
+              <a class="btn btn--lg btn--primary" href="#processo">
+                <span>Explorar Processo Comercial</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a class="btn btn--lg btn--outline" href="#impacto">
+                Ver Painel de Impacto
+              </a>
+            </div>
+
+            <div class="ds-hero-stats">
+              <div>
+                <div class="ds-stat-number">+<span>30</span> Anos</div>
+                <div class="ds-stat-label">Experiência Comercial</div>
+              </div>
+              <div>
+                <div class="ds-stat-number">+<span>3.000</span></div>
+                <div class="ds-stat-label">Pessoas Treinadas</div>
+              </div>
+              <div>
+                <div class="ds-stat-number"><span>100%</span></div>
+                <div class="ds-stat-label">Prático & Aplicável</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ds-hero-card">
+            <img class="ds-hero-preview-img" src="images/img-vitor-1.jpg" alt="Vitor Ferreira Palestrando">
+            <div class="ds-hero-floating-badge">
+              <div class="ds-floating-badge-text">
+                <h4>Vitor Ferreira</h4>
+                <p>Mais de 30 anos no campo de batalha</p>
+              </div>
+              <button class="btn btn--sm btn--whatsapp" id="btn-hero-wa">Falar Agora</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         03. NOVO COMPONENTE: STACK DE PROCESSO COMERCIAL (O Efeito Conquer!)
+         ========================================================================== -->
+    <section class="ds-section ds-section--dark" id="processo">
+      <div class="ds-container">
+        <div class="ds-section-head text-center">
+          <span class="ds-eyebrow">01 · Método Comercial</span>
+          <h2 class="ds-title">Como funciona a <strong>Jornada Vitor Ferreira</strong></h2>
+          <p class="ds-lead" style="margin: 0 auto;">Passe o mouse ou clique em cada etapa abaixo para expandir o card. Um processo simples e estruturado para transformar necessidade em resultado comercial consistente.</p>
+        </div>
+
+        <div class="ds-frame">
+          <div class="ds-frame__bar">
+            <b>.vf-process-stack &gt; .vf-process-card</b>
+            <span class="ds-code">flex · margin-left:-70px · z-index decrescente · largura 12.5rem → 17rem (.active)</span>
+          </div>
+          <div class="ds-frame__content vf-process-stage">
+            <ul class="vf-process-stack" id="process-stack-demo">
+              <!-- Passo 1 -->
+              <li class="vf-process-card active" data-step="1">
+                <div class="top">
+                  <span class="step-num">01</span>
+                  <p class="title">Conversamos</p>
+                </div>
+                <div>
+                  <span class="tag-pill">Etapa 1 · Imersão</span>
+                  <p class="description">Entendemos o momento da sua empresa, o perfil da sua equipe comercial e os desafios reais que precisam ser enfrentados imediatamente.</p>
+                </div>
+              </li>
+
+              <!-- Passo 2 -->
+              <li class="vf-process-card" data-step="2">
+                <div class="top">
+                  <span class="step-num">02</span>
+                  <p class="title">Diagnosticamos</p>
+                </div>
+                <div>
+                  <span class="tag-pill">Etapa 2 · Raio-X</span>
+                  <p class="description">Identificamos comportamentos, atitudes, gargalos de comunicação e pontos de desenvolvimento prioritários para focar no que gera retorno.</p>
+                </div>
+              </li>
+
+              <!-- Passo 3 -->
+              <li class="vf-process-card" data-step="3">
+                <div class="top">
+                  <span class="step-num">03</span>
+                  <p class="title">Desenhamos</p>
+                </div>
+                <div>
+                  <span class="tag-pill">Etapa 3 · Customização</span>
+                  <p class="description">Definimos objetivos claros, formato ideal (palestra, workshop ou treinamento), duração e dinâmicas sob medida para a sua equipe.</p>
+                </div>
+              </li>
+
+              <!-- Passo 4 -->
+              <li class="vf-process-card" data-step="4">
+                <div class="top">
+                  <span class="step-num">04</span>
+                  <p class="title">Desenvolvemos</p>
+                </div>
+                <div>
+                  <span class="tag-pill">Etapa 4 · Energia</span>
+                  <p class="description">Realizamos o treinamento ou palestra com alta energia, dinâmicas leves e conteúdo imersivo que conecta emocionalmente com os participantes.</p>
+                </div>
+              </li>
+
+              <!-- Passo 5 -->
+              <li class="vf-process-card" data-step="5">
+                <div class="top">
+                  <span class="step-num">05</span>
+                  <p class="title">Aplicamos</p>
+                </div>
+                <div>
+                  <span class="tag-pill">Etapa 5 · Prática</span>
+                  <p class="description">Transformamos conhecimento em prática real, com exercícios, scripts, simulações e ferramentas que o time já utiliza na semana seguinte.</p>
+                </div>
+              </li>
+
+              <!-- Passo 6 -->
+              <li class="vf-process-card" data-step="6">
+                <div class="top">
+                  <span class="step-num">06</span>
+                  <p class="title">Evoluímos</p>
+                </div>
+                <div>
+                  <span class="tag-pill">Etapa 6 · Sustentação</span>
+                  <p class="description">Acompanhamos métricas de evolução, feedback dos gestores e desenhamos os próximos passos para que o aprendizado se torne cultura perene.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         04. NOVO COMPONENTE: PAINEL ESCULPIDO DE IMPACTO (.eAjFkZ-inspired)
+         ========================================================================== -->
+    <section class="ds-section ds-section--navy" id="impacto">
+      <div class="ds-container">
+        <div class="ds-frame">
+          <div class="ds-frame__bar">
+            <b>.vf-impact-panel</b>
+            <span class="ds-code">border-radius: 6.5rem 6.5rem 0 0 · gradiente 1.86° · grid 4 colunas + selos grid 3</span>
+          </div>
+          <div class="ds-frame__content" style="padding: 0;">
+            <div class="vf-impact-panel">
+              <div class="vf-impact-panel__header">
+                <span class="ds-eyebrow">Autoridade Comprovada</span>
+                <h2 class="vf-impact-panel__title">O impacto da metodologia <strong>Vitor Ferreira</strong>:</h2>
+                <p class="ds-lead" style="margin: 0 auto;">Transformação prática de equipes comerciais com aplicação imediata e sustentação de resultados.</p>
+              </div>
+
+              <div class="vf-impact-stats-grid">
+                <div class="vf-impact-stat-item">
+                  <div class="vf-impact-stat-num"><strong>+30</strong> ANOS</div>
+                  <div class="vf-impact-stat-label">Experiência Comercial</div>
+                  <p class="vf-impact-stat-desc">Mais de três décadas vivendo de vendas e liderando equipes no campo de batalha.</p>
+                </div>
+
+                <div class="vf-impact-stat-item">
+                  <div class="vf-impact-stat-num"><strong>+3.000</strong></div>
+                  <div class="vf-impact-stat-label">Profissionais Treinados</div>
+                  <p class="vf-impact-stat-desc">Vendedores, gestores e empreendedores que mudaram comportamentos e bateram metas.</p>
+                </div>
+
+                <div class="vf-impact-stat-item">
+                  <div class="vf-impact-stat-num"><strong>98.4%</strong></div>
+                  <div class="vf-impact-stat-label">Índice de Aprovação</div>
+                  <p class="vf-impact-stat-desc">Avaliação média superior em palestras corporativas e convenções de vendas.</p>
+                </div>
+
+                <div class="vf-impact-stat-item">
+                  <div class="vf-impact-stat-num"><strong>100%</strong></div>
+                  <div class="vf-impact-stat-label">Prático e Aplicável</div>
+                  <p class="vf-impact-stat-desc">Sem enrolação teórica: ferramentas prontas para utilização na segunda-feira.</p>
+                </div>
+              </div>
+
+              <!-- Selos de Reconhecimento -->
+              <div class="vf-seals-grid">
+                <div class="vf-seal-card">
+                  <div class="vf-seal-icon">★</div>
+                  <h4 class="vf-seal-title">Palestrante Homologado</h4>
+                  <p class="vf-seal-desc">Reconhecido por eventos corporativos e convenções pela capacidade de engajar e energizar equipes.</p>
+                </div>
+
+                <div class="vf-seal-card">
+                  <div class="vf-seal-icon">🎯</div>
+                  <h4 class="vf-seal-title">Metodologia Validada</h4>
+                  <p class="vf-seal-desc">Tríade exclusiva: Conhecimento → Comportamento → Resultado. Não é evento, é solução de negócio.</p>
+                </div>
+
+                <div class="vf-seal-card">
+                  <div class="vf-seal-icon">🤝</div>
+                  <h4 class="vf-seal-title">Formato Sob Medida</h4>
+                  <p class="vf-seal-desc">Sem treinamentos de prateleira: diagnóstico prévio de necessidades para cada empresa e público.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         05. NOVO COMPONENTE: LOGO MARQUEE CONTÍNUO (.epSyjt-inspired)
+         ========================================================================== -->
+    <section class="vf-marquee-section" aria-label="Marcas e Parceiros">
+      <div class="ds-container" style="margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+        <span class="ds-eyebrow" style="margin-bottom: 0;">Presença Comercial & Parcerias</span>
+        <button class="ds-pill" id="btn-toggle-marquee" style="cursor: pointer; background: transparent;">Pausar Marquee</button>
+      </div>
+      <div class="vf-marquee-track" id="marquee-track">
+        <!-- Loop 1 -->
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> CONVENÇÕES NACIONAIS</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg> REDES VAREJISTAS</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> DISTRIBUIDORAS B2B</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/></svg> INDÚSTRIAS & FRANQUIAS</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/></svg> EQUIPES DE ALTA PERFORMANCE</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg> GESTORES & EMPREENDEDORES</div>
+
+        <!-- Loop 2 (Duplicado para loop sem emenda) -->
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> CONVENÇÕES NACIONAIS</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg> REDES VAREJISTAS</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> DISTRIBUIDORAS B2B</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/></svg> INDÚSTRIAS & FRANQUIAS</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/></svg> EQUIPES DE ALTA PERFORMANCE</div>
+        <div class="vf-marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg> GESTORES & EMPREENDEDORES</div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         06. CORES & SUPERFÍCIES COM GRADIENTES E VIDRO (Estilo Conquer)
+         ========================================================================== -->
+    <section class="ds-section" id="cores">
+      <div class="ds-container">
+        <div class="ds-section-head">
+          <span class="ds-eyebrow">02 · Cores & Superfícies</span>
+          <h2 class="ds-title"><strong>Laranja vibrante, navy profundo</strong> e vidro fosco</h2>
+          <p class="ds-lead">Amostras de tokens semânticos, gradientes e vidros com clique único para copiar o valor CSS. Acento quente e iluminação direcional para destacar ações de conversão.</p>
+        </div>
+
+        <h3 class="ds-sub">Primitivos de Marca — Laranja Oficial Vitor Ferreira</h3>
+        <p class="ds-sub__meta">Variações tonais de <code class="ds-code">--color-orange-50</code> a <code class="ds-code">--color-orange-900</code>. O <code class="ds-code">--color-orange-500</code> é a cor canônica primária da marca.</p>
+
+        <div class="ds-grid-4" style="margin-bottom: var(--space-8);">
+          <div class="ds-card" style="padding: 0; cursor: pointer;" data-copy="var(--color-orange-500)">
+            <div style="height: 90px; background: var(--color-orange-500); display: flex; align-items: flex-end; padding: var(--space-3);">
+              <span class="ds-pill" style="background: rgba(0,0,0,0.6); color: #FFF; border: none;">Copiar</span>
+            </div>
+            <div style="padding: var(--space-4);">
+              <div style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: var(--color-orange-400);">--color-orange-500 ★</div>
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ds-text-muted);">#FD562A · rgb(253,86,42)</div>
+              <div style="font-size: 0.75rem; color: var(--color-orange-300); margin-top: 4px;">Ação Primária / Marca Oficial</div>
+            </div>
+          </div>
+
+          <div class="ds-card" style="padding: 0; cursor: pointer;" data-copy="var(--color-orange-400)">
+            <div style="height: 90px; background: var(--color-orange-400); display: flex; align-items: flex-end; padding: var(--space-3);">
+              <span class="ds-pill" style="background: rgba(0,0,0,0.6); color: #FFF; border: none;">Copiar</span>
+            </div>
+            <div style="padding: var(--space-4);">
+              <div style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: #FFF;">--color-orange-400</div>
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ds-text-muted);">#FF7552 · rgb(255,117,82)</div>
+              <div style="font-size: 0.75rem; color: var(--ds-text-muted); margin-top: 4px;">Acentos Luminosos / Destaques</div>
+            </div>
+          </div>
+
+          <div class="ds-card" style="padding: 0; cursor: pointer;" data-copy="var(--color-orange-700)">
+            <div style="height: 90px; background: var(--color-orange-700); display: flex; align-items: flex-end; padding: var(--space-3);">
+              <span class="ds-pill" style="background: rgba(0,0,0,0.6); color: #FFF; border: none;">Copiar</span>
+            </div>
+            <div style="padding: var(--space-4);">
+              <div style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: #FFF;">--color-orange-700</div>
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ds-text-muted);">#BF2902 · rgb(191,41,2)</div>
+              <div style="font-size: 0.75rem; color: var(--ds-text-muted); margin-top: 4px;">Hover de Botões Principais</div>
+            </div>
+          </div>
+
+          <div class="ds-card" style="padding: 0; cursor: pointer;" data-copy="var(--color-orange-100)">
+            <div style="height: 90px; background: var(--color-orange-100); display: flex; align-items: flex-end; padding: var(--space-3);">
+              <span class="ds-pill" style="background: rgba(0,0,0,0.6); color: #FFF; border: none;">Copiar</span>
+            </div>
+            <div style="padding: var(--space-4);">
+              <div style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: #FFF;">--color-orange-100</div>
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ds-text-muted);">#FFE6DF · rgb(255,230,223)</div>
+              <div style="font-size: 0.75rem; color: var(--ds-text-muted); margin-top: 4px;">Bordas Sutis & Tags Suaves</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="ds-sub">Superfícies, Gradientes e Vidro Fosco</h3>
+        <p class="ds-sub__meta">Os 4 tratamentos de textura de fundo que conferem profundidade cinematográfica e sofisticação à marca.</p>
+
+        <div class="ds-grid-4">
+          <!-- Glass Pill Header -->
+          <div class="ds-card" style="padding: 0; cursor: pointer;" data-copy="var(--grad-dark-pill)">
+            <div style="height: 110px; background: var(--grad-dark-pill); backdrop-filter: blur(14px); border-bottom: 1px solid var(--ds-border); display: flex; align-items: center; justify-content: center; padding: 1rem;">
+              <span style="font-family: var(--font-heading); font-size: 0.8125rem; font-weight: 600; color: #FFF;">Header Pill Glass</span>
+            </div>
+            <div style="padding: var(--space-4);">
+              <span class="ds-pill" style="margin-bottom: 4px;">Gradiente 270°</span>
+              <p style="font-size: 0.75rem; color: var(--ds-text-muted);">270deg, #060412 0%, #161341 100% com blur(14px)</p>
+            </div>
+          </div>
+
+          <!-- Process Card Gradient -->
+          <div class="ds-card" style="padding: 0; cursor: pointer;" data-copy="var(--grad-process-card)">
+            <div style="height: 110px; background: var(--grad-process-card); border: 1px solid rgba(255, 226, 179, 0.4); border-bottom: none; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+              <span style="font-family: var(--font-heading); font-size: 0.8125rem; font-weight: 600; color: #FFF;">Process Card Gradient</span>
+            </div>
+            <div style="padding: var(--space-4);">
+              <span class="ds-pill" style="margin-bottom: 4px;">Gradiente 180°</span>
+              <p style="font-size: 0.75rem; color: var(--ds-text-muted);">Cards sobrepostos com borda dourada/laranja</p>
+            </div>
+          </div>
+
+          <!-- Impact Panel Gradient -->
+          <div class="ds-card" style="padding: 0; cursor: pointer;" data-copy="var(--grad-impact-panel)">
+            <div style="height: 110px; background: var(--grad-impact-panel); border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+              <span style="font-family: var(--font-heading); font-size: 0.8125rem; font-weight: 600; color: #FFF;">Impact Panel Curve</span>
+            </div>
+            <div style="padding: var(--space-4);">
+              <span class="ds-pill" style="margin-bottom: 4px;">Gradiente 1.86°</span>
+              <p style="font-size: 0.75rem; color: var(--ds-text-muted);">Base dos números de impacto e selos corporativos</p>
+            </div>
+          </div>
+
+          <!-- Frosted Glass Card -->
+          <div class="ds-card" style="padding: 0; cursor: pointer;" data-copy="var(--surface-glass-dark)">
+            <div style="height: 110px; background: rgba(14, 11, 37, 0.75); backdrop-filter: blur(28px); border: 1px solid rgba(253, 86, 42, 0.35); display: flex; align-items: center; justify-content: center; padding: 1rem;">
+              <span style="font-family: var(--font-heading); font-size: 0.8125rem; font-weight: 600; color: #FFF;">Frosted Glass Card</span>
+            </div>
+            <div style="padding: var(--space-4);">
+              <span class="ds-pill" style="margin-bottom: 4px;">Glassmorphism Blur 28px</span>
+              <p style="font-size: 0.75rem; color: var(--ds-text-muted);">Cartão flutuante para formulário e conversão direta</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         07. TIPOGRAFIA COM MEDIÇÃO CALCULADA EM TEMPO REAL
+         ========================================================================== -->
+    <section class="ds-section ds-section--navy" id="tipografia">
+      <div class="ds-container">
+        <div class="ds-section-head">
+          <span class="ds-eyebrow">03 · Tipografia Oficial</span>
+          <h2 class="ds-title"><strong>Hierarquia, escala e ritmo</strong> de autoridade</h2>
+          <p class="ds-lead">Dupla oficial: <strong>Poppins</strong> (pesos 600 e 700 para Display, Títulos e CTAs) e <strong>Open Sans</strong> (pesos 400 e 600 para leitura confortável e formulários). Os tamanhos e entrelinhas à direita são calculados dinamicamente pelo navegador em tempo real.</p>
+        </div>
+
+        <div class="ds-frame">
+          <div class="ds-frame__bar">
+            <b>Métricas Calculadas em Tempo Real</b>
+            <span class="ds-code">window.getComputedStyle() · atualizado em tempo real no resize</span>
+          </div>
+          <div class="ds-frame__content" style="padding: 0;">
+            <table class="ds-matrix-table" id="type-spec-table" style="margin-bottom: 0;">
+              <thead>
+                <tr>
+                  <th style="width: 180px; text-align: left;">Token / Nível</th>
+                  <th style="text-align: left;">Amostra Visual Real</th>
+                  <th style="width: 180px; text-align: right;">Métrica Computada</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ds-matrix-label-cell">
+                    --text-display
+                    <small>Poppins 700 Bold</small>
+                  </td>
+                  <td style="text-align: left;">
+                    <div style="font-family: var(--font-heading); font-size: var(--text-display); font-weight: 700; line-height: var(--leading-tight);" data-measure-target>
+                      Desenvolva Pessoas. Gere Resultados.
+                    </div>
+                  </td>
+                  <td style="text-align: right; font-family: var(--font-mono); font-size: 0.75rem;" data-metric-output></td>
+                </tr>
+
+                <tr>
+                  <td class="ds-matrix-label-cell">
+                    --text-h1
+                    <small>Poppins 700 Bold</small>
+                  </td>
+                  <td style="text-align: left;">
+                    <h2 style="font-family: var(--font-heading); font-size: var(--text-h1); font-weight: 700; line-height: var(--leading-tight);" data-measure-target>
+                      Como Funciona a Jornada Vitor Ferreira
+                    </h2>
+                  </td>
+                  <td style="text-align: right; font-family: var(--font-mono); font-size: 0.75rem;" data-metric-output></td>
+                </tr>
+
+                <tr>
+                  <td class="ds-matrix-label-cell">
+                    --text-h2
+                    <small>Poppins 700 Bold</small>
+                  </td>
+                  <td style="text-align: left;">
+                    <h3 style="font-family: var(--font-heading); font-size: var(--text-h2); font-weight: 700; line-height: var(--leading-snug);" data-measure-target>
+                      O que está travando o resultado do seu time?
+                    </h3>
+                  </td>
+                  <td style="text-align: right; font-family: var(--font-mono); font-size: 0.75rem;" data-metric-output></td>
+                </tr>
+
+                <tr>
+                  <td class="ds-matrix-label-cell">
+                    --text-h3
+                    <small>Poppins 600 SemiBold</small>
+                  </td>
+                  <td style="text-align: left;">
+                    <h4 style="font-family: var(--font-heading); font-size: var(--text-h3); font-weight: 600; line-height: var(--leading-snug); color: var(--color-orange-400);" data-measure-target>
+                      WORKSHOP PRÁTICO & TREINAMENTO DE EQUIPES
+                    </h4>
+                  </td>
+                  <td style="text-align: right; font-family: var(--font-mono); font-size: 0.75rem;" data-metric-output></td>
+                </tr>
+
+                <tr>
+                  <td class="ds-matrix-label-cell">
+                    --text-lead
+                    <small>Open Sans 400 Regular</small>
+                  </td>
+                  <td style="text-align: left;">
+                    <p style="font-family: var(--font-body); font-size: var(--text-lead); font-weight: 400; line-height: var(--leading-normal); color: var(--color-text-secondary);" data-measure-target>
+                      Mais de 30 anos de vendas, negócios e desenvolvimento de pessoas transformados em experiências práticas de aprendizagem.
+                    </p>
+                  </td>
+                  <td style="text-align: right; font-family: var(--font-mono); font-size: 0.75rem;" data-metric-output></td>
+                </tr>
+
+                <tr>
+                  <td class="ds-matrix-label-cell">
+                    --text-body
+                    <small>Open Sans 400 Regular</small>
+                  </td>
+                  <td style="text-align: left;">
+                    <p style="font-family: var(--font-body); font-size: var(--text-body); font-weight: 400; line-height: var(--leading-normal); color: var(--ds-text-muted);" data-measure-target>
+                      Toda empresa é feita de pessoas. Quem quer evoluir precisa desenvolver comportamento, atitude e capacidade de pôr em prática o que aprendeu.
+                    </p>
+                  </td>
+                  <td style="text-align: right; font-family: var(--font-mono); font-size: 0.75rem;" data-metric-output></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         08. MATRIZ COMPLETA DE BOTÕES E ESTADOS FORÇADOS (Estilo Conquer)
+         ========================================================================== -->
+    <section class="ds-section" id="botoes">
+      <div class="ds-container">
+        <div class="ds-section-head">
+          <span class="ds-eyebrow">04 · Componente Botão</span>
+          <h2 class="ds-title">Matriz Completa de <strong>Variantes e Estados</strong></h2>
+          <p class="ds-lead">Pílulas de conversão (<code class="ds-code">border-radius: 9999px</code>) com transições suaves de 300ms. Passe o mouse nos botões da coluna Default para ver o comportamento real.</p>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="ds-matrix-table">
+            <thead>
+              <tr>
+                <th>Botão</th>
+                <th>Default</th>
+                <th>Hover Forçado</th>
+                <th>Focus Visible</th>
+                <th>Active Forçado</th>
+                <th>Disabled</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ds-matrix-label-cell">
+                  CTA Primário (Marca)
+                  <small>.btn--primary</small>
+                </td>
+                <td><button class="btn btn--md btn--primary" type="button">Quero Conversar</button></td>
+                <td><button class="btn btn--md btn--primary is-hover" type="button">Quero Conversar</button></td>
+                <td><button class="btn btn--md btn--primary is-focus" type="button">Quero Conversar</button></td>
+                <td><button class="btn btn--md btn--primary is-active" type="button">Quero Conversar</button></td>
+                <td><button class="btn btn--md btn--primary" disabled type="button">Quero Conversar</button></td>
+              </tr>
+
+              <tr>
+                <td class="ds-matrix-label-cell">
+                  Secondary Dark
+                  <small>.btn--secondary</small>
+                </td>
+                <td><button class="btn btn--md btn--secondary" type="button">Ver Formatos</button></td>
+                <td><button class="btn btn--md btn--secondary is-hover" type="button">Ver Formatos</button></td>
+                <td><button class="btn btn--md btn--secondary is-focus" type="button">Ver Formatos</button></td>
+                <td><button class="btn btn--md btn--secondary is-active" type="button">Ver Formatos</button></td>
+                <td><button class="btn btn--md btn--secondary" disabled type="button">Ver Formatos</button></td>
+              </tr>
+
+              <tr>
+                <td class="ds-matrix-label-cell">
+                  Outline / Fantasma
+                  <small>.btn--outline</small>
+                </td>
+                <td><button class="btn btn--md btn--outline" type="button">Conhecer Mentorias</button></td>
+                <td><button class="btn btn--md btn--outline is-hover" type="button">Conhecer Mentorias</button></td>
+                <td><button class="btn btn--md btn--outline is-focus" type="button">Conhecer Mentorias</button></td>
+                <td><button class="btn btn--md btn--outline is-active" type="button">Conhecer Mentorias</button></td>
+                <td><button class="btn btn--md btn--outline" disabled type="button">Conhecer Mentorias</button></td>
+              </tr>
+
+              <tr>
+                <td class="ds-matrix-label-cell">
+                  WhatsApp Direct
+                  <small>.btn--whatsapp</small>
+                </td>
+                <td><button class="btn btn--md btn--whatsapp" type="button">Falar no WhatsApp</button></td>
+                <td><button class="btn btn--md btn--whatsapp is-hover" type="button">Falar no WhatsApp</button></td>
+                <td><button class="btn btn--md btn--whatsapp is-focus" type="button">Falar no WhatsApp</button></td>
+                <td><button class="btn btn--md btn--whatsapp is-active" type="button">Falar no WhatsApp</button></td>
+                <td><button class="btn btn--md btn--whatsapp" disabled type="button">Falar no WhatsApp</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         09. FORMATOS DE EXPERIÊNCIA & FORMULÁRIO EM VIDRO
+         ========================================================================== -->
+    <section class="ds-section ds-section--navy" id="componentes">
+      <div class="ds-container">
+        <div class="ds-section-head">
+          <span class="ds-eyebrow">05 · Formatos & Conversão</span>
+          <h2 class="ds-title">Formatos de <strong>Experiência e Formulário em Vidro</strong></h2>
+          <p class="ds-lead">Cartões de serviço com iluminação dourada e formulário em vidro fosco com validação reativa e feedback instantâneo.</p>
+        </div>
+
+        <div class="ds-grid-2" style="align-items: start; margin-bottom: var(--space-12);">
+          <!-- Card de Formato Customizado (Inspirado no .eMlFsy) -->
+          <div class="vf-format-card">
+            <span class="vf-format-card__badge">Destaque de Solução</span>
+            <h3 class="vf-format-card__title">Treinamentos <strong>Personalizados</strong></h3>
+            <ul class="vf-format-card__list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Desenhados sob medida para os desafios reais da sua equipe comercial.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Diagnóstico comportamental prévio com liderança e gestores.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Dinâmicas práticas, scripts de vendas e exercícios do campo real.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Sustentação pós-evento para garantir que o aprendizado vire rotina.</span>
+              </li>
+            </ul>
+            <a class="btn btn--md btn--primary w-100" href="#contact">Solicitar Proposta Sob Medida</a>
+          </div>
+
+          <!-- Formulário em Vidro (Inspirado no .TYfxn) -->
+          <div class="vf-glass-card" id="form-interactive-specimen">
+            <h3 class="vf-glass-title">Vamos conversar?</h3>
+            <p class="vf-glass-subtitle">Cada projeto começa com uma conversa. Sem compromisso.</p>
+
+            <form id="vf-demo-glass-form" novalidate>
+              <div class="vf-form-field" id="field-nome">
+                <input class="vf-form-input" type="text" id="glass-nome" placeholder="Seu nome completo*" required>
+                <svg class="vf-field-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div class="vf-field-error-msg">Por favor, informe seu nome.</div>
+              </div>
+
+              <div class="vf-form-field" id="field-email">
+                <input class="vf-form-input" type="email" id="glass-email" placeholder="Seu e-mail corporativo*" required>
+                <svg class="vf-field-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div class="vf-field-error-msg">Informe um e-mail válido.</div>
+              </div>
+
+              <div class="vf-form-field" id="field-phone">
+                <input class="vf-form-input" type="tel" id="glass-phone" placeholder="WhatsApp / Telefone com DDD*">
+                <svg class="vf-field-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+
+              <button class="btn btn--lg btn--primary w-100" type="submit" style="margin-top: var(--space-2);">
+                <span>Enviar Solicitação de Contato</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Accordion FAQ com Dimming de Foco (Inspirado no .itYuIB) -->
+        <h3 class="ds-sub">Dúvidas Frequentes · Accordion com Efeito Dimming</h3>
+        <p class="ds-sub__meta">Ao interagir com o grupo, itens inativos diminuem a opacidade para manter o leitor concentrado na resposta aberta.</p>
+
+        <div class="vf-accordion-group" id="accordion-group-demo">
+          <div class="vf-accordion-item is-open">
+            <button class="vf-accordion-trigger" type="button" aria-expanded="true">
+              <span>Como funciona a contratação de uma palestra ou treinamento?</span>
+              <svg class="vf-accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="vf-accordion-body">
+              Iniciamos com uma conversa de diagnóstico sem compromisso para entender o momento da empresa, o perfil da equipe e os objetivos comerciais. A partir disso, formatamos a experiência ideal (palestra, workshop ou treinamento sob medida).
+            </div>
+          </div>
+
+          <div class="vf-accordion-item">
+            <button class="vf-accordion-trigger" type="button" aria-expanded="false">
+              <span>Os treinamentos podem ser realizados online ou presencialmente?</span>
+              <svg class="vf-accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="vf-accordion-body">
+              Sim! Vitor Ferreira atende presencialmente em todo o Brasil (em convenções de vendas, encontros corporativos ou na sede da sua empresa) e também em formatos digitais altamente interativos com dinâmicas em tempo real.
+            </div>
+          </div>
+
+          <div class="vf-accordion-item">
+            <button class="vf-accordion-trigger" type="button" aria-expanded="false">
+              <span>Qual é a diferença entre uma palestra e um treinamento?</span>
+              <svg class="vf-accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="vf-accordion-body">
+              A palestra tem foco em provocar, energizar e movimentar a equipe em eventos e convenções. Já o treinamento aprofunda competências técnicas e comportamentais com exercícios, simulações e ferramentas que os vendedores aplicam na prática.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. MOTION SANDBOX & MICROINTERAÇÕES (Inspirado no Motion Gallery)
+         ========================================================================== -->
+    <section class="ds-section" id="movimento">
+      <div class="ds-container">
+        <div class="ds-section-head">
+          <span class="ds-eyebrow">06 · Motion & Interação</span>
+          <h2 class="ds-title">Motion Gallery & <strong>Playground Interativo</strong></h2>
+          <p class="ds-lead">Cada bloco executa uma animação de assinatura do design system. Passe o mouse ou clique onde indicado para testar a resposta táctil.</p>
+        </div>
+
+        <div class="ds-grid-3">
+          <!-- 1. Botão Hover Shimmer / Fill -->
+          <div class="ds-motion-tile">
+            <span class="ds-motion-tile__label">Hover de Botão (Brand → Transparente)</span>
+            <div class="ds-motion-tile__preview">
+              <button class="btn btn--md btn--primary" id="btn-motion-demo">Passe o Mouse</button>
+            </div>
+            <div class="ds-motion-tile__meta">Laranja preenchido → contorno branco luminoso · 300ms ease</div>
+          </div>
+
+          <!-- 2. Seta Hambúrguer para X -->
+          <div class="ds-motion-tile">
+            <span class="ds-motion-tile__label">Hambúrguer → "X" (Clique)</span>
+            <div class="ds-motion-tile__preview">
+              <button class="vf-burger" id="motion-burger-demo">
+                <span></span><span></span><span></span>
+              </button>
+            </div>
+            <div class="ds-motion-tile__meta">Barras giram ±45° e central desaparece · transition 300ms bounce</div>
+          </div>
+
+          <!-- 3. Botão Play Vídeo Pulse -->
+          <div class="ds-motion-tile">
+            <span class="ds-motion-tile__label">Botão Play Lightbox</span>
+            <div class="ds-motion-tile__preview">
+              <div class="vf-play-btn" id="btn-play-demo" title="Testar Lightbox de Vídeo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+            </div>
+            <div class="ds-motion-tile__meta">Escala 1.15x no hover + halo luminoso laranja radial</div>
+          </div>
+
+          <!-- 4. Seta Dropdown 180° -->
+          <div class="ds-motion-tile">
+            <span class="ds-motion-tile__label">Rotação de Chevron (Clique)</span>
+            <div class="ds-motion-tile__preview">
+              <button class="btn btn--sm btn--secondary" id="btn-rotate-chevron" style="gap: 8px;">
+                <span>Treinamentos</span>
+                <svg id="chevron-demo-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition: transform 0.3s ease;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+            </div>
+            <div class="ds-motion-tile__meta">Giro suave de 180° e acento de cor · transform 300ms</div>
+          </div>
+
+          <!-- 5. Card Overlap Expansion -->
+          <div class="ds-motion-tile">
+            <span class="ds-motion-tile__label">Card Overlap Expand</span>
+            <div class="ds-motion-tile__preview">
+              <div class="vf-process-card active" style="min-height: auto; width: 14rem; padding: 1rem;">
+                <div class="top"><span class="step-num">01</span><p class="title" style="font-size: 1.1rem;">Expande</p></div>
+                <p class="description" style="display:block; font-size:0.75rem; margin-top:0.5rem;">Revela conteúdo e ajusta z-index.</p>
+              </div>
+            </div>
+            <div class="ds-motion-tile__meta">Largura 12.5rem → 17rem + borda acesa · all 300ms ease</div>
+          </div>
+
+          <!-- 6. Toast Notification Trigger -->
+          <div class="ds-motion-tile">
+            <span class="ds-motion-tile__label">Disparo de Toast Notification</span>
+            <div class="ds-motion-tile__preview">
+              <button class="btn btn--sm btn--outline" id="btn-fire-toast">Disparar Notificação</button>
+            </div>
+            <div class="ds-motion-tile__meta">Entrada com bounce a partir do rodapé + auto-dismiss 2.6s</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. BLUEPRINTS CANÔNICOS & VIEWPORT SWITCHER
+         ========================================================================== -->
+    <section class="ds-section ds-section--dark" id="blueprints">
+      <div class="ds-container">
+        <div class="ds-section-head">
+          <span class="ds-eyebrow">07 · Estrutura de Seção</span>
+          <h2 class="ds-title">Blueprints <strong>Canônicos Responsivos</strong></h2>
+          <p class="ds-lead">Demonstração das seções do site institucional prontas para desktop, tablet e mobile com o seletor de tela abaixo.</p>
+        </div>
+
+        <div class="ds-device-bar">
+          <button class="ds-device-btn is-active" data-view="100%">Desktop (1260px)</button>
+          <button class="ds-device-btn" data-view="768px">Tablet (768px)</button>
+          <button class="ds-device-btn" data-view="390px">Mobile (390px)</button>
+        </div>
+
+        <div class="ds-preview-container" id="blueprint-preview-frame">
+          <div class="ds-frame">
+            <div class="ds-frame__bar">
+              <b>Blueprint · Split Bio & Autoridade</b>
+              <span class="ds-code">grid 2 col · avatar 360px · bio text · CTA direto</span>
+            </div>
+            <div class="ds-frame__content">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-8); align-items: center;">
+                <div>
+                  <img src="images/img-vitor-2.jpg" alt="Vitor Ferreira" style="border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.15); width: 100%; max-width: 360px; box-shadow: var(--shadow-lg);">
+                </div>
+                <div>
+                  <span class="ds-eyebrow">Sobre Vitor Ferreira</span>
+                  <h3 style="font-family: var(--font-heading); font-size: 2.0rem; font-weight: 700; color: #FFFFFF; margin-bottom: var(--space-4);">30+ anos vivendo de vendas</h3>
+                  <p style="color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
+                    Eu vivo de vendas há mais de três décadas e sou totalmente apaixonado pelo desenvolvimento de pessoas. Minha missão é ajudar o empreendedor e gestor comercial a vender mais, melhor e para sempre com metodologia prática.
+                  </p>
+                  <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+                    <a class="btn btn--md btn--primary" href="#contact">Quero Conversar</a>
+                    <a class="btn btn--md btn--outline" href="#processo">Conhecer o Método</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       LIGHTBOX MODAL GLOBAL (YouTube Embed)
+       ========================================================================== -->
+  <div class="ds-modal-backdrop" id="ds-modal" role="dialog" aria-modal="true" aria-label="Player de Vídeo">
+    <div class="ds-modal-box">
+      <button class="ds-modal-close" id="ds-modal-close" type="button" aria-label="Fechar Modal">&times;</button>
+      <div class="ds-modal-video-frame">
+        <iframe id="ds-modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING WHATSAPP WIDGET CANÔNICO
+       ========================================================================== -->
+  <div class="whatsapp-widget-container" id="whatsapp-widget">
+    <div class="whatsapp-widget-bubble" id="whatsapp-bubble">
+      <div class="whatsapp-bubble-header">
+        <h5>Atendimento Vitor Ferreira</h5>
+        <button class="whatsapp-bubble-close" id="whatsapp-bubble-close" type="button" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="whatsapp-bubble-body">
+        <p style="font-size: 0.8125rem; color: #A7A3C5; margin-bottom: var(--space-3);">Olá! Como podemos apoiar a sua equipe comercial hoje?</p>
+        <a class="whatsapp-person-card" href="https://wa.me/5521990587160?text=Ol%C3%A1%2C%20Vitor%20Ferreira%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20seus%20treinamentos..." target="_blank" rel="noopener">
+          <img class="whatsapp-avatar" src="images/IMG7.png" alt="Vitor Ferreira">
+          <div class="whatsapp-person-info">
+            <h6>Vitor Ferreira</h6>
+            <span>Disponível no WhatsApp</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <button class="whatsapp-toggle-btn" id="whatsapp-toggle" type="button" aria-label="Abrir WhatsApp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+      <span>Fale Conosco</span>
+    </button>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="ds-toast-container" id="toast-container"></div>
+
+  <!-- ==========================================================================
+       DESIGN SYSTEM JAVASCRIPT & ENGINE DE INTERAÇÕES
+       ========================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. Toast Notification Engine
+      function showToast(message, icon = '✓') {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = 'ds-toast';
+        toast.innerHTML = `<span style="color: var(--color-orange-400); font-weight: 800;">${icon}</span> <span>${message}</span>`;
+        container.appendChild(toast);
+
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(-10px)';
+          toast.style.transition = 'all 0.3s ease';
+          setTimeout(() => toast.remove(), 300);
+        }, 2600);
+      }
+
+      // 2. Hambúrguer que vira X
+      const btnBurger = document.getElementById('btn-burger');
+      const navPill = document.getElementById('ds-main-nav');
+      if (btnBurger && navPill) {
+        btnBurger.addEventListener('click', () => {
+          btnBurger.classList.toggle('open');
+          navPill.classList.toggle('expanded');
+        });
+      }
+
+      // 3. Process Stack Card Interaction (Hover & Click)
+      const processCards = document.querySelectorAll('.vf-process-card');
+      processCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          processCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+        });
+        card.addEventListener('click', () => {
+          processCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+          const step = card.getAttribute('data-step');
+          showToast(`Etapa 0${step} selecionada`, '🎯');
+        });
+      });
+
+      // 4. Marquee Pause / Play Button
+      const btnMarquee = document.getElementById('btn-toggle-marquee');
+      const marqueeTrack = document.getElementById('marquee-track');
+      let isPaused = false;
+      if (btnMarquee && marqueeTrack) {
+        btnMarquee.addEventListener('click', () => {
+          isPaused = !isPaused;
+          marqueeTrack.style.animationPlayState = isPaused ? 'paused' : 'running';
+          btnMarquee.textContent = isPaused ? 'Retomar Marquee' : 'Pausar Marquee';
+          showToast(isPaused ? 'Marquee pausado' : 'Marquee em movimento', '⚡');
+        });
+      }
+
+      // 5. 1-Click Copy CSS Swatches
+      document.querySelectorAll('[data-copy]').forEach(el => {
+        el.addEventListener('click', () => {
+          const val = el.getAttribute('data-copy');
+          navigator.clipboard.writeText(val).then(() => {
+            showToast(`Copiado: ${val}`, '🎨');
+          }).catch(() => {
+            showToast(`Valor: ${val}`, '🎨');
+          });
+        });
+      });
+
+      // 6. Copy Tokens Button
+      const btnCopyTokens = document.getElementById('btn-copy-tokens');
+      if (btnCopyTokens) {
+        btnCopyTokens.addEventListener('click', () => {
+          const tokensRoot = `:root { --color-orange-500: #FD562A; --color-navy-950: #060412; --color-navy-900: #0D0A22; }`;
+          navigator.clipboard.writeText(tokensRoot).then(() => {
+            showToast('Tokens :root copiados para a área de transferência!', '📋');
+          });
+        });
+      }
+
+      // 7. Live Typography Metric Calculator
+      function updateTypeMetrics() {
+        const rows = document.querySelectorAll('#type-spec-table tbody tr');
+        rows.forEach(row => {
+          const target = row.querySelector('[data-measure-target]');
+          const output = row.querySelector('[data-metric-output]');
+          if (target && output) {
+            const style = window.getComputedStyle(target);
+            const fontSize = Math.round(parseFloat(style.fontSize)) + 'px';
+            const lineHeight = Math.round(parseFloat(style.lineHeight)) + 'px';
+            const fontWeight = style.fontWeight;
+            output.innerHTML = `<b>${fontSize}</b> / ${lineHeight}<br><small style="color:var(--ds-text-muted)">peso: ${fontWeight}</small>`;
+          }
+        });
+      }
+      window.addEventListener('resize', updateTypeMetrics);
+      window.addEventListener('DOMContentLoaded', updateTypeMetrics);
+      setTimeout(updateTypeMetrics, 300);
+
+      // 8. FAQ Accordion com Dimming
+      document.querySelectorAll('.vf-accordion-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const item = trigger.closest('.vf-accordion-item');
+          const group = trigger.closest('.vf-accordion-group');
+          const isOpen = item.classList.contains('is-open');
+
+          group.querySelectorAll('.vf-accordion-item').forEach(i => {
+            i.classList.remove('is-open');
+            const btn = i.querySelector('.vf-accordion-trigger');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isOpen) {
+            item.classList.add('is-open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // 9. Glass Form Live Validation Interaction
+      const glassForm = document.getElementById('vf-demo-glass-form');
+      const nomeInput = document.getElementById('glass-nome');
+      const emailInput = document.getElementById('glass-email');
+      const phoneInput = document.getElementById('glass-phone');
+
+      function validateInput(input, fieldId) {
+        const field = document.getElementById(fieldId);
+        if (!field) return;
+        if (input.value.trim().length > 2) {
+          field.classList.remove('is-invalid');
+          field.classList.add('is-valid');
+        } else {
+          field.classList.remove('is-valid');
+        }
+      }
+
+      if (nomeInput) {
+        nomeInput.addEventListener('input', () => validateInput(nomeInput, 'field-nome'));
+      }
+      if (emailInput) {
+        emailInput.addEventListener('input', () => {
+          const field = document.getElementById('field-email');
+          const valid = emailInput.value.includes('@') && emailInput.value.includes('.');
+          if (valid) {
+            field.classList.remove('is-invalid');
+            field.classList.add('is-valid');
+          } else {
+            field.classList.remove('is-valid');
+          }
+        });
+      }
+      if (phoneInput) {
+        phoneInput.addEventListener('input', () => validateInput(phoneInput, 'field-phone'));
+      }
+
+      if (glassForm) {
+        glassForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (!nomeInput.value.trim() || !emailInput.value.trim()) {
+            if (!nomeInput.value.trim()) document.getElementById('field-nome').classList.add('is-invalid');
+            if (!emailInput.value.trim()) document.getElementById('field-email').classList.add('is-invalid');
+            showToast('Preencha os campos obrigatórios (*)', '⚠️');
+            return;
+          }
+          showToast('Mensagem enviada com sucesso! Vitor retornará em breve.', '✉️');
+          glassForm.reset();
+          document.querySelectorAll('.vf-form-field').forEach(f => f.classList.remove('is-valid', 'is-invalid'));
+        });
+      }
+
+      // 10. Motion Sandbox Triggers
+      const btnPlayDemo = document.getElementById('btn-play-demo');
+      const modal = document.getElementById('ds-modal');
+      const modalIframe = document.getElementById('ds-modal-iframe');
+      const modalClose = document.getElementById('ds-modal-close');
+
+      if (btnPlayDemo) {
+        btnPlayDemo.addEventListener('click', () => {
+          if (modalIframe && modal) {
+            modalIframe.src = 'https://www.youtube.com/embed/VKZHtUhqjYE?autoplay=1';
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      }
+
+      function closeModal() {
+        if (modal && modalIframe) {
+          modal.classList.remove('is-open');
+          modalIframe.src = '';
+          document.body.style.overflow = '';
+        }
+      }
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // Chevron Rotation Trigger
+      const btnRotateChevron = document.getElementById('btn-rotate-chevron');
+      const chevronDemoSvg = document.getElementById('chevron-demo-svg');
+      let rotated = false;
+      if (btnRotateChevron && chevronDemoSvg) {
+        btnRotateChevron.addEventListener('click', () => {
+          rotated = !rotated;
+          chevronDemoSvg.style.transform = rotated ? 'rotate(180deg)' : 'rotate(0deg)';
+          showToast(rotated ? 'Dropdown expandido (180°)' : 'Dropdown recolhido (0°)', '📐');
+        });
+      }
+
+      // Motion Burger Demo
+      const motionBurgerDemo = document.getElementById('motion-burger-demo');
+      if (motionBurgerDemo) {
+        motionBurgerDemo.addEventListener('click', () => {
+          motionBurgerDemo.classList.toggle('open');
+          showToast(motionBurgerDemo.classList.contains('open') ? 'Hambúrguer aberto (X)' : 'Hambúrguer fechado (3 barras)', '🍔');
+        });
+      }
+
+      // Fire Toast Button
+      const btnFireToast = document.getElementById('btn-fire-toast');
+      if (btnFireToast) {
+        btnFireToast.addEventListener('click', () => {
+          showToast('Microinteração disparada com feedback auditivo-visual!', '✨');
+        });
+      }
+
+      // 11. WhatsApp Floating Drawer Toggle
+      const waToggle = document.getElementById('whatsapp-toggle');
+      const waBubble = document.getElementById('whatsapp-bubble');
+      const waClose = document.getElementById('whatsapp-bubble-close');
+      const btnHeroWa = document.getElementById('btn-hero-wa');
+
+      function toggleWhatsApp() {
+        if (waBubble) waBubble.classList.toggle('is-open');
+      }
+      if (waToggle) waToggle.addEventListener('click', toggleWhatsApp);
+      if (btnHeroWa) btnHeroWa.addEventListener('click', toggleWhatsApp);
+      if (waClose) waClose.addEventListener('click', () => waBubble.classList.remove('is-open'));
+
+      // 12. Device Switcher Preview
+      const deviceBtns = document.querySelectorAll('.ds-device-btn');
+      const previewContainer = document.getElementById('blueprint-preview-frame');
+      deviceBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          deviceBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const width = btn.getAttribute('data-view');
+          if (previewContainer) previewContainer.style.maxWidth = width;
+          showToast(`Largura ajustada para ${width}`, '📱');
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>

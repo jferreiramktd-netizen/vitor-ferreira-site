@@ -1,0 +1,472 @@
+<!-- ==========================================================================
+     MÓDULO: SEÇÃO DE CONTATO (FORMULÁRIO QUALIFICADOR WHATSAPP) & SUPORTE/DÚVIDAS
+     Design System Vitor Ferreira v3.0.0 (High Impact Living System)
+     ========================================================================== -->
+
+<style>
+  /* ---------- Estilos da Seção de Contato e Dúvidas ---------- */
+  .section-contact {
+    position: relative;
+    padding: clamp(4rem, 8vw, 7rem) var(--gutter);
+    background: radial-gradient(80% 50% at 50% 100%, rgba(253, 86, 42, 0.08) 0%, transparent 70%),
+                var(--color-navy-950);
+    overflow: hidden;
+  }
+
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 960px) {
+    .contact-container {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: start;
+      gap: 4rem;
+    }
+  }
+
+  /* Cabeçalho de Texto do Contato */
+  .contact-info__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-pill);
+    background: rgba(253, 86, 42, 0.12);
+    border: 1px solid rgba(253, 86, 42, 0.3);
+    color: var(--color-orange-400);
+    font: 600 0.75rem var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-info__title {
+    font: 700 clamp(2rem, 4vw, 3rem)/1.15 var(--font-display);
+    color: var(--color-text-primary);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-info__title span {
+    color: var(--color-brand-primary);
+  }
+
+  .contact-info__desc {
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  /* Card de Dúvida Rápida (Estilo Chatbot / Suporte) */
+  .quick-doubt-card {
+    background: rgba(13, 10, 34, 0.7);
+    border: 1px solid var(--surface-glass-border);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quick-doubt-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--grad-brand);
+  }
+
+  .quick-doubt__header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .quick-doubt__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-orange-500);
+    object-fit: cover;
+  }
+
+  .quick-doubt__meta h4 {
+    margin: 0;
+    font: 600 1rem var(--font-display);
+    color: var(--color-text-primary);
+  }
+
+  .quick-doubt__meta p {
+    margin: 0.15rem 0 0;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .quick-doubt__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.25rem;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--color-text-primary);
+    font: 600 0.875rem var(--font-display);
+    text-decoration: none;
+    transition: all 0.25s var(--ease-out);
+  }
+
+  .quick-doubt__btn:hover {
+    background: rgba(37, 211, 102, 0.15);
+    border-color: #25D366;
+    color: #25D366;
+    transform: translateY(-2px);
+  }
+
+  /* Card do Formulário em Vidro Fosco */
+  .contact-card {
+    background: var(--surface-glass-dark, rgba(13, 10, 34, 0.88));
+    border: 1px solid var(--surface-glass-border);
+    border-radius: 1.75rem;
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6),
+                0 0 20px -5px rgba(253, 86, 42, 0.15);
+  }
+
+  .form-group {
+    margin-bottom: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .form-label {
+    font: 600 0.875rem var(--font-display);
+    color: var(--color-text-secondary);
+  }
+
+  .form-label span.req {
+    color: var(--color-orange-400);
+    margin-left: 2px;
+  }
+
+  /* Chips Seletores (Para Quem É) */
+  .type-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .type-chip {
+    position: relative;
+  }
+
+  .type-chip input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .type-chip label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.9rem 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    cursor: pointer;
+    font: 600 0.8125rem var(--font-display);
+    color: var(--color-text-secondary);
+    transition: all 0.25s var(--ease-out);
+    user-select: none;
+  }
+
+  .type-chip label small {
+    font-weight: 400;
+    font-size: 0.725rem;
+    color: var(--color-text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .type-chip input[type="radio"]:checked + label {
+    background: rgba(253, 86, 42, 0.12);
+    border-color: var(--color-orange-500);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(253, 86, 42, 0.25);
+  }
+
+  .form-input, .form-select {
+    width: 100%;
+    padding: 0.85rem 1.15rem;
+    background: rgba(6, 4, 18, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.85rem;
+    color: #fff;
+    font: 400 0.95rem var(--font-body);
+    transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .form-input:focus, .form-select:focus {
+    border-color: var(--color-orange-500);
+    box-shadow: 0 0 0 3px rgba(253, 86, 42, 0.25);
+  }
+
+  .form-input::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.6;
+  }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239B97B8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  .form-select option {
+    background: #0D0A22;
+    color: #fff;
+  }
+
+  .btn-submit-wa {
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 1.1rem;
+    border: none;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(135deg, #25D366 0%, #1EBE5D 100%);
+    color: #060412;
+    font: 700 0.9375rem var(--font-display);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.45);
+    transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  }
+
+  .btn-submit-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -5px rgba(37, 211, 102, 0.6);
+  }
+
+  .btn-submit-wa:active {
+    transform: translateY(1px);
+  }
+
+  .form-privacy-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+    line-height: 1.4;
+  }
+</style>
+
+<!-- SECTION CONTATO -->
+<section class="section-contact" id="contato" aria-labelledby="contact-heading">
+  <div class="contact-container">
+
+    <!-- Lado Esquerdo: Texto de Apoio + Card de Dúvidas Rápidas -->
+    <div class="contact-info">
+      <span class="contact-info__tag">Atendimento Direto</span>
+      <h2 class="contact-info__title" id="contact-heading">
+        Vamos conversar sobre o <span>futuro da sua equipe?</span>
+      </h2>
+      <p class="contact-info__desc">
+        Preencha os campos ao lado para iniciarmos uma conversa estruturada. Cada projeto ou mentoria é desenhado sob medida para o seu cenário.
+      </p>
+
+      <!-- Card de Suporte / Dúvida Rápida (sem formulário) -->
+      <div class="quick-doubt-card">
+        <div class="quick-doubt__header">
+          <img src="assets/images/IMG7.png" alt="Vitor Ferreira" class="quick-doubt__avatar" width="48" height="48">
+          <div class="quick-doubt__meta">
+            <h4>Tem apenas uma dúvida rápida?</h4>
+            <p>Fale diretamente com o suporte do Vitor</p>
+          </div>
+        </div>
+        <p style="margin: 0; font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.5;">
+          Se você não quer preencher os detalhes agora e só precisa de uma resposta pontual sobre datas ou formatos:
+        </p>
+        <a class="quick-doubt__btn" 
+           href="https://wa.me/5521990587160?text=Ol%C3%A1%20Vitor!%20Estou%20no%20seu%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20r%C3%A1pida." 
+           target="_blank" 
+           rel="noopener"
+           aria-label="Tirar uma dúvida rápida pelo WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>Tirar uma dúvida rápida no WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Lado Direito: Formulário Qualificador -->
+    <div class="contact-card">
+      <form id="vitorContactForm" novalidate>
+        
+        <!-- Chips de Seleção de Perfil -->
+        <div class="form-group">
+          <label class="form-label">Qual é o seu objetivo?<span class="req">*</span></label>
+          <div class="type-chips">
+            <div class="type-chip">
+              <input type="radio" name="lead_type" id="type_empresa" value="Para minha Empresa" checked>
+              <label for="type_empresa">
+                <span>Para Minha Empresa</span>
+                <small>Treinamento / Palestra</small>
+              </label>
+            </div>
+            <div class="type-chip">
+              <input type="radio" name="lead_type" id="type_mentoria" value="Mentoria Individual">
+              <label for="type_mentoria">
+                <span>Para Mim</span>
+                <small>Mentoria / Carreira</small>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nome -->
+        <div class="form-group">
+          <label for="lead_name" class="form-label">Seu Nome Completo<span class="req">*</span></label>
+          <input type="text" id="lead_name" class="form-input" placeholder="Ex: Roberto Silva" required>
+        </div>
+
+        <!-- Empresa (dinâmico / adaptativo) -->
+        <div class="form-group" id="group_empresa">
+          <label for="lead_company" class="form-label">Nome da Empresa</label>
+          <input type="text" id="lead_company" class="form-input" placeholder="Ex: Grupo Alfa / Setor Comercial">
+        </div>
+
+        <!-- Desafio / Assunto Principal -->
+        <div class="form-group">
+          <label for="lead_challenge" class="form-label">Qual é a principal necessidade?<span class="req">*</span></label>
+          <select id="lead_challenge" class="form-select" required>
+            <option value="" disabled selected>Selecione um tema principal</option>
+            <option value="Aumentar vendas e fechamento">Aumentar vendas e fechamento da equipe</option>
+            <option value="Excelência e encantamento no atendimento">Melhorar atendimento ao cliente</option>
+            <option value="Liderança e desenvolvimento de pessoas">Desenvolvimento de líderes e gestores</option>
+            <option value="Comunicação assertiva e alinhamento interno">Comunicação e integração interna</option>
+            <option value="Palestra para Convenção ou Evento">Palestra para convenção / evento anual</option>
+            <option value="Mentoria individual de carreira em vendas">Mentoria individual e direcionamento</option>
+            <option value="Outro assunto">Outro objetivo específico</option>
+          </select>
+        </div>
+
+        <!-- Botão de Ação -->
+        <button type="submit" class="btn-submit-wa" id="btnSubmitWa">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>Iniciar conversa no WhatsApp</span>
+        </button>
+
+        <p class="form-privacy-note">
+          Seus dados são usados apenas para formatar o contato direto no WhatsApp oficial do Vitor Ferreira.
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCRIPT DO FORMULÁRIO QUALIFICADOR -->
+<script>
+  (function () {
+    var form = document.getElementById('vitorContactForm');
+    var companyGroup = document.getElementById('group_empresa');
+    var radioEmpresa = document.getElementById('type_empresa');
+    var radioMentoria = document.getElementById('type_mentoria');
+
+    if (!form) return;
+
+    // Alternar visibilidade/foco do campo Empresa conforme o tipo
+    function updateCompanyField() {
+      if (radioMentoria.checked) {
+        companyGroup.style.display = 'none';
+      } else {
+        companyGroup.style.display = 'flex';
+      }
+    }
+
+    if (radioEmpresa && radioMentoria) {
+      radioEmpresa.addEventListener('change', updateCompanyField);
+      radioMentoria.addEventListener('change', updateCompanyField);
+    }
+
+    // Submissão e montagem da mensagem formatada no WhatsApp
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var nameInput = document.getElementById('lead_name');
+      var companyInput = document.getElementById('lead_company');
+      var challengeSelect = document.getElementById('lead_challenge');
+      var isEmpresa = radioEmpresa ? radioEmpresa.checked : true;
+
+      var name = nameInput.value.trim();
+      var company = companyInput ? companyInput.value.trim() : '';
+      var challenge = challengeSelect.value;
+
+      if (!name) {
+        nameInput.focus();
+        nameInput.style.borderColor = '#FF7552';
+        return;
+      }
+
+      if (!challenge) {
+        challengeSelect.focus();
+        challengeSelect.style.borderColor = '#FF7552';
+        return;
+      }
+
+      var phoneVitor = '5521990587160';
+      var text = '';
+
+      if (isEmpresa) {
+        text = 'Olá Vitor!\n\n' +
+               'Meu nome é *' + name + '*' + (company ? ' (da empresa *' + company + '*)' : '') + '.\n' +
+               'Gostaria de conversar sobre *soluções e treinamentos para minha equipe*.\n\n' +
+               '🎯 *Principal necessidade:* ' + challenge + '.\n\n' +
+               'Como podemos agendar uma conversa?';
+      } else {
+        text = 'Olá Vitor!\n\n' +
+               'Meu nome é *' + name + '*.\n' +
+               'Gostaria de entender melhor como funcionam suas *mentorias individuais*.\n\n' +
+               '🎯 *Meu foco atual:* ' + challenge + '.\n\n' +
+               'Poderia me passar mais informações?';
+      }
+
+      var encodedText = encodeURIComponent(text);
+      var waUrl = 'https://wa.me/' + phoneVitor + '?text=' + encodedText;
+
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    });
+  })();
+</script>
