@@ -195,7 +195,13 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 **Subtítulo**
 > Avaliações reais de clientes e gestores no Google Meu Negócio.
 
-{{Carrossel horizontal com cards translúcidos contendo estrelas douradas, texto da avaliação, nome do cliente e selo verificado do Google.}}
+{{Implementado como 3 colunas de cards brancos que sobem em loop (a do meio desce), com máscara de degradê e pausa ao passar o mouse. No celular, 1 coluna; no tablet, 2.}}
+
+**Fonte e regras**
+- Perfil: "Vitor Ferreira Vendas | Treinamento de Vendas & Consultoria Empresarial", nota **5,0** e **50 avaliações** no Google (conferido em 07/10/2026). Link: `https://share.google/5s80Nh7OGNEa8Dl0z`.
+- Textos copiados **sem alteração** das avaliações reais. Só uma foi encurtada, e termina com `[…]`. Não há datas nos cards (elas ficam velhas) nem foto dos autores (iniciais no lugar).
+- Os números "5,0" e "50" mudam com o tempo: atualizar quando o perfil mudar.
+- 12 avaliações usadas: Melissa Alteirado, Deuza Neves, Danilo Nogueira, Maria Azevedo, Opfy - Cristian, Liriel Martins, Fábio Cápua, Davi Paes de Oliveira, Renato Dias de Oliveira, Sônia Moreira, Jose Paulino e Cirlene Martins de Figueiredo.
 
 ---
 
