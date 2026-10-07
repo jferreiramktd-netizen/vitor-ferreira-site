@@ -26,10 +26,11 @@
 **Logo:** VITOR FERREIRA (`assets/images/logo1-1.png`)
 
 **Links de Navegação:**
-- Início → `index.html#inicio`
-- Método → `index.html#metodo`
-- Soluções → `index.html#solucoes`
-- Avaliações → `index.html#avaliacoes`
+- Início → `#inicio` (topo, 1ª dobra)
+- Soluções → `#solucoes` (2ª dobra)
+- Método → `#metodo` (3ª dobra, Tríade)
+- Avaliações → `#avaliacoes` (avaliações do Google)
+- Dúvidas → `#duvidas` (FAQ)
 - **Contato:** → `contato.html`
 
 **Ícones das Redes Sociais no Header:**
@@ -244,6 +245,50 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 > Não ensino teoria de livro. Ensino o que vivi e o que vejo funcionar todos os dias nas empresas que atendo.
 
 {{**Implementado na 7ª dobra (`#sobre`) com o texto do site antigo, copiado sem alterações** (a pedido), no lugar da bio acima: eyebrow "Sobre mim", título "Vitor Ferreira", 5 parágrafos, botão "Entrar em contato" → `contato.html`, duas fotos sobrepostas (`img-vitor-1.jpg` e `img-vitor-2.jpg`), e dois quadradinhos laranja. O contador "+3.000 pessoas treinadas" foi retirado (já aparece na hero e no painel de impacto). ⚠️ O texto antigo diz "há mais de **28 anos**", e o resto do site diz "mais de 30 anos". Decidir qual vale e alinhar.}}
+
+---
+
+### 2.7.1. Dúvidas Frequentes (`#duvidas`) — penúltima dobra
+
+{{Fica entre o "Sobre mim" e o banner de fechamento, em fundo claro. Acordeão do design system: um item aberto por vez, os fechados esmaecem. As respostas também vão no código como dados estruturados `FAQPage` (SEO). São 4 perguntas estratégicas, uma para cada trava de decisão de quem contrata. Sem números nem preços.}}
+
+**Título**
+> Dúvidas **frequentes**
+
+**Subtítulo**
+> Respostas rápidas às perguntas mais comuns antes de agendar uma reunião.
+
+**1. Treinamento não vira só empolgação que passa em poucos dias? Como o que é ensinado vira prática de verdade?**  
+*(trava: "vai virar só empolgação?" (resultado e prática))*
+
+> É a dúvida mais justa, e foi para responder a ela que o método existe em três passos: conhecimento, comportamento e resultado. Conteúdo sozinho vira só informação. Por isso cada encontro junta conceitos claros com exercícios, simulações e dinâmicas feitas com situações reais do dia a dia da sua equipe, e não com exemplos de livro. O time sai com ferramentas que já pode usar na semana seguinte.
+>
+> Quando o objetivo é mudar comportamento de verdade, o treinamento deixa de ser um evento isolado. Desenhamos uma jornada com encontros sequenciais, trabalhando uma competência de cada vez, e ao final definimos juntos os próximos passos e as possibilidades de continuidade. Assim o aprendizado deixa de depender de motivação e vira rotina.
+
+**2. Palestra, workshop, treinamento, programa ou mentoria: qual formato é o ideal para mim?**  
+*(trava: "qual formato eu escolho?" (clareza da oferta))*
+
+> Depende do desafio, e é por isso que não existe pacote fechado. A palestra provoca, energiza e movimenta muita gente de uma vez, em eventos, convenções e encontros. O workshop é prático e interativo: a equipe aprende fazendo, ideal para uma competência específica ou para integrar o time. O treinamento é mais profundo, com conteúdo estruturado, exercícios e aplicação prática para equipes comerciais, de atendimento e de liderança. O programa de capacitação reúne vários encontros em uma jornada contínua. E a mentoria, individual ou em grupo, é para quem quer evoluir com direção, ferramentas e prática.
+>
+> Você não precisa escolher sozinho. Depois de entender o momento da sua empresa ou da sua carreira, recomendamos o formato, ou a combinação de formatos, que mais faz sentido para o seu objetivo.
+
+**3. O método funciona para o meu segmento e para o perfil da minha equipe? E se eu não trabalhar com vendas?**  
+*(trava: "serve para mim?" (segmento, perfil e quem não é de vendas))*
+
+> Sim. A metodologia foi construída para se adaptar, não para ser copiada. Conteúdo, exemplos e linguagem mudam conforme o contexto de cada empresa, seja um escritório contábil, uma empresa de serviços, de tecnologia, saúde, comércio ou indústria, e conforme o perfil e o tamanho do time. Os temas também vão além de vendas: atendimento de excelência, comunicação assertiva, protagonismo, liderança na prática e produtividade com uso estratégico da inteligência artificial.
+>
+> Se você não trabalha com vendas, a mentoria também é para você. Profissionais liberais, gestores, consultores e prestadores de serviço trabalham comunicação, segurança para negociar o valor do próprio trabalho, atendimento e posicionamento. E o Vitor tem diversos casos de pessoas que achavam que não sabiam vender e se descobriram excelentes vendedores.
+
+**4. Como começa o trabalho, quanto custa e o que acontece depois da primeira conversa?**  
+*(trava: "como começa e quanto custa?" (risco e próximo passo))*
+
+> Tudo começa com uma conversa, sem compromisso: uma reunião estratégica em que o Vitor entende o momento da sua empresa ou da sua carreira, o perfil da equipe e o desafio que precisa ser resolvido. Dessa conversa sai um diagnóstico e uma proposta desenhada sob medida, com objetivo, conteúdo, formato (presencial ou online), duração e dinâmica definidos para o seu caso.
+>
+> Por isso não existe tabela de preço. O investimento depende do formato, do tamanho da equipe e do que você quer transformar, e você o conhece antes de decidir qualquer coisa. Com a proposta aprovada, o trabalho acontece e, ao final, definimos os próximos passos. Para dar o primeiro passo, é só chamar o Vitor para conversar.
+
+**Fecho:** Ficou com outra dúvida? **Fale com o Vitor** ───> `contato.html`
+
+{{Confirmar com o Vitor: (1) a resposta sobre o formato de jornada com encontros sequenciais; (2) que o preço não é divulgado e vem depois da reunião estratégica; (3) a frase sobre pessoas que "se descobriram excelentes vendedores", que vem do texto do Sobre mim.}}
 
 ---
 

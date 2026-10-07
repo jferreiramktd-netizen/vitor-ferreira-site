@@ -917,10 +917,10 @@
     .footer__brand p { margin: 1rem 0 0; max-width: 18rem; font-size: .9375rem; line-height: 1.55; color: var(--color-text-muted); }
     .footer__col h3 { margin: 0 0 1rem; font: 700 1rem/1.3 var(--font-display); color: #fff; }
     .footer__col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .7rem; }
-    .footer__col a, .footer__seo { font: 400 .9375rem/1.4 var(--font-body); color: var(--color-text-secondary); transition: color .15s var(--ease-out); }
-    .footer__col a:hover, .footer__seo:hover { color: var(--color-orange-300); }
-    /* o botão SEO parece um link do rodapé, mas abre o pop-up de palavras-chave */
-    .footer__seo { padding: 0; margin: 0; background: none; border: 0; cursor: pointer; text-align: left; }
+    .footer__col a, .footer__seo, .footer__legal-btn { font: 400 .9375rem/1.4 var(--font-body); color: var(--color-text-secondary); transition: color .15s var(--ease-out); }
+    .footer__col a:hover, .footer__seo:hover, .footer__legal-btn:hover { color: var(--color-orange-300); }
+    /* os botões legais e de SEO parecem links do rodapé, mas abrem os pop-ups */
+    .footer__seo, .footer__legal-btn { padding: 0; margin: 0; background: none; border: 0; cursor: pointer; text-align: left; }
     .footer__bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
     .footer__copy { margin: 0; font-size: .875rem; line-height: 1.5; color: var(--color-text-muted); }
     .footer__social a { color: var(--color-text-muted); }
@@ -938,6 +938,158 @@
     .seo__list { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; }
     .seo__list li { padding: .4rem .9rem; font: 600 .875rem/1.3 var(--font-display); color: var(--color-orange-300); background: rgba(253, 86, 42, 0.12); border: 1px solid rgba(253, 86, 42, 0.35); border-radius: var(--radius-pill); }
     @keyframes seoIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+
+    /* ---------- Pop-ups Legais (Termos, Privacidade e Segurança) ---------- */
+    .legal-dialog {
+      width: min(92vw, 44rem);
+      max-height: 88vh;
+      padding: 0;
+      border: 1px solid rgba(253, 86, 42, 0.35);
+      border-radius: 20px;
+      background: var(--color-navy-900);
+      color: #fff;
+      box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.85), 0 0 40px rgba(253, 86, 42, 0.15);
+    }
+    .legal-dialog[open] { animation: seoIn .3s var(--ease-expo); }
+    .legal-dialog::backdrop {
+      background: rgba(6, 4, 18, 0.82);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+    .legal-dialog__box {
+      position: relative;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      max-height: 88vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-orange-500) var(--color-navy-950);
+    }
+    .legal-dialog__close {
+      position: sticky;
+      top: 0;
+      float: right;
+      z-index: 10;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-top: -0.25rem;
+      margin-right: -0.25rem;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      transition: background-color .2s var(--ease-out), transform .2s var(--ease-out);
+    }
+    .legal-dialog__close:hover {
+      background: var(--color-orange-500);
+      color: var(--color-navy-950);
+      transform: scale(1.05);
+    }
+    .legal-dialog__badge {
+      display: inline-block;
+      font: 700 0.75rem/1.2 var(--font-display);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-brand-primary);
+      margin-bottom: 0.4rem;
+    }
+    .legal-dialog__title {
+      margin: 0;
+      padding-right: 2.5rem;
+      font: 700 clamp(1.35rem, 3vw, 1.85rem)/1.2 var(--font-display);
+      color: #FFFFFF;
+    }
+    .legal-dialog__lead {
+      margin: 0.5rem 0 1.5rem;
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1rem;
+    }
+    .legal-dialog__body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--color-text-secondary);
+    }
+    .legal-dialog__body h3 {
+      margin: 0 0 0.35rem;
+      font: 600 1.05rem/1.3 var(--font-display);
+      color: #FFFFFF;
+    }
+    .legal-dialog__body p {
+      margin: 0;
+    }
+    .legal-dialog__body ul {
+      margin: 0.25rem 0 0;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .legal-dialog__body li {
+      color: var(--color-text-secondary);
+    }
+    .legal-dialog__footer {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .legal-dialog__meta {
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ---------- Dúvidas frequentes: acordeão do design system, em fundo claro ---------- */
+    .faq {
+      position: relative; z-index: 1; margin-bottom: -1px; padding: clamp(3rem, 6vw, 5.5rem) var(--gutter) 1.5rem;
+      scroll-margin-top: 4.5rem; background: #F6F8FC; color: var(--color-navy-950);
+    }
+    .faq__inner { max-width: 52rem; margin-inline: auto; }
+    .faq__head { text-align: center; margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem); }
+    .faq__title { margin: 0; font: 300 clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem)/1.15 var(--font-display); letter-spacing: -.02em; }
+    .faq__title strong { font-weight: 800; color: #DF3D12; }
+    .faq__lead { margin: 1rem auto 0; max-width: 34rem; font-size: 1.125rem; line-height: 1.55; color: #3D395E; text-wrap: balance; }
+
+    .faq__list { display: grid; gap: .85rem; }
+    .faq__item {
+      background: #fff; border: 1px solid rgba(13, 10, 34, 0.09); border-radius: 14px;
+      box-shadow: 0 10px 24px -18px rgba(13, 10, 34, 0.35);
+      transition: opacity .3s var(--ease-out), border-color .3s var(--ease-out), box-shadow .3s var(--ease-out);
+    }
+    /* efeito de foco do design system: ao interagir com a lista, os itens fechados esmaecem */
+    .faq__list:hover .faq__item:not(:hover):not(.is-open),
+    .faq__list:focus-within .faq__item:not(:focus-within):not(.is-open) { opacity: .55; }
+    .faq__item.is-open { border-color: rgba(253, 86, 42, 0.6); box-shadow: 0 18px 36px -18px rgba(223, 61, 18, 0.45); }
+    .faq__q { margin: 0; }
+    .faq__trigger {
+      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1.15rem 1.35rem; border: 0; background: none; cursor: pointer; text-align: left;
+      font: 600 1.0625rem/1.4 var(--font-display); color: var(--color-navy-950); border-radius: 14px;
+    }
+    .faq__trigger:focus-visible { border-radius: 14px; }
+    .faq__chev { flex-shrink: 0; color: #DF3D12; transition: transform .35s var(--ease-bounce); }
+    .faq__item.is-open .faq__chev { transform: rotate(180deg); }
+    /* altura animada sem max-height: a linha do grid vai de 0fr a 1fr */
+    .faq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s var(--ease-expo); }
+    .faq__item.is-open .faq__panel { grid-template-rows: 1fr; }
+    .faq__panel-inner { overflow: hidden; visibility: hidden; transition: visibility .35s; }
+    .faq__item.is-open .faq__panel-inner { visibility: visible; }
+    .faq__panel-inner { padding: 0 1.35rem; }
+    .faq__panel p { margin: 0 0 .9rem; max-width: 44rem; font-size: 1rem; line-height: 1.7; color: #3D395E; text-wrap: pretty; }
+    .faq__panel p:last-child { margin-bottom: 1.35rem; }
+    .faq__more { margin: 1.75rem 0 0; text-align: center; font-size: 1rem; color: #3D395E; }
+    .faq__more a { display: inline-flex; align-items: center; gap: .4rem; margin-left: .25rem; font-weight: 600; color: #BF2902; border-bottom: 1px solid rgba(191, 41, 2, 0.35); transition: border-color .2s var(--ease-out), gap .2s var(--ease-out); }
+    .faq__more a:hover { border-color: #BF2902; gap: .6rem; }
 
     /* entrada ao rolar: sobe uma vez, em sequência, e devolve o controle ao hover */
     .js-reveal .sol-reveal:not(.is-in) { opacity: 0; }
@@ -965,9 +1117,10 @@
       </a>
       <ul class="nav__links">
         <li><a href="#inicio">Início</a></li>
-        <li><a href="#metodo">Método</a></li>
         <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#metodo">Método</a></li>
         <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
         <li><a href="contato.html">Contato</a></li>
       </ul>
       <div class="nav__actions">
@@ -984,9 +1137,10 @@
     </div>
     <nav class="nav__panel" id="menu" aria-label="Menu principal">
       <a href="#inicio">Início</a>
-      <a href="#metodo">Método</a>
       <a href="#solucoes">Soluções</a>
+      <a href="#metodo">Método</a>
       <a href="#avaliacoes">Avaliações</a>
+      <a href="#duvidas">Dúvidas</a>
       <a href="contato.html">Contato</a>
       <ul class="social nav__panel-social">
         <li><a href="https://www.instagram.com/vitorferreiravendas?igsh=MzczMXBuMWNua3Zm" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-instagram" aria-hidden="true"></i></a></li>
@@ -1496,7 +1650,108 @@
       </div>
     </section>
 
-    <!-- SEÇÃO 8: BANNER DE FECHAMENTO (cruza a emenda entre a última dobra e o rodapé) -->
+    <!-- SEÇÃO 8: DÚVIDAS FREQUENTES (fundo claro: continua na faixa clara do banner de fechamento) -->
+    <section class="faq" id="duvidas" aria-labelledby="faq-title">
+      <div class="faq__inner">
+
+        <header class="faq__head sol-reveal">
+          <h2 class="faq__title" id="faq-title">Dúvidas <strong>frequentes</strong></h2>
+          <p class="faq__lead">Respostas rápidas às perguntas mais comuns antes de agendar uma reunião.</p>
+        </header>
+
+        <div class="faq__list sol-reveal" style="--d:.1s">
+          <div class="faq__item is-open">
+            <h3 class="faq__q">
+              <button class="faq__trigger" type="button" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">
+                <span>Treinamento não vira só empolgação que passa em poucos dias? Como o que é ensinado vira prática de verdade?</span>
+                <svg class="faq__chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-a1" role="region" aria-labelledby="faq-q1">
+              <div class="faq__panel-inner"><p>É a dúvida mais justa, e foi para responder a ela que o método existe em três passos: conhecimento, comportamento e resultado. Conteúdo sozinho vira só informação. Por isso cada encontro junta conceitos claros com exercícios, simulações e dinâmicas feitas com situações reais do dia a dia da sua equipe, e não com exemplos de livro. O time sai com ferramentas que já pode usar na semana seguinte.</p><p>Quando o objetivo é mudar comportamento de verdade, o treinamento deixa de ser um evento isolado. Desenhamos uma jornada com encontros sequenciais, trabalhando uma competência de cada vez, e ao final definimos juntos os próximos passos e as possibilidades de continuidade. Assim o aprendizado deixa de depender de motivação e vira rotina.</p></div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <h3 class="faq__q">
+              <button class="faq__trigger" type="button" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+                <span>Palestra, workshop, treinamento, programa ou mentoria: qual formato é o ideal para mim?</span>
+                <svg class="faq__chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-a2" role="region" aria-labelledby="faq-q2">
+              <div class="faq__panel-inner"><p>Depende do desafio, e é por isso que não existe pacote fechado. A palestra provoca, energiza e movimenta muita gente de uma vez, em eventos, convenções e encontros. O workshop é prático e interativo: a equipe aprende fazendo, ideal para uma competência específica ou para integrar o time. O treinamento é mais profundo, com conteúdo estruturado, exercícios e aplicação prática para equipes comerciais, de atendimento e de liderança. O programa de capacitação reúne vários encontros em uma jornada contínua. E a mentoria, individual ou em grupo, é para quem quer evoluir com direção, ferramentas e prática.</p><p>Você não precisa escolher sozinho. Depois de entender o momento da sua empresa ou da sua carreira, recomendamos o formato, ou a combinação de formatos, que mais faz sentido para o seu objetivo.</p></div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <h3 class="faq__q">
+              <button class="faq__trigger" type="button" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+                <span>O método funciona para o meu segmento e para o perfil da minha equipe? E se eu não trabalhar com vendas?</span>
+                <svg class="faq__chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-a3" role="region" aria-labelledby="faq-q3">
+              <div class="faq__panel-inner"><p>Sim. A metodologia foi construída para se adaptar, não para ser copiada. Conteúdo, exemplos e linguagem mudam conforme o contexto de cada empresa, seja um escritório contábil, uma empresa de serviços, de tecnologia, saúde, comércio ou indústria, e conforme o perfil e o tamanho do time. Os temas também vão além de vendas: atendimento de excelência, comunicação assertiva, protagonismo, liderança na prática e produtividade com uso estratégico da inteligência artificial.</p><p>Se você não trabalha com vendas, a mentoria também é para você. Profissionais liberais, gestores, consultores e prestadores de serviço trabalham comunicação, segurança para negociar o valor do próprio trabalho, atendimento e posicionamento. E o Vitor tem diversos casos de pessoas que achavam que não sabiam vender e se descobriram excelentes vendedores.</p></div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <h3 class="faq__q">
+              <button class="faq__trigger" type="button" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+                <span>Como começa o trabalho, quanto custa e o que acontece depois da primeira conversa?</span>
+                <svg class="faq__chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-a4" role="region" aria-labelledby="faq-q4">
+              <div class="faq__panel-inner"><p>Tudo começa com uma conversa, sem compromisso: uma reunião estratégica em que o Vitor entende o momento da sua empresa ou da sua carreira, o perfil da equipe e o desafio que precisa ser resolvido. Dessa conversa sai um diagnóstico e uma proposta desenhada sob medida, com objetivo, conteúdo, formato (presencial ou online), duração e dinâmica definidos para o seu caso.</p><p>Por isso não existe tabela de preço. O investimento depende do formato, do tamanho da equipe e do que você quer transformar, e você o conhece antes de decidir qualquer coisa. Com a proposta aprovada, o trabalho acontece e, ao final, definimos os próximos passos. Para dar o primeiro passo, é só chamar o Vitor para conversar.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="faq__more sol-reveal" style="--d:.15s">Ficou com outra dúvida? <a href="contato.html">Fale com o Vitor<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></p>
+
+      </div>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Treinamento não vira só empolgação que passa em poucos dias? Como o que é ensinado vira prática de verdade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É a dúvida mais justa, e foi para responder a ela que o método existe em três passos: conhecimento, comportamento e resultado. Conteúdo sozinho vira só informação. Por isso cada encontro junta conceitos claros com exercícios, simulações e dinâmicas feitas com situações reais do dia a dia da sua equipe, e não com exemplos de livro. O time sai com ferramentas que já pode usar na semana seguinte. Quando o objetivo é mudar comportamento de verdade, o treinamento deixa de ser um evento isolado. Desenhamos uma jornada com encontros sequenciais, trabalhando uma competência de cada vez, e ao final definimos juntos os próximos passos e as possibilidades de continuidade. Assim o aprendizado deixa de depender de motivação e vira rotina."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Palestra, workshop, treinamento, programa ou mentoria: qual formato é o ideal para mim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende do desafio, e é por isso que não existe pacote fechado. A palestra provoca, energiza e movimenta muita gente de uma vez, em eventos, convenções e encontros. O workshop é prático e interativo: a equipe aprende fazendo, ideal para uma competência específica ou para integrar o time. O treinamento é mais profundo, com conteúdo estruturado, exercícios e aplicação prática para equipes comerciais, de atendimento e de liderança. O programa de capacitação reúne vários encontros em uma jornada contínua. E a mentoria, individual ou em grupo, é para quem quer evoluir com direção, ferramentas e prática. Você não precisa escolher sozinho. Depois de entender o momento da sua empresa ou da sua carreira, recomendamos o formato, ou a combinação de formatos, que mais faz sentido para o seu objetivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O método funciona para o meu segmento e para o perfil da minha equipe? E se eu não trabalhar com vendas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. A metodologia foi construída para se adaptar, não para ser copiada. Conteúdo, exemplos e linguagem mudam conforme o contexto de cada empresa, seja um escritório contábil, uma empresa de serviços, de tecnologia, saúde, comércio ou indústria, e conforme o perfil e o tamanho do time. Os temas também vão além de vendas: atendimento de excelência, comunicação assertiva, protagonismo, liderança na prática e produtividade com uso estratégico da inteligência artificial. Se você não trabalha com vendas, a mentoria também é para você. Profissionais liberais, gestores, consultores e prestadores de serviço trabalham comunicação, segurança para negociar o valor do próprio trabalho, atendimento e posicionamento. E o Vitor tem diversos casos de pessoas que achavam que não sabiam vender e se descobriram excelentes vendedores."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como começa o trabalho, quanto custa e o que acontece depois da primeira conversa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tudo começa com uma conversa, sem compromisso: uma reunião estratégica em que o Vitor entende o momento da sua empresa ou da sua carreira, o perfil da equipe e o desafio que precisa ser resolvido. Dessa conversa sai um diagnóstico e uma proposta desenhada sob medida, com objetivo, conteúdo, formato (presencial ou online), duração e dinâmica definidos para o seu caso. Por isso não existe tabela de preço. O investimento depende do formato, do tamanho da equipe e do que você quer transformar, e você o conhece antes de decidir qualquer coisa. Com a proposta aprovada, o trabalho acontece e, ao final, definimos os próximos passos. Para dar o primeiro passo, é só chamar o Vitor para conversar."
+      }
+    }
+  ]
+}
+      </script>
+    </section>
+
+    <!-- SEÇÃO 9: BANNER DE FECHAMENTO (cruza a emenda entre a última dobra e o rodapé) -->
     <section class="cta" aria-labelledby="cta-title">
       <div class="cta__inner">
         <div class="cta__banner sol-reveal">
@@ -1530,9 +1785,10 @@
           <h3>Navegue</h3>
           <ul>
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#metodo">Método</a></li>
             <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#metodo">Método</a></li>
             <li><a href="#avaliacoes">Avaliações</a></li>
+            <li><a href="#duvidas">Dúvidas</a></li>
             <li><a href="contato.html">Contato</a></li>
             <li><button class="footer__seo" type="button" data-seo-open aria-haspopup="dialog">SEO</button></li>
           </ul>
@@ -1540,9 +1796,9 @@
         <nav class="footer__col" aria-label="Informações legais">
           <h3>Legal</h3>
           <ul>
-            <li><a href="termos.html">Termos e Condições</a></li>
-            <li><a href="privacidade.html">Política de Privacidade</a></li>
-            <li><a href="seguranca.html">Segurança</a></li>
+            <li><button class="footer__legal-btn" type="button" data-legal-open="termos-dialog" aria-haspopup="dialog">Termos e Condições</button></li>
+            <li><button class="footer__legal-btn" type="button" data-legal-open="privacidade-dialog" aria-haspopup="dialog">Política de Privacidade</button></li>
+            <li><button class="footer__legal-btn" type="button" data-legal-open="seguranca-dialog" aria-haspopup="dialog">Segurança</button></li>
           </ul>
         </nav>
         <div class="footer__col">
@@ -1583,6 +1839,143 @@
         <li>consultoria comercial</li>
         <li>workshop para empresas</li>
       </ul>
+    </div>
+  </dialog>
+
+  <!-- POP-UP 1: TERMOS E CONDIÇÕES -->
+  <dialog class="legal-dialog" id="termos-dialog" aria-labelledby="termos-title">
+    <div class="legal-dialog__box">
+      <button class="legal-dialog__close" type="button" data-legal-close aria-label="Fechar termos">&times;</button>
+      <span class="legal-dialog__badge">Diretrizes de Uso</span>
+      <h2 class="legal-dialog__title" id="termos-title">Termos e Condições</h2>
+      <p class="legal-dialog__lead">Condições gerais para navegação e contratação dos serviços de Vitor Ferreira.</p>
+
+      <div class="legal-dialog__body">
+        <div>
+          <h3>1. Finalidade do Site</h3>
+          <p>Este ambiente digital tem objetivo institucional e informativo, apresentando as soluções de palestras, workshops, treinamentos corporativos e mentorias individuais conduzidas por <strong>Vitor Ferreira</strong>.</p>
+        </div>
+
+        <div>
+          <h3>2. Propostas e Atendimento Comercial</h3>
+          <p>O preenchimento do formulário ou o direcionamento para o WhatsApp constitui solicitação de contato e diagnóstico inicial. Propostas formais de prestação de serviços com escopo, cronograma, investimentos e condições de pagamento são formalizadas individualmente em contrato específico.</p>
+        </div>
+
+        <div>
+          <h3>3. Uso das Informações e Conduta</h3>
+          <p>O usuário compromete-se a fornecer informações verdadeiras e atualizadas ao solicitar contato e a utilizar o site exclusivamente para fins legítimos, abstendo-se de qualquer prática que comprometa a segurança da plataforma.</p>
+        </div>
+
+        <div>
+          <h3>4. Limitação de Responsabilidade</h3>
+          <p>Empregamos os melhores esforços para garantir a disponibilidade contínua e a precisão dos conteúdos. No entanto, o site pode passar por atualizações ou manutenções sem aviso prévio.</p>
+        </div>
+
+        <div>
+          <h3>5. Legislação Aplicável e Foro</h3>
+          <p>Estes termos são regidos pelas leis da República Federativa do Brasil, elegendo-se o foro da comarca da residência/sede do profissional no Rio de Janeiro/RJ para dirimir eventuais dúvidas.</p>
+        </div>
+      </div>
+
+      <div class="legal-dialog__footer">
+        <span class="legal-dialog__meta">Última atualização: Outubro de 2026</span>
+        <span class="legal-dialog__meta">Vitor Ferreira · Treinamentos &amp; Mentorias</span>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- POP-UP 2: POLÍTICA DE PRIVACIDADE -->
+  <dialog class="legal-dialog" id="privacidade-dialog" aria-labelledby="privacidade-title">
+    <div class="legal-dialog__box">
+      <button class="legal-dialog__close" type="button" data-legal-close aria-label="Fechar privacidade">&times;</button>
+      <span class="legal-dialog__badge">LGPD &amp; Proteção de Dados</span>
+      <h2 class="legal-dialog__title" id="privacidade-title">Política de Privacidade</h2>
+      <p class="legal-dialog__lead">Como tratamos, respeitamos e mantemos seguros os seus dados pessoais (Lei nº 13.709/2018).</p>
+
+      <div class="legal-dialog__body">
+        <div>
+          <h3>1. Coleta Mínima e Consciente</h3>
+          <p>Coletamos somente os dados estritamente necessários informados por você ao preencher nosso formulário de contato ou iniciar conversa via WhatsApp: Nome Completo, WhatsApp com DDD, E-mail, Ramo de Atividade, Empresa, Cargo e Descrição do Desafio.</p>
+        </div>
+
+        <div>
+          <h3>2. Finalidade Exclusiva</h3>
+          <p>Seus dados são utilizados exclusivamente para:</p>
+          <ul>
+            <li>Retornar seu contato e agendar a reunião estratégica com Vitor Ferreira;</li>
+            <li>Elaborar diagnóstico preliminar e proposta sob medida para sua equipe ou carreira;</li>
+            <li>Responder a dúvidas sobre formatos, palestras e mentorias.</li>
+          </ul>
+          <p style="margin-top: 0.5rem;"><strong>Não comercializamos, alugamos ou repassamos seus dados a terceiros para fins de marketing.</strong></p>
+        </div>
+
+        <div>
+          <h3>3. Armazenamento e Segurança</h3>
+          <p>Adotamos protocolos rigorosos de segurança da informação e criptografia para resguardar seus dados contra acessos não autorizados, perdas ou vazamentos.</p>
+        </div>
+
+        <div>
+          <h3>4. Direitos do Titular (LGPD)</h3>
+          <p>Você tem o direito de solicitar a qualquer momento a confirmação da existência de tratamento, a correção de dados incompletos ou a exclusão definitiva dos seus dados de nossos registros, entrando em contato pelo e-mail <strong>contato@vitorferreiraoficial.com</strong> ou WhatsApp oficial.</p>
+        </div>
+
+        <div>
+          <h3>5. Cookies e Métricas</h3>
+          <p>Utilizamos cookies essenciais de navegação e métricas de desempenho anonimizadas para garantir estabilidade, segurança e melhor experiência de uso no site.</p>
+        </div>
+      </div>
+
+      <div class="legal-dialog__footer">
+        <span class="legal-dialog__meta">Em conformidade com a LGPD (Lei nº 13.709/2018)</span>
+        <span class="legal-dialog__meta">Vitor Ferreira</span>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- POP-UP 3: SEGURANÇA E PROPRIEDADE INTELECTUAL -->
+  <dialog class="legal-dialog" id="seguranca-dialog" aria-labelledby="seguranca-title">
+    <div class="legal-dialog__box">
+      <button class="legal-dialog__close" type="button" data-legal-close aria-label="Fechar segurança">&times;</button>
+      <span class="legal-dialog__badge">Proteção e Direitos Autorais</span>
+      <h2 class="legal-dialog__title" id="seguranca-title">Segurança &amp; Propriedade Intelectual</h2>
+      <p class="legal-dialog__lead">Declaração de propriedade autoral, integridade de marca e proteção do acervo pessoal de Vitor Ferreira.</p>
+
+      <div class="legal-dialog__body">
+        <div>
+          <h3>1. Titularidade Pessoal e Exclusiva</h3>
+          <p>Todo o conteúdo disponibilizado neste site — incluindo, sem limitação: textos, fotografias oficiais, ensaios em palco, vídeos, logomarca, conceitos didáticos, estrutura de dinâmicas, identidade visual e metodologias autorais (incluindo a <strong>Tríade Prática: Conhecimento, Comportamento e Resultado</strong>) — é de <strong>propriedade pessoal e exclusiva de Vitor Ferreira</strong>.</p>
+        </div>
+
+        <div>
+          <h3>2. Vedação Expressa à Reprodução e Plágio</h3>
+          <p>É estritamente proibida qualquer forma de cópia, reprodução integral ou parcial, reescrita, adaptação, engenharia reversa, distribuição comercial não autorizada ou incorporação de qualquer conteúdo deste site em treinamentos, apostilas, plataformas de terceiros ou modelos de inteligência artificial sem prévia e expressa autorização por escrito.</p>
+        </div>
+
+        <div>
+          <h3>3. Direitos de Imagem e Marca</h3>
+          <p>A imagem pessoal, o nome, a voz e a representação artística de Vitor Ferreira estão protegidos pela legislação brasileira. É vedada a associação indevida do nome ou imagem do profissional a marcas, produtos ou eventos não contratados ou não homologados oficialmente.</p>
+        </div>
+
+        <div>
+          <h3>4. Segurança dos Canais Oficiais</h3>
+          <p>Para sua proteção contra fraudes, informamos que os únicos canais oficiais de comunicação e atendimento são:</p>
+          <ul>
+            <li><strong>WhatsApp Oficial:</strong> (21) 99058-7160</li>
+            <li><strong>E-mail Oficial:</strong> contato@vitorferreiraoficial.com</li>
+            <li><strong>Site Oficial:</strong> vitorferreiraoficial.com</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>5. Sanções Legais Cabíveis</h3>
+          <p>Qualquer infração aos direitos de propriedade intelectual, direitos autorais ou uso indevido de imagem sujeitará os responsáveis às penalidades civis e criminais previstas na <strong>Lei de Direitos Autorais (Lei nº 9.610/1998)</strong>, na <strong>Lei de Propriedade Industrial (Lei nº 9.279/1996)</strong> e no Código Civil Brasileiro.</p>
+        </div>
+      </div>
+
+      <div class="legal-dialog__footer">
+        <span class="legal-dialog__meta">Protegido pela Lei de Direitos Autorais nº 9.610/1998</span>
+        <span class="legal-dialog__meta">Todos os direitos reservados</span>
+      </div>
     </div>
   </dialog>
 
@@ -1674,21 +2067,51 @@
       }
     })();
 
-    /* Rodapé: ano atual e pop-up de SEO (<dialog>: Esc fecha, foco volta ao botão, clique fora fecha). */
+    /* Rodapé: ano atual e pop-ups (<dialog>: Esc fecha, foco volta ao botão, clique fora fecha). */
     (function () {
       document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
-      var dlg = document.getElementById('seo-dialog');
-      if (!dlg) return;
-      var opener = null;
-      document.querySelectorAll('[data-seo-open]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          opener = b;
-          if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+
+      function bindModal(triggerAttr, dialogId, closeAttr) {
+        var dlg = document.getElementById(dialogId);
+        if (!dlg) return;
+        var opener = null;
+        document.querySelectorAll('[' + triggerAttr + ']').forEach(function (b) {
+          b.addEventListener('click', function () {
+            opener = b;
+            if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+          });
+        });
+        function close() {
+          if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open');
+          if (opener) opener.focus();
+        }
+        dlg.querySelectorAll('[' + closeAttr + ']').forEach(function (b) { b.addEventListener('click', close); });
+        dlg.addEventListener('click', function (e) { if (e.target === dlg) close(); });
+      }
+
+      // Pop-up SEO
+      bindModal('data-seo-open', 'seo-dialog', 'data-seo-close');
+
+      // Pop-ups Legais
+      bindModal('data-legal-open="termos-dialog"', 'termos-dialog', 'data-legal-close');
+      bindModal('data-legal-open="privacidade-dialog"', 'privacidade-dialog', 'data-legal-close');
+      bindModal('data-legal-open="seguranca-dialog"', 'seguranca-dialog', 'data-legal-close');
+    })();
+
+    /* Dúvidas frequentes: um item aberto por vez (os outros fecham). */
+    (function () {
+      var items = document.querySelectorAll('.faq__item');
+      items.forEach(function (item) {
+        var btn = item.querySelector('.faq__trigger');
+        btn.addEventListener('click', function () {
+          var open = item.classList.contains('is-open');
+          items.forEach(function (i) {
+            i.classList.remove('is-open');
+            i.querySelector('.faq__trigger').setAttribute('aria-expanded', 'false');
+          });
+          if (!open) { item.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); }
         });
       });
-      function close() { if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open'); if (opener) opener.focus(); }
-      dlg.querySelectorAll('[data-seo-close]').forEach(function (b) { b.addEventListener('click', close); });
-      dlg.addEventListener('click', function (e) { if (e.target === dlg) close(); });
     })();
   </script>
 </body>
