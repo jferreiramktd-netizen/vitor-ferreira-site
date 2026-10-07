@@ -1,53 +1,57 @@
-# Vitor Ferreira Vendas — site institucional
+# Vitor Ferreira — Site Institucional
 
 ## O que é
-Site institucional de uma página (one-page) para Vitor Ferreira, palestrante, treinador, consultor e mentor de vendas. Apresenta os serviços, os benefícios de investir em treinamento, depoimentos em vídeo e um formulário/CTA de contato. HTML estático, sem backend — rascunho/novo projeto, ainda não publicado no domínio em produção (vitorferreiravendas.com.br, hoje em WordPress).
+Site institucional de alta autoridade e conversão em arquitetura **Multi-Page** para **Vitor Ferreira**, Treinador, Mentor e Especialista em Vendas e Desenvolvimento de Pessoas. Apresenta o posicionamento comercial e humano, a bifurcação de soluções, o método em tríade, os temas de capacitação, avaliações reais do Google Meu Negócio e direciona para a página dedicada de agendamento de reunião estratégica integrada ao WhatsApp. Desenvolvido em HTML + CSS + JS estático e ultra-otimizado, sem dependência de backend.
+
+## Arquitetura de Páginas
+1. **Homepage (`index.html`):** Hub de autoridade, bifurcação de público, método, temas, avaliações e CTAs de conversão.
+2. **Página de Contato (`contato.html`):** Página dedicada com formulário qualificador de reunião estratégica e card de suporte para dúvidas rápidas.
+3. *Páginas Futuras (Roadmap):* `/para-empresas` e `/para-profissionais`.
 
 ## Para quem
-Donos e gestores de pequenas e médias empresas que querem melhorar a performance comercial do próprio time (produtividade, motivação, engajamento) e estão decidindo se contratam uma palestra, treinamento, consultoria ou mentoria.
+1. **Empresas & Gestores (B2B):** Donos de empresas, diretores comerciais e líderes de RH que buscam treinamentos, palestras e programas de capacitação para elevar vendas, atendimento, liderança e protagonismo.
+2. **Profissionais & Vendedores (B2C/Individual):** Profissionais liberais, vendedores e líderes que buscam mentorias individuais e aceleração de carreira.
 
-## O que o visitante faz aqui
-Objetivo único: gerar contato. O visitante lê a proposta, entende os formatos de serviço, se convence pela autoridade e pelos depoimentos, e entra em contato via WhatsApp flutuante ou formulário na seção de contato.
+## Jornada do Visitante & Funil de Conversão
+- **Objetivo Central:** Gerar agendamento qualificado de reuniões estratégicas diretamente com o Vitor.
+- **Header:** Pílula translúcida com links de navegação e **ícones sociais diretos** (Instagram, LinkedIn, YouTube, TikTok), sem botão de CTA no topo para manter a navegação limpa.
+- **Hero:** Impacto cinematográfico com foto do Vitor em palco, faixa de autoridade (+30 anos, +3.000 pessoas treinadas, 100% prático) e **1 único botão CTA primário:** `[ QUERO CONHECER ]` ➔ direciona para `contato.html`. Sem selo de descritor, sem cartão sobre a foto e sem WhatsApp flutuante.
+- **2ª Dobra (As 2 Portas de Entrada):** Bifurcação rápida em 2 cards interativos:
+  - *Soluções para Profissionais* (Mentoria & Carreira)
+  - *Soluções para Empresas* (Treinamentos, Palestras e Programas)
+- **Fechamento e CTAs:** Todos os botões de ação do site conduzem para a página dedicada `contato.html`.
 
-## Diferencial / prova
-- Vitor atua em vendas há 28+ anos, formado em Marketing, MBA em gestão empresarial.
-- +3000 pessoas treinadas (contador na seção Sobre).
-- Mentorado por referências do mercado; método descrito como "leve e simples".
-- Depoimentos em vídeo (3 clientes, embed do YouTube).
+## Diferencial e Autoridade
+- **Mais de 30 anos** de experiência real em vendas, negócios e desenvolvimento de pessoas.
+- Formação acadêmica em Marketing com MBA em Gestão Empresarial.
+- Método autoral em Tríade: **Conhecimento → Comportamento → Resultado**.
+- Prova social real com avaliações 5 estrelas do **Google Meu Negócio (GMB)** e depoimentos em vídeo.
+- **Regra Anti-Claim:** Nenhuma métrica arbitrária ou não comprovada deve ser publicada sem auditoria formal. **Exceção autorizada:** a faixa de autoridade da hero (**+30 anos** de experiência comercial, **+3.000** pessoas treinadas, **100%** prático e aplicável), aprovada pelo responsável do projeto.
 
-## Serviços oferecidos
-1. Palestra — tema específico, formato pontual para evento/reunião.
-2. Treinamento — conteúdo mais profundo, exercícios e dinâmicas.
-3. Consultoria — diagnóstico e otimização de marketing/vendas.
-4. Mentoria — individual ou em grupo.
-5. Workshop — imersão prática.
-6. Assessoria — estruturação contínua do setor comercial.
+## Arquitetura de Soluções
+### 1. Para Empresas (Desenvolva sua Equipe)
+- **Formatos:** Palestras, Workshops, Treinamentos Práticos e Programas Contínuos de Capacitação.
+- **6 Temas Centrais:** Vendas & Fechamento, Atendimento de Excelência, Comunicação Assertiva, Protagonismo, Produtividade & IA, Liderança.
+- **Personalização:** Construção da experiência sob medida para a realidade do negócio (sem pacotes de prateleira).
 
-## Conteúdo fixo (não é para reescrever sem avisar)
-- Texto da seção Sobre (primeira pessoa, Vitor).
-- Descrições dos 6 serviços.
-- Lista de 6 benefícios de treinar o time.
-- Dados de contato: telefone (21) 99058-7160, email contato@vitorferreiraoficial.com, WhatsApp 5521990587160.
-- Redes sociais: Instagram, Facebook, YouTube, TikTok, Twitter, LinkedIn (links reais no footer atual).
+### 2. Para Profissionais (Mentorias)
+- **Mentorias Individuais e em Grupo:** Direcionamento prático para aceleração comercial, posicionamento, segurança em vendas e marketing pessoal.
 
-## Marca — o que fica fixo
-- Logo: `assets/images/logo1-1.png` / `logo1-2.png` (versão mobile).
-- Cor primária: laranja (token real do CSS é `#FD562A`; o hero usa inconsistentemente `#ff6600` — ver `DESIGN.md`). Preto/branco como base neutra.
-- Redesenho de layout, componentes e estilo visual é livre ao redor desses dois pontos fixos (logo + paleta).
+## Página de Contato (`contato.html`) & Qualificação
+- **Formulário de Reunião Estratégica:**
+  - *Campos Obrigatórios:* Nome Completo, WhatsApp com DDD, Ramo de Atividade, Objetivo Principal e Descrição do Desafio Atual.
+  - *Opções de Objetivo Principal:*
+    1. `Treinamento / Palestra para Equipe`
+    2. `Mentoria Individual`
+    3. `Outro projeto sob medida`
+  - *Campos Opcionais:* E-mail, Nome da Empresa e Cargo Atual.
+  - *Botão CTA:* `AGENDAR REUNIÃO ESTRATÉGICA` (gera mensagem formatada e abre o WhatsApp `5521990587160`).
+- **Card de Dúvidas Rápidas:** Bloco lateral para contato imediato de suporte.
 
-## Assets disponíveis
-- Fotos do Vitor: `img-vitor-1.jpg`, `img-vitor-2.jpg`, `IMG7.png` (WhatsApp widget).
-- Ilustrações/elementos gráficos do slide (vetorv, circulo1, setas, IMG3–6) — podem ser substituídos ou descartados no redesign.
-- Thumbnails de depoimento: `video1.jpg`, `video2.jpg`, `video3.jpg` + IDs do YouTube (VKZHtUhqjYE, lVGJk97Dmfk, pUxbovxDMVc).
-- Fontes já embutidas: Poppins (400/600/700), Open Sans, Roboto/Roboto Condensed, Nunito Sans — mais ícones (Bootstrap Icons, Font Awesome, Pe-icon-7-stroke, Eicons).
-
-## Stack
-HTML + CSS + JS puros (sem framework/build). `assets/js/main.js` controla slider, menu mobile, carrossel de depoimentos, lightbox de vídeo e widget de WhatsApp.
-
-## Modo
-**Persuade** — o site inteiro existe para convencer e converter em contato; design é parte do produto.
-
-## Fora de escopo por ora
-- Blog, área de membros, pagamento online.
-- Multilíngue.
-- CMS/backend — permanece estático.
+## Identidade Visual e Tokens
+- **Nome da Marca:** VITOR FERREIRA
+- **Logo:** `assets/images/logo1-1.png` / `logo1-2.png`
+- **Cor Primária:** Laranja Oficial `#FD562A` (`--color-orange-500`).
+- **Superfícies:** `#060412` (Noir) e `#0D0A22` (Navy).
+- **Tipografia:** `Poppins` (Títulos/Display) e `Open Sans` (Corpo de texto).
+- **Stack:** HTML5 Semântico + Vanilla CSS (Tokens v3.0.0) + JS Puro.

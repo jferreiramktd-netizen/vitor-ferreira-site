@@ -217,11 +217,11 @@ Inspirado em padrões de engenharia de design de classe mundial (incorporando su
 - **Anatomia:**
   - Painel com raio superior escultural (`border-radius: clamp(3rem, 7vw, 6.5rem) clamp(3rem, 7vw, 6.5rem) 0 0`).
   - Fundo com gradiente nobre de 1.86° (`--grad-impact-panel`).
-  - **4 Grandes Métricas Numéricas:**
-    - `+30 ANOS` (Experiência Comercial)
-    - `+3.000` (Profissionais Treinados)
-    - `98.4%` (Índice de Aprovação)
-    - `100%` (Prático e Aplicável)
+  - **4 Pilares de Impacto e Autoridade (Regra Anti-Claim do copy.md):**
+    - `+30 ANOS` (Vivência prática em vendas e desenvolvimento de pessoas)
+    - `100% PRÁTICO` (Exercícios e ferramentas aplicáveis na semana seguinte)
+    - `SOB MEDIDA` (Diagnóstico real da empresa, sem treinamento de prateleira)
+    - `4 PILARES` (Direção, Conhecimento, Prática e Evolução Contínua)
   - **Grid de 3 Selos de Autoridade:** Cards com ícone circular em destaque, validando "Palestrante Homologado", "Metodologia Validada" e "Formato Sob Medida".
 
 ### 3.4. Logo Marquee Contínuo (`.vf-marquee`)
@@ -241,12 +241,14 @@ Inspirado em padrões de engenharia de design de classe mundial (incorporando su
   - Lista de benefícios com ícones SVG de checkmark em laranja elétrico (`#FD562A`).
   - Botão CTA full-width em pílula integrado à base do cartão.
 
-### 3.6. Formulário em Vidro com Validação Reativa (`.vf-glass-card`)
-- **Inspiração:** O formulário de vidro fosco do Conquer In Company (`.TYfxn`).
+### 3.6. Formulário Qualificador WhatsApp em Vidro (`.vf-glass-card`)
+- **Inspiração:** O formulário de vidro fosco do Conquer In Company (`.TYfxn`), adaptado para conversão instantânea em WhatsApp.
 - **Anatomia:**
   - Cartão em vidro escuro fosco com `backdrop-filter: blur(28px)` e borda suave em laranja translúcido (`rgba(253, 86, 42, 0.35)`).
-  - Inputs com fundo preto puro (`#060412`), borda cinza sutil e ícone de checkmark na extremidade direita.
-  - **Reatividade Instantânea:** Quando o usuário preenche o campo corretamente, a borda e o ícone de checkmark acendem em verde/laranja. Em caso de erro, a borda e mensagem de validação tornam-se vermelhas.
+  - Seletor de público em chips (`Para Minha Empresa` vs. `Para Mim / Mentoria`).
+  - Inputs para Nome, Empresa e Select dinâmico de Desafio/Tema.
+  - **Integração WhatsApp:** Ao clicar no CTA, valida os dados e gera a mensagem formatada para a API do WhatsApp (`wa.me`), garantindo atendimento qualificado imediato sem necessidade de backend.
+  - **Card de Dúvida Rápida:** Bloco adjacente para dúvidas pontuais com link direto de suporte.
 
 ### 3.7. Accordion FAQ com Dimming de Foco (`.vf-accordion-group`)
 - **Inspiração:** O comportamento refinado do Conquer In Company (`.itYuIB`).

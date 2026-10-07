@@ -119,7 +119,22 @@
     }
     .nav__links a:hover { color: var(--color-orange-300); background: rgba(255, 255, 255, 0.06); }
     .nav__actions { display: flex; align-items: center; gap: .5rem; }
-    .nav__cta { padding: .7rem 1.25rem; font-size: .8125rem; }
+
+    /* redes sociais: ícones da fonte Font Awesome Brands já usada no site antigo */
+    .social { display: flex; align-items: center; gap: .15rem; margin: 0; padding: 0; list-style: none; }
+    .social a, .nav__panel .social a {
+      display: grid; place-items: center; width: 2.5rem; height: 2.5rem; padding: 0;
+      color: var(--color-text-secondary); border-radius: 50%;
+      transition: color .15s var(--ease-out), background-color .15s var(--ease-out);
+    }
+    .social a:hover, .nav__panel .social a:hover { color: var(--color-orange-300); background: rgba(255, 255, 255, 0.07); }
+    .social i { font: 400 1.0625rem/1 "FA Brands"; font-style: normal; }
+    .fa-instagram::before { content: "\f16d"; }
+    .fa-linkedin::before  { content: "\f0e1"; }
+    .fa-youtube::before   { content: "\f167"; }
+    .fa-tiktok::before    { content: "\e07b"; }
+    .nav__social { display: none; }
+    .nav__panel .nav__panel-social { gap: .25rem; margin-top: .35rem; padding: .6rem .5rem .25rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
 
     .burger {
       width: 2.75rem; height: 2.75rem; padding: 0; border: 0; cursor: pointer;
@@ -152,16 +167,12 @@
 
     @media (min-width: 1100px) {
       .nav__links { display: flex; }
+      .nav__social { display: flex; }
       .burger, .nav__panel { display: none !important; }
     }
-    .nav .nav__cta { white-space: nowrap; }
     @media (max-width: 600px) {
       .nav__bar { padding-left: 1rem; }
       .nav__logo img { height: 1.625rem; width: auto; }
-      .nav .nav__cta { padding: .65rem 1rem; font-size: .75rem; letter-spacing: .03em; }
-    }
-    @media (max-width: 349px) {
-      .nav .nav__cta { display: none; }
     }
 
     /* ---------- Botões ---------- */
@@ -192,15 +203,6 @@
         radial-gradient(circle at 82% 16%, rgba(253, 86, 42, 0.14) 0%, rgba(253, 86, 42, 0) 46%),
         radial-gradient(circle at 6% 88%, rgba(34, 29, 82, 0.95) 0%, rgba(34, 29, 82, 0) 56%),
         linear-gradient(180deg, var(--color-navy-900) 0%, var(--color-navy-950) 72%);
-    }
-    /* nome gigante em contorno, no fundo (assinatura do design system) */
-    .hero__watermark {
-      position: absolute; z-index: 0; left: 50%; top: 56%;
-      transform: translate(-50%, -50%);
-      font: 800 clamp(3.25rem, 9.2vw, 10rem)/1 var(--font-display);
-      letter-spacing: -.03em; text-transform: uppercase; white-space: nowrap;
-      color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.045);
-      user-select: none; pointer-events: none;
     }
     .hero__inner {
       position: relative; z-index: 1; flex: 1;
@@ -235,42 +237,13 @@
       pointer-events: none;
     }
 
-    /* cartão de vidro sobre a foto: nome, tempo de estrada e atalho para o WhatsApp */
-    .hero__card {
-      position: absolute; z-index: 2; left: 4%; right: 4%; bottom: 1.25rem;
-      display: flex; align-items: center; justify-content: space-between; gap: .75rem;
-      padding: .8rem .9rem .8rem 1.1rem;
-      background: rgba(13, 10, 34, 0.9);
-      border: 1px solid rgba(253, 86, 42, 0.45);
-      border-radius: 8px;
-      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.6);
-      animation: rise .95s var(--ease-expo) .8s both;
-    }
-    .hero__card strong { display: block; font: 700 .9375rem/1.25 var(--font-display); color: #fff; }
-    .hero__card span { display: block; margin-top: 2px; font-size: .75rem; line-height: 1.3; color: var(--color-orange-300); }
-    .btn--wa { flex-shrink: 0; padding: .6rem 1rem; font-size: .75rem; letter-spacing: .04em; background: #25D366; color: var(--color-navy-950); }
-    .btn--wa:hover { background: #1EBE5D; transform: translateY(-2px); }
-
-    /* Texto */
+    /* Texto: no celular o título sobe sobre o degradê da base da foto */
     .hero__copy {
       position: relative; z-index: 2;
       padding: 0 var(--gutter) 3.5rem;
-      margin-top: .75rem;
+      margin-top: -2.5rem;
       max-width: 40rem; margin-inline: auto; width: 100%;
     }
-    .hero__tag {
-      display: inline-flex; align-items: center; gap: .5rem;
-      margin: 0 0 1.1rem; padding: .35rem 1rem;
-      font: 600 .8125rem/1.35 var(--font-display);
-      color: var(--color-orange-300);
-      background: rgba(253, 86, 42, 0.12);
-      border: 1px solid rgba(253, 86, 42, 0.35);
-      border-radius: 1rem;
-      text-wrap: balance;
-      animation: rise .95s var(--ease-expo) both;
-    }
-    .hero__tag svg { flex-shrink: 0; }
     .hero__title {
       margin: 0;
       font: 800 var(--text-display)/1.08 var(--font-display);
@@ -317,14 +290,10 @@
         width: min(49vw, calc(94svh * 0.8935));
       }
       .hero__halo { top: 36%; width: 135%; }
-      .hero__card { left: 9%; right: 9%; bottom: 2rem; padding: .95rem 1rem .95rem 1.35rem; }
-      .hero__card strong { font-size: 1rem; }
-      .hero__card span { font-size: .8125rem; }
       .hero__copy {
         margin: 0; max-width: none; width: auto;
         padding: 6.75rem var(--gutter) 3.5rem;
       }
-      .hero__tag { border-radius: var(--radius-pill); }
       /* a linha mais longa precisa parar antes da mão com o microfone: ≈ 0,6 da largura útil à esquerda do Vitor */
       .hero__title { font-size: clamp(2.1rem, 3.8vw, 3.75rem); }
       .hero__title span { white-space: nowrap; }
@@ -351,30 +320,87 @@
       to   { opacity: 1; transform: none; }
     }
 
-    /* ---------- WhatsApp flutuante ---------- */
-    .wa {
-      position: fixed; z-index: 60;
-      right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom));
-      display: inline-flex; align-items: center; gap: .6rem;
-      padding: .85rem 1.25rem .85rem 1rem;
-      background: #25D366; color: var(--color-navy-950);
-      font: 600 .9375rem/1 var(--font-display);
-      border-radius: var(--radius-pill);
-      box-shadow: 0 10px 26px -6px rgba(37, 211, 102, 0.55), 0 4px 10px rgba(0, 0, 0, 0.35);
-      transition: transform .3s var(--ease-out), background-color .3s var(--ease-out);
+    /* ---------- Segunda dobra: soluções para empresas e para profissionais ---------- */
+    .solutions {
+      position: relative; isolation: isolate;
+      padding: clamp(4.5rem, 8vw, 7.5rem) var(--gutter);
+      scroll-margin-top: 4.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        radial-gradient(60% 48% at 0% 100%, rgba(253, 86, 42, 0.11) 0%, rgba(253, 86, 42, 0) 70%),
+        radial-gradient(52% 44% at 100% 0%, rgba(34, 29, 82, 0.9) 0%, rgba(34, 29, 82, 0) 70%),
+        var(--color-navy-950);
     }
-    .wa:hover { background: #1EBE5D; transform: translateY(-2px); }
-    .wa i { font: 400 1.5rem/1 "FA Brands"; font-style: normal; }
-    .wa i::before { content: "\f232"; }
-    .wa { transition: transform .3s var(--ease-out), background-color .3s var(--ease-out), opacity .3s var(--ease-out); }
-    /* a hero já tem o cartão e os botões: o flutuante só entra depois que eles saem da tela */
-    .wa.is-away { opacity: 0; transform: translateY(12px); pointer-events: none; }
-    /* celular: só o ícone, para não cobrir o texto */
-    @media (max-width: 600px) {
-      .wa { width: 3.5rem; height: 3.5rem; padding: 0; justify-content: center; }
-      .wa span { display: none; }
-      .wa i { font-size: 1.75rem; }
+    .solutions__inner { max-width: 1180px; margin-inline: auto; }
+    .solutions__head { text-align: center; max-width: 46rem; margin: 0 auto clamp(2.5rem, 5vw, 4rem); }
+    .solutions__title {
+      margin: 0;
+      font: 300 clamp(2rem, 1.2rem + 2.6vw, 3.25rem)/1.12 var(--font-display);
+      letter-spacing: -.02em; text-wrap: balance;
     }
+    .solutions__title span, .solutions__title strong { display: block; }
+    .solutions__title strong { font-weight: 800; color: var(--color-orange-400); }
+    .solutions__lead {
+      margin: 1.25rem auto 0; max-width: 36rem;
+      font-size: var(--text-lead); font-weight: 300; line-height: 1.6;
+      color: var(--color-text-secondary); text-wrap: pretty;
+    }
+
+    .solutions__grid { display: grid; grid-template-columns: 1fr; gap: clamp(1.25rem, 2.5vw, 2rem); }
+    @media (min-width: 900px) { .solutions__grid { grid-template-columns: 1fr 1fr; } }
+
+    .sol-card {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      padding: clamp(1.75rem, 3.2vw, 3rem);
+      background: linear-gradient(180deg, rgba(16, 12, 42, 0.95) 0%, rgba(8, 6, 24, 0.98) 100%);
+      border: 1px solid rgba(255, 226, 179, 0.25);
+      border-radius: 20px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      transition: border-color .3s var(--ease-out), transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+    }
+    /* luz de canto que dá profundidade ao cartão */
+    .sol-card::before {
+      content: ""; position: absolute; z-index: 0; top: -35%; right: -30%; width: 75%; aspect-ratio: 1;
+      background: radial-gradient(circle, rgba(253, 86, 42, 0.16) 0%, rgba(253, 86, 42, 0) 68%);
+      pointer-events: none;
+    }
+    .sol-card > * { position: relative; z-index: 1; }
+    .sol-card:hover { border-color: var(--color-orange-400); transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), var(--shadow-glow-sm); }
+    /* o cartão de empresas é a porta principal do site: borda já acesa */
+    .sol-card--featured { border-color: rgba(253, 86, 42, 0.55); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 40px rgba(253, 86, 42, 0.12); }
+
+    .sol-card__head { display: flex; align-items: center; gap: .9rem; margin-bottom: 1.5rem; }
+    .sol-card__icon {
+      flex-shrink: 0; width: 3rem; height: 3rem; border-radius: 50%;
+      display: grid; place-items: center;
+      color: var(--color-orange-400);
+      background: rgba(253, 86, 42, 0.15); border: 1px solid rgba(253, 86, 42, 0.4);
+    }
+    .sol-card__label { margin: 0; font: 700 .8125rem/1.3 var(--font-display); letter-spacing: .14em; text-transform: uppercase; color: var(--color-brand-primary); }
+
+    .sol-card__title {
+      margin: 0;
+      font: 300 clamp(1.625rem, 1.05rem + 1.7vw, 2.375rem)/1.16 var(--font-display);
+      letter-spacing: -.015em; text-wrap: balance;
+    }
+    .sol-card__title strong { font-weight: 800; color: var(--color-orange-400); }
+    .sol-card__line { margin: 1.25rem 0 0; font: 600 1.0625rem/1.4 var(--font-display); color: var(--color-orange-300); }
+    .sol-card__text { margin: .75rem 0 0; max-width: 34rem; font-size: 1rem; line-height: 1.65; color: var(--color-text-secondary); text-wrap: pretty; }
+
+    .sol-card__list-label { margin: 1.75rem 0 0; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font: 700 .75rem/1.3 var(--font-display); letter-spacing: .12em; text-transform: uppercase; color: var(--color-text-muted); }
+    .sol-card__list { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; gap: .8rem; }
+    .sol-card__list li { display: flex; align-items: flex-start; gap: .7rem; font-size: .9375rem; line-height: 1.45; color: var(--color-text-secondary); }
+    .sol-card__list svg { flex-shrink: 0; margin-top: .2rem; color: var(--color-orange-500); }
+
+    .sol-card__cta { margin-top: auto; padding-top: 2.25rem; }
+    .sol-card__cta .btn { width: 100%; min-height: 3.5rem; }
+    .sol-card__cta p { margin: .9rem 0 0; font-size: .875rem; line-height: 1.45; color: var(--color-text-muted); }
+    @media (min-width: 600px) { .sol-card__cta .btn { width: auto; } }
+
+    /* entrada ao rolar: sobe uma vez, em sequência, e devolve o controle ao hover */
+    .js-reveal .sol-reveal:not(.is-in) { opacity: 0; }
+    .sol-reveal.is-in { animation: rise .95s var(--ease-expo) var(--d, 0s) backwards; }
 
     /* ---------- Movimento reduzido ---------- */
     @media (prefers-reduced-motion: reduce) {
@@ -393,14 +419,18 @@
       </a>
       <ul class="nav__links">
         <li><a href="#inicio">Início</a></li>
-        <li><a href="#desafio">Desafios</a></li>
         <li><a href="#metodo">Método</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#resultados">Resultados</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="contato.html">Contato</a></li>
       </ul>
       <div class="nav__actions">
-        <a class="btn btn--primary nav__cta" href="#contato">Quero conversar</a>
+        <ul class="social nav__social">
+          <li><a href="https://www.instagram.com/vitorferreiravendas?igsh=MzczMXBuMWNua3Zm" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/vitor-ferreira-vendas-94643a25/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-linkedin" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.youtube.com/@vitmorfer2312" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-youtube" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.tiktok.com/@vitorferreiravenda" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-tiktok" aria-hidden="true"></i></a></li>
+        </ul>
         <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
           <span></span><span></span><span></span>
         </button>
@@ -408,18 +438,21 @@
     </div>
     <nav class="nav__panel" id="menu" aria-label="Menu principal">
       <a href="#inicio">Início</a>
-      <a href="#desafio">Desafios</a>
       <a href="#metodo">Método</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#resultados">Resultados</a>
-      <a href="#depoimentos">Depoimentos</a>
-      <a href="#contato">Quero conversar</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="contato.html">Contato</a>
+      <ul class="social nav__panel-social">
+        <li><a href="https://www.instagram.com/vitorferreiravendas?igsh=MzczMXBuMWNua3Zm" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/vitor-ferreira-vendas-94643a25/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.youtube.com/@vitmorfer2312" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-youtube" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.tiktok.com/@vitorferreiravenda" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-tiktok" aria-hidden="true"></i></a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero__watermark" aria-hidden="true">Vitor Ferreira</div>
       <div class="hero__inner">
 
         <div class="hero__media">
@@ -428,20 +461,9 @@
                src="assets/images/vitor-hero.webp" width="1200" height="1343"
                alt="Vitor Ferreira palestrando, com o microfone em uma mão e o celular erguido na outra"
                fetchpriority="high" decoding="async">
-          <div class="hero__card">
-            <div>
-              <strong>Vitor Ferreira</strong>
-              <span>Mais de 30 anos no campo de batalha</span>
-            </div>
-            <a class="btn btn--wa" href="https://wa.me/5521990587160?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20do%20Vitor%20Ferreira." target="_blank" rel="noopener">Falar agora</a>
-          </div>
         </div>
 
         <div class="hero__copy">
-          <p class="hero__tag">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            Treinador • Mentor • Especialista em Vendas e Desenvolvimento de Pessoas
-          </p>
           <h1 class="hero__title" id="hero-title">
             <span>Desenvolva pessoas.</span>
             <span>Transforme comportamentos.</span>
@@ -453,10 +475,9 @@
           </p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#contato">Quero desenvolver minha equipe
+            <a class="btn btn--primary" href="contato.html">Quero conhecer
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a class="btn btn--outline" href="#servicos">Quero conhecer as mentorias</a>
           </div>
 
           <dl class="hero__stats">
@@ -468,11 +489,78 @@
 
       </div>
     </section>
-  </main>
 
-  <a class="wa" href="https://wa.me/5521990587160?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20do%20Vitor%20Ferreira." target="_blank" rel="noopener" aria-label="Fale com Vitor no WhatsApp">
-    <i aria-hidden="true"></i><span>Fale com Vitor</span>
-  </a>
+    <section class="solutions" id="solucoes" aria-labelledby="solutions-title">
+      <div class="solutions__inner">
+
+        <header class="solutions__head sol-reveal">
+          <h2 class="solutions__title" id="solutions-title">
+            <span>Diferentes desafios.</span>
+            <strong>Diferentes experiências.</strong>
+          </h2>
+          <p class="solutions__lead">Nem todo desafio precisa da mesma solução. Escolha o caminho que faz sentido para o seu momento.</p>
+        </header>
+
+        <div class="solutions__grid">
+
+          <article class="sol-card sol-card--featured sol-reveal" id="empresas" style="--d:.1s">
+            <div class="sol-card__head">
+              <span class="sol-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <p class="sol-card__label">Soluções para empresas</p>
+            </div>
+
+            <h3 class="sol-card__title">Sua equipe pode <strong>vender, atender e liderar melhor.</strong></h3>
+            <p class="sol-card__line">Não existe treinamento de catálogo.</p>
+            <p class="sol-card__text">Palestras, workshops, treinamentos e programas de capacitação construídos a partir do desafio real da sua empresa, para formar profissionais mais preparados, produtivos, comerciais e protagonistas.</p>
+
+            <p class="sol-card__list-label">O que sua equipe leva</p>
+            <ul class="sol-card__list">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Aplica na semana seguinte o que aprendeu, em vez de só saber a teoria</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Atendimento que vira experiência e fidelização, sem depender de poucos</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Profissionais que tomam iniciativa, em vez de esperar ordens</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Líderes que desenvolvem pessoas, em vez de só cobrar</li>
+            </ul>
+
+            <div class="sol-card__cta">
+              <a class="btn btn--primary" href="contato.html">Quero desenvolver minha equipe
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <p>Cada projeto começa com uma conversa. Sem compromisso.</p>
+            </div>
+          </article>
+
+          <article class="sol-card sol-reveal" id="mentorias" style="--d:.2s">
+            <div class="sol-card__head">
+              <span class="sol-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </span>
+              <p class="sol-card__label">Soluções para profissionais</p>
+            </div>
+
+            <h3 class="sol-card__title">Desenvolva o seu <strong>próximo nível.</strong></h3>
+            <p class="sol-card__line">Menos teoria acumulada. Mais habilidade desenvolvida.</p>
+            <p class="sol-card__text">Mentorias para vendedores, profissionais liberais e empreendedores. Você recebe direção, aprende ferramentas, coloca em prática, troca com o grupo e sai sabendo os seus próximos passos.</p>
+
+            <p class="sol-card__list-label">Onde você evolui</p>
+            <ul class="sol-card__list">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vender produtos, serviços, ideias e o seu próprio valor profissional</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Comunicar com clareza, segurança e influência</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Atender com excelência e transformar atendimento em relacionamento</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Fazer o seu valor ser percebido e construir conexões profissionais mais fortes</li>
+            </ul>
+
+            <div class="sol-card__cta">
+              <a class="btn btn--outline" href="contato.html">Quero entrar na lista das mentorias</a>
+              <p>Avisamos você quando abrirem as próximas turmas.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script>
     (function () {
@@ -489,14 +577,20 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
     })();
 
-    /* No celular, o WhatsApp flutuante só aparece depois que os botões da hero saem da tela. */
+    /* Entrada ao rolar: os elementos .sol-reveal sobem uma vez, quando entram na tela. */
     (function () {
-      var wa = document.querySelector('.wa');
-      var actions = document.querySelector('.hero__actions');
-      if (!wa || !actions || !('IntersectionObserver' in window)) return;
-      new IntersectionObserver(function (entries) {
-        wa.classList.toggle('is-away', entries[0].isIntersecting);
-      }, { threshold: 0.2 }).observe(actions);
+      var items = document.querySelectorAll('.sol-reveal');
+      if (!items.length) return;
+      if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('is-in'); }); return; }
+      document.documentElement.classList.add('js-reveal');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+      items.forEach(function (el) { io.observe(el); });
     })();
   </script>
 </body>

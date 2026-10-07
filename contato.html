@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contato & Reunião Estratégica | Vitor Ferreira</title>
+  <meta name="description" content="Agende uma reunião estratégica com Vitor Ferreira para treinamentos de equipe, palestras ou mentorias individuais.">
+  <meta name="theme-color" content="#060412">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+
+  <style>
+    /* ---------- Fontes Locais ---------- */
+    @font-face { font-family: "Poppins"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-400.woff2") format("woff2"); }
+    @font-face { font-family: "Poppins"; font-weight: 600; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-600.woff2") format("woff2"); }
+    @font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-700.woff2") format("woff2"); }
+    @font-face { font-family: "Open Sans"; font-weight: 400 600; font-style: normal; font-display: swap; src: url("assets/fonts/open-sans.woff2") format("woff2"); }
+    @font-face { font-family: "FA Brands"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/fa-brands-400.woff2") format("woff2"); }
+
+    /* ---------- Tokens de Design (v3.0.0) ---------- */
+    :root {
+      --color-orange-300: #FFA086;
+      --color-orange-400: #FF7552;
+      --color-orange-500: #FD562A;
+      --color-orange-700: #BF2902;
+
+      --color-navy-950: #060412;
+      --color-navy-900: #0D0A22;
+      --color-navy-850: #120F2E;
+      --color-navy-800: #19153D;
+
+      --color-brand-primary: var(--color-orange-500);
+      --color-text-primary: #FFFFFF;
+      --color-text-secondary: #D1CFE2;
+      --color-text-muted: #9B97B8;
+
+      --surface-glass-dark: rgba(13, 10, 34, 0.88);
+      --surface-glass-border: rgba(255, 255, 255, 0.10);
+      --grad-brand: linear-gradient(135deg, #FD562A 0%, #FFA086 100%);
+      --grad-dark-pill: linear-gradient(270deg, rgba(6, 4, 18, 0.95) 0%, rgba(22, 19, 65, 0.92) 100%);
+
+      --font-display: "Poppins", system-ui, sans-serif;
+      --font-body: "Open Sans", system-ui, sans-serif;
+
+      --radius-pill: 9999px;
+      --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+      --focus-ring: 0 0 0 3px rgba(253, 86, 42, 0.55);
+      --gutter: clamp(1.25rem, 5vw, 4.5rem);
+      --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+      --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--color-navy-950);
+      color: var(--color-text-primary);
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+    /* ---------- Header / Nav em Pílula com Ícones Sociais ---------- */
+    .nav {
+      position: fixed; z-index: 50;
+      top: max(1rem, env(safe-area-inset-top));
+      left: 50%; transform: translateX(-50%);
+      width: min(92%, 1220px);
+    }
+    .nav__bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: .6rem 1.25rem;
+      background: var(--grad-dark-pill);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: var(--radius-pill);
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-md);
+    }
+    .nav__logo img { height: 2rem; width: auto; }
+    .nav__links { display: none; align-items: center; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+    .nav__links a {
+      display: block; padding: .45rem .85rem;
+      font: 600 .875rem/1 var(--font-display);
+      color: var(--color-text-secondary);
+      border-radius: var(--radius-pill);
+      transition: color .15s var(--ease-out), background-color .15s var(--ease-out);
+    }
+    .nav__links a:hover, .nav__links a.is-active { color: var(--color-orange-300); background: rgba(255, 255, 255, 0.06); }
+
+    /* Ícones Sociais no Header */
+    .nav__socials { display: flex; align-items: center; gap: 0.65rem; }
+    .nav__social-link {
+      width: 2.25rem; height: 2.25rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: grid; place-content: center;
+      color: var(--color-text-secondary);
+      transition: all 0.25s var(--ease-out);
+    }
+    .nav__social-link svg { width: 14px; height: 14px; fill: currentColor; }
+    .nav__social-link:hover {
+      background: rgba(253, 86, 42, 0.2);
+      border-color: var(--color-orange-500);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 900px) {
+      .nav__links { display: flex; }
+    }
+
+    /* ---------- Conteúdo da Página de Contato ---------- */
+    .contact-page {
+      flex: 1;
+      padding-top: clamp(6.5rem, 12vw, 9rem);
+      padding-bottom: 5rem;
+      position: relative;
+      background:
+        radial-gradient(70% 50% at 85% 15%, rgba(253, 86, 42, 0.12) 0%, transparent 60%),
+        radial-gradient(60% 40% at 15% 85%, rgba(34, 29, 82, 0.4) 0%, transparent 70%),
+        var(--color-navy-950);
+    }
+
+    .contact-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr 1.15fr;
+        align-items: start;
+        gap: 4.5rem;
+      }
+    }
+
+    /* Informações e Card Lateral */
+    .contact-hero__tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .35rem .85rem; border-radius: var(--radius-pill);
+      background: rgba(253, 86, 42, 0.12); border: 1px solid rgba(253, 86, 42, 0.3);
+      color: var(--color-orange-400); font: 600 .75rem var(--font-display);
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1.25rem;
+    }
+
+    .contact-hero__title {
+      font: 700 clamp(2.25rem, 4.5vw, 3.25rem)/1.15 var(--font-display);
+      color: #fff; margin: 0 0 1.25rem; letter-spacing: -.02em;
+    }
+    .contact-hero__title span { color: var(--color-brand-primary); }
+
+    .contact-hero__lead {
+      color: var(--color-text-secondary);
+      font-size: 1.125rem; line-height: 1.6; margin-bottom: 2.25rem;
+    }
+
+    /* Card de Dúvidas Rápidas (Suporte Direto) */
+    .quick-doubt-card {
+      background: var(--surface-glass-dark);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .quick-doubt-card::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: var(--grad-brand);
+    }
+    .quick-doubt__header { display: flex; align-items: center; gap: .85rem; }
+    .quick-doubt__avatar {
+      width: 3.25rem; height: 3.25rem; border-radius: 50%;
+      border: 2px solid var(--color-orange-500); object-fit: cover;
+    }
+    .quick-doubt__meta h4 { margin: 0; font: 600 1.05rem var(--font-display); color: #fff; }
+    .quick-doubt__meta p { margin: .2rem 0 0; font-size: .8125rem; color: var(--color-text-muted); }
+
+    .quick-doubt__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      padding: .85rem 1.25rem; border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff; font: 600 .875rem var(--font-display); transition: all .25s var(--ease-out);
+    }
+    .quick-doubt__btn:hover {
+      background: rgba(37, 211, 102, 0.15); border-color: #25D366; color: #25D366;
+      transform: translateY(-2px);
+    }
+
+    /* Formulário Qualificador */
+    .contact-card {
+      background: var(--surface-glass-dark);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: 1.75rem;
+      padding: clamp(1.75rem, 4vw, 2.75rem);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(253, 86, 42, 0.15);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 600px) {
+      .form-grid--2cols {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex; flex-direction: column; gap: .45rem;
+      margin-bottom: 1.15rem;
+    }
+    .form-label {
+      font: 600 .875rem var(--font-display);
+      color: var(--color-text-secondary);
+    }
+    .form-label span.req { color: var(--color-orange-400); margin-left: 2px; }
+    .form-label span.opt { font-weight: 400; font-size: .75rem; color: var(--color-text-muted); margin-left: 4px; }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: .9rem 1.15rem;
+      background: rgba(6, 4, 18, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: .85rem;
+      color: #fff;
+      font: 400 .95rem var(--font-body);
+      transition: border-color .2s var(--ease-out), box-shadow .2s var(--ease-out);
+      outline: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--color-orange-500);
+      box-shadow: 0 0 0 3px rgba(253, 86, 42, 0.25);
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: var(--color-text-muted); opacity: 0.6;
+    }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239B97B8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .form-select option { background: #0D0A22; color: #fff; }
+    .form-textarea { resize: vertical; min-height: 100px; }
+
+    .btn-submit-wa {
+      width: 100%;
+      margin-top: .75rem;
+      padding: 1.15rem;
+      border: none;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, #25D366 0%, #1EBE5D 100%);
+      color: #060412;
+      font: 700 .95rem var(--font-display);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      cursor: pointer;
+      box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.45);
+      transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
+    }
+    .btn-submit-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -5px rgba(37, 211, 102, 0.6);
+    }
+    .btn-submit-wa:active { transform: translateY(1px); }
+
+    .form-privacy-note {
+      text-align: center; font-size: .75rem; color: var(--color-text-muted);
+      margin-top: 1rem; line-height: 1.4;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      background: #04030D;
+      border-top: 1px solid var(--surface-glass-border);
+      padding: 2.5rem var(--gutter);
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: .875rem;
+    }
+    .footer a { color: var(--color-text-secondary); transition: color .2s; }
+    .footer a:hover { color: var(--color-orange-400); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER EM PÍLULA -->
+  <header class="nav">
+    <div class="nav__bar">
+      <a class="nav__logo" href="index.html" aria-label="Vitor Ferreira, início">
+        <img src="assets/images/logo1-1.png" alt="Vitor Ferreira" width="118" height="32">
+      </a>
+      
+      <ul class="nav__links">
+        <li><a href="index.html#inicio">Início</a></li>
+        <li><a href="index.html#metodo">Método</a></li>
+        <li><a href="index.html#solucoes">Soluções</a></li>
+        <li><a href="index.html#avaliacoes">Avaliações</a></li>
+        <li><a href="contato.html" class="is-active">Contato</a></li>
+      </ul>
+
+      <!-- Redes Sociais no Header -->
+      <div class="nav__socials">
+        <a href="https://instagram.com/vitorferreiravendas" target="_blank" rel="noopener" class="nav__social-link" aria-label="Instagram de Vitor Ferreira">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/vitorferreiravendas" target="_blank" rel="noopener" class="nav__social-link" aria-label="LinkedIn de Vitor Ferreira">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://youtube.com/@vitorferreiravendas" target="_blank" rel="noopener" class="nav__social-link" aria-label="YouTube de Vitor Ferreira">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://tiktok.com/@vitorferreiravendas" target="_blank" rel="noopener" class="nav__social-link" aria-label="TikTok de Vitor Ferreira">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.98v8.9c0 1.7-.55 3.42-1.62 4.75-1.46 1.83-3.79 2.87-6.13 2.75-2.58-.13-4.99-1.61-6.17-3.9-1.28-2.48-1.07-5.65.55-7.92 1.53-2.14 4.14-3.29 6.74-2.89.01 1.4-.01 2.8.01 4.2-.98-.23-2.07-.06-2.89.58-.87.68-1.27 1.84-1.01 2.91.24 1.05 1.14 1.88 2.21 2.05 1.25.19 2.56-.47 3.07-1.64.22-.52.29-1.09.28-1.65V.02h.02z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO DA PÁGINA DE CONTATO -->
+  <main class="contact-page">
+    <div class="contact-wrapper">
+
+      <!-- LADO ESQUERDO: TEXTO DE APOIO & SUPORTE RÁPIDO -->
+      <div class="contact-hero">
+        <span class="contact-hero__tag">Reunião Estratégica</span>
+        <h1 class="contact-hero__title">
+          Vamos construir a <span>solução ideal</span> para o seu cenário?
+        </h1>
+        <p class="contact-hero__lead">
+          Preencha os dados ao lado para agendarmos uma conversa direta e entender como destravar a performance comercial, comunicação e protagonismo da sua equipe ou da sua carreira.
+        </p>
+
+        <!-- CARD DE DÚVIDA RÁPIDA -->
+        <div class="quick-doubt-card">
+          <div class="quick-doubt__header">
+            <img src="assets/images/IMG7.png" alt="Vitor Ferreira" class="quick-doubt__avatar" width="52" height="52">
+            <div class="quick-doubt__meta">
+              <h4>Tem apenas uma dúvida rápida?</h4>
+              <p>Fale diretamente com o suporte do Vitor</p>
+            </div>
+          </div>
+          <p style="margin: 0; font-size: .875rem; color: var(--color-text-secondary); line-height: 1.5;">
+            Se você não quer preencher o formulário agora e só precisa de uma resposta pontual sobre datas ou formatos:
+          </p>
+          <a class="quick-doubt__btn" 
+             href="https://wa.me/5521990587160?text=Ol%C3%A1%20Vitor!%20Estou%20no%20seu%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20r%C3%A1pida." 
+             target="_blank" 
+             rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>Tirar uma dúvida rápida no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- LADO DIREITO: FORMULÁRIO QUALIFICADOR -->
+      <div class="contact-card">
+        <form id="strategicContactForm" novalidate>
+
+          <!-- 1. Nome Completo (Obrigatório) -->
+          <div class="form-group">
+            <label for="form_name" class="form-label">Nome Completo<span class="req">*</span></label>
+            <input type="text" id="form_name" class="form-input" placeholder="Ex: Roberto Silva" required>
+          </div>
+
+          <!-- 2. Telefone / WhatsApp (Obrigatório) & E-mail (Opcional) -->
+          <div class="form-grid form-grid--2cols">
+            <div class="form-group">
+              <label for="form_phone" class="form-label">WhatsApp com DDD<span class="req">*</span></label>
+              <input type="tel" id="form_phone" class="form-input" placeholder="(21) 99999-9999" required>
+            </div>
+            <div class="form-group">
+              <label for="form_email" class="form-label">E-mail <span class="opt">(Opcional)</span></label>
+              <input type="email" id="form_email" class="form-input" placeholder="roberto@empresa.com.br">
+            </div>
+          </div>
+
+          <!-- 3. Ramo de Atividade (Obrigatório) -->
+          <div class="form-group">
+            <label for="form_segment" class="form-label">Ramo de Atividade<span class="req">*</span></label>
+            <input type="text" id="form_segment" class="form-input" placeholder="Ex: Varejo, Tecnologia, Serviços, Indústria, Saúde..." required>
+          </div>
+
+          <!-- 4. Nome da Empresa e Cargo (Opcionais) -->
+          <div class="form-grid form-grid--2cols">
+            <div class="form-group">
+              <label for="form_company" class="form-label">Nome da Empresa <span class="opt">(Opcional)</span></label>
+              <input type="text" id="form_company" class="form-input" placeholder="Ex: Grupo Alfa">
+            </div>
+            <div class="form-group">
+              <label for="form_role" class="form-label">Cargo Atual <span class="opt">(Opcional)</span></label>
+              <input type="text" id="form_role" class="form-input" placeholder="Ex: Diretor Comercial / Gerente">
+            </div>
+          </div>
+
+          <!-- 5. Objetivo Principal (Obrigatório) - As 3 Opções Aprovadas -->
+          <div class="form-group">
+            <label for="form_goal" class="form-label">Objetivo Principal<span class="req">*</span></label>
+            <select id="form_goal" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option value="Treinamento / Palestra para Equipe">Treinamento / Palestra para Equipe</option>
+              <option value="Mentoria Individual">Mentoria Individual</option>
+              <option value="Outro projeto sob medida">Outro projeto sob medida</option>
+            </select>
+          </div>
+
+          <!-- 6. Descreva seu Principal Desafio (Obrigatório) -->
+          <div class="form-group">
+            <label for="form_challenge" class="form-label">Descreva seu Principal Desafio Atual<span class="req">*</span></label>
+            <textarea id="form_challenge" class="form-textarea" placeholder="Ex: Nossa equipe tem dificuldade em fechar sem dar descontos e precisamos melhorar o atendimento..." required></textarea>
+          </div>
+
+          <!-- Botão CTA Oficial -->
+          <button type="submit" class="btn-submit-wa" id="btnSubmitForm">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>AGENDAR REUNIÃO ESTRATÉGICA</span>
+          </button>
+
+          <p class="form-privacy-note">
+            Ao clicar, uma mensagem pré-formatada será gerada para o WhatsApp oficial de Vitor Ferreira.
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© Vitor Ferreira — Treinador & Mentor Comercial. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- SCRIPT DE MÁSCARA & ENVIO WHATSAPP -->
+  <script>
+    (function () {
+      var phoneInput = document.getElementById('form_phone');
+      var form = document.getElementById('strategicContactForm');
+
+      // Máscara dinâmica de telefone brasileiro (XX) 9XXXX-XXXX
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function (e) {
+          var val = e.target.value.replace(/\D/g, '');
+          if (val.length > 11) val = val.substring(0, 11);
+          
+          if (val.length > 6) {
+            e.target.value = '(' + val.substring(0, 2) + ') ' + val.substring(2, 7) + '-' + val.substring(7);
+          } else if (val.length > 2) {
+            e.target.value = '(' + val.substring(0, 2) + ') ' + val.substring(2);
+          } else if (val.length > 0) {
+            e.target.value = '(' + val;
+          }
+        });
+      }
+
+      // Validação e disparo para WhatsApp
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          var name = document.getElementById('form_name').value.trim();
+          var phone = document.getElementById('form_phone').value.trim();
+          var email = document.getElementById('form_email').value.trim();
+          var segment = document.getElementById('form_segment').value.trim();
+          var company = document.getElementById('form_company').value.trim();
+          var role = document.getElementById('form_role').value.trim();
+          var goal = document.getElementById('form_goal').value;
+          var challenge = document.getElementById('form_challenge').value.trim();
+
+          // Validação dos obrigatórios
+          if (!name) { alert('Por favor, preencha seu Nome Completo.'); document.getElementById('form_name').focus(); return; }
+          if (!phone || phone.length < 14) { alert('Por favor, preencha um WhatsApp válido com DDD.'); document.getElementById('form_phone').focus(); return; }
+          if (!segment) { alert('Por favor, informe o Ramo de Atividade.'); document.getElementById('form_segment').focus(); return; }
+          if (!goal) { alert('Por favor, selecione o Objetivo Principal.'); document.getElementById('form_goal').focus(); return; }
+          if (!challenge) { alert('Por favor, descreva brevemente seu Principal Desafio Atual.'); document.getElementById('form_challenge').focus(); return; }
+
+          // Montagem da mensagem estruturada
+          var companyRoleInfo = '';
+          if (company && role) {
+            companyRoleInfo = ' (' + role + ' na empresa *' + company + '*)';
+          } else if (company) {
+            companyRoleInfo = ' (Empresa: *' + company + '*)';
+          } else if (role) {
+            companyRoleInfo = ' (Cargo: *' + role + '*)';
+          }
+
+          var msg = 'Olá Vitor!\n\n' +
+                    'Gostaria de agendar uma *Reunião Estratégica*.\n\n' +
+                    '👤 *Nome:* ' + name + companyRoleInfo + '\n' +
+                    '📱 *WhatsApp:* ' + phone + (email ? '\n📧 *E-mail:* ' + email : '') + '\n' +
+                    '🏢 *Ramo de Atividade:* ' + segment + '\n' +
+                    '🎯 *Objetivo:* ' + goal + '\n\n' +
+                    '💬 *Desafio Atual:* ' + challenge + '\n\n' +
+                    'Como está sua agenda para conversarmos?';
+
+          var phoneVitor = '5521990587160';
+          var waUrl = 'https://wa.me/' + phoneVitor + '?text=' + encodeURIComponent(msg);
+
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
