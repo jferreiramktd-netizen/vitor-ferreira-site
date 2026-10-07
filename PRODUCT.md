@@ -14,7 +14,7 @@ Site institucional de alta autoridade e conversão em arquitetura **Multi-Page**
 
 ## Jornada do Visitante & Funil de Conversão
 - **Objetivo Central:** Gerar agendamento qualificado de reuniões estratégicas diretamente com o Vitor.
-- **Header:** Pílula translúcida com links de navegação e **ícones sociais diretos** (Instagram, LinkedIn, YouTube, TikTok), sem botão de CTA no topo para manter a navegação limpa.
+- **Header:** Pílula translúcida estática no topo com links de navegação e **ícones sociais diretos** (Instagram, LinkedIn, YouTube, TikTok), sem botão de CTA e sem acompanhar o scroll para manter a navegação limpa e desobstruída.
 - **Hero:** Impacto cinematográfico com foto do Vitor em palco, faixa de autoridade (+30 anos, +3.000 pessoas treinadas, 100% prático) e **1 único botão CTA primário:** `[ QUERO CONHECER ]` ➔ direciona para `contato.html`. Sem selo de descritor, sem cartão sobre a foto e sem WhatsApp flutuante.
 - **2ª Dobra (As 2 Portas de Entrada):** Bifurcação rápida em 2 cards interativos:
   - *Soluções para Profissionais* (Mentoria & Carreira)

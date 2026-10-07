@@ -205,6 +205,32 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 
 ---
 
+### 2.6.1. Clareza para o Próximo Nível (`#clareza`) — 6ª dobra
+
+{{Diagrama com a logo (símbolo) no centro e as cinco frentes do método em volta, no estilo "hub". Texto à esquerda ou à direita conforme a tela; fundo off-white. No celular e no tablet o diagrama vira a logo + uma lista de cinco cards. Ícones em traço, desenhados.}}
+
+**Título**
+> Tenha **clareza** sobre o que fazer **para chegar ao próximo nível**
+
+**Subtítulo**
+> Saiba exatamente onde agir. O método do Vitor organiza o desenvolvimento da sua equipe, ou da sua carreira, em cinco frentes práticas, do primeiro passo ao resultado.
+
+**Botão:** `[ QUERO CONHECER ]` ───> `contato.html`
+**Microcopy:** Cada projeto começa com um diagnóstico. Sem compromisso.
+
+**As 5 frentes ao redor da logo** (5 dos 6 temas da seção 2.5; "Produtividade & IA" ficou de fora a pedido)
+| Frente | Linha de apoio | Ícone |
+|---|---|---|
+| Vendas | Abordagem, objeções e fechamento | alvo |
+| Atendimento | Experiência que encanta e fideliza | rosto sorrindo |
+| Comunicação | Clareza, escuta e influência | balão de conversa |
+| Protagonismo | Iniciativa e postura de dono | raio |
+| Liderança | Feedback, delegação e engajamento | medalha |
+
+{{Para ter mais satélites, as candidatas já presentes no copy.md são "Produtividade & IA" (retirada), "Marketing pessoal" e "Relacionamento".}}
+
+---
+
 ### 2.7. Quem é Vitor Ferreira
 
 **Título**
@@ -216,6 +242,8 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 > Formado em Marketing e com MBA em Gestão Empresarial, uni mais de 3 décadas de experiência prática a métodos testados de aprendizagem corporativa.
 >
 > Não ensino teoria de livro. Ensino o que vivi e o que vejo funcionar todos os dias nas empresas que atendo.
+
+{{**Implementado na 7ª dobra (`#sobre`) com o texto do site antigo, copiado sem alterações** (a pedido), no lugar da bio acima: eyebrow "Sobre mim", título "Vitor Ferreira", 5 parágrafos, botão "Entrar em contato" → `contato.html`, duas fotos sobrepostas (`img-vitor-1.jpg` e `img-vitor-2.jpg`), e dois quadradinhos laranja. O contador "+3.000 pessoas treinadas" foi retirado (já aparece na hero e no painel de impacto). ⚠️ O texto antigo diz "há mais de **28 anos**", e o resto do site diz "mais de 30 anos". Decidir qual vale e alinhar.}}
 
 ---
 
@@ -229,6 +257,8 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 
 **Botão:**
 > `[ AGENDAR REUNIÃO ESTRATÉGICA ]` ───> Leva para `contato.html`
+
+{{Implementado como banner laranja a cavalo na divisa entre a última dobra e o rodapé: faixa clara em cima, escura embaixo; selo redondo branco com o símbolo da logo (e o texto "VITOR FERREIRA · DESENVOLVA PESSOAS" em anel) metade para fora do topo; símbolo grande em marca d'água ao fundo; botão branco com texto laranja.}}
 
 ---
 
@@ -271,3 +301,9 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 **Links e Redes:**
 > Início | Método | Soluções | Avaliações | Contato  
 > Instagram • LinkedIn • YouTube • TikTok
+
+{{Implementado no estilo de rodapé de referência: à esquerda logo e assinatura; colunas **Navegue** (Início, Método, Soluções, Avaliações, Contato e um botão **SEO**), **Legal** (Termos e Condições, Política de Privacidade, Segurança) e **Fale conosco** (WhatsApp e e-mail); linha inferior com "© [ano atual] Vitor Ferreira — Treinador & Mentor Comercial. Todos os direitos reservados." à esquerda e as redes sociais à direita.
+
+**Botão SEO:** abre um pop-up (`<dialog id="seo-dialog">`) com as palavras-chave do site. Para editar, troque os `<li>` dentro de `.seo__list` no `index.html`. As 10 palavras que estão lá hoje são exemplos tirados da oferta do site (treinamento de vendas, palestra corporativa, mentoria de vendas…): substituir pelas definitivas.
+
+**Páginas legais ainda não existem:** os links apontam para `termos.html`, `privacidade.html` e `seguranca.html`.}}

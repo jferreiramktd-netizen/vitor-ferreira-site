@@ -91,9 +91,9 @@
     }
     .skip-link:focus { top: 1rem; }
 
-    /* ---------- Menu: pílula flutuante de vidro ---------- */
+    /* ---------- Menu: pílula estática no topo ---------- */
     .nav {
-      position: fixed; z-index: 50;
+      position: absolute; z-index: 50;
       top: max(1rem, env(safe-area-inset-top));
       left: 50%; transform: translateX(-50%);
       width: min(92%, 1220px);
@@ -762,6 +762,183 @@
       .rv-card[aria-hidden="true"] { display: none; }
     }
 
+    /* ---------- Sexta dobra: clareza para o próximo nível (logo no centro, cinco frentes em volta) ---------- */
+    .clarity {
+      position: relative; isolation: isolate;
+      padding: clamp(3rem, 6vw, 5.5rem) var(--gutter);
+      scroll-margin-top: 4.5rem;
+      border-top: 1px solid rgba(13, 10, 34, 0.07);
+      background:
+        radial-gradient(46% 55% at 4% 100%, rgba(253, 86, 42, 0.07) 0%, rgba(253, 86, 42, 0) 70%),
+        radial-gradient(46% 55% at 100% 0%, rgba(44, 38, 107, 0.07) 0%, rgba(44, 38, 107, 0) 70%),
+        #F6F8FC;
+      color: var(--color-navy-950);
+    }
+    .clarity__inner { max-width: 1180px; margin-inline: auto; display: grid; gap: clamp(2rem, 5vw, 3rem); align-items: center; }
+    .clarity__title { margin: 0; font: 300 clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem)/1.2 var(--font-display); letter-spacing: -.02em; text-wrap: balance; }
+    .clarity__title strong { font-weight: 800; color: #DF3D12; }
+    .clarity__lead { margin: 1.25rem 0 1.75rem; max-width: 34rem; font-size: 1.125rem; line-height: 1.6; color: #3D395E; text-wrap: pretty; }
+    .clarity__note { margin: .9rem 0 0; font-size: .875rem; line-height: 1.45; color: #5D597A; }
+
+    /* diagrama: no celular e no tablet vira logo + lista de cards; no desktop vira órbita */
+    .hub { width: 100%; max-width: 40rem; margin-inline: auto; }
+    .hub__svg { display: none; }
+    .hub__core {
+      display: grid; place-items: center; width: 7.5rem; height: 7.5rem; margin: 0 auto 1.75rem; border-radius: 50%;
+      background: radial-gradient(circle at 50% 30%, #2C266B 0%, #0D0A22 72%);
+      border: 2px solid rgba(253, 86, 42, 0.6);
+      box-shadow: 0 0 0 7px rgba(253, 86, 42, 0.1), 0 0 36px rgba(253, 86, 42, 0.35), 0 18px 36px -14px rgba(13, 10, 34, 0.55);
+    }
+    .hub__core img { height: 54%; width: auto; filter: drop-shadow(0 4px 14px rgba(253, 86, 42, 0.5)); }
+    .hub__list { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    @media (max-width: 479px) { .hub__list { grid-template-columns: 1fr; } }
+    .hub__node {
+      display: flex; align-items: center; gap: .85rem; padding: .9rem 1rem;
+      background: #fff; border: 1px solid rgba(13, 10, 34, 0.08); border-radius: 16px;
+      box-shadow: 0 12px 26px -16px rgba(13, 10, 34, 0.3);
+    }
+    .hub__icon {
+      flex-shrink: 0; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%;
+      color: #DF3D12; background: #fff; border: 2px solid rgba(253, 86, 42, 0.5);
+      box-shadow: 0 0 18px rgba(253, 86, 42, 0.22);
+    }
+    .hub__title { display: block; font: 600 .9375rem/1.3 var(--font-display); color: var(--color-navy-950); }
+    .hub__sub { display: block; margin-top: 2px; font-size: .8125rem; line-height: 1.4; color: #5D597A; }
+
+    @media (min-width: 900px) {
+      .clarity__inner { grid-template-columns: 1.15fr .85fr; }
+      .hub { order: -1; position: relative; max-width: 42rem; aspect-ratio: 1 / 0.95; container-type: inline-size; }
+      .hub__svg { display: block; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+      .hub__svg line { stroke: rgba(253, 86, 42, 0.55); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+      .hub__ring { fill: none; stroke: rgba(44, 38, 107, 0.3); stroke-width: 1.5; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; }
+      .hub__core { position: absolute; left: 50%; top: 54cqw; width: 29cqw; height: 29cqw; margin: 0; transform: translate(-50%, -50%); border-width: 2px; box-shadow: 0 0 0 1.4cqw rgba(253, 86, 42, 0.1), 0 0 6cqw rgba(253, 86, 42, 0.35), 0 18px 36px -14px rgba(13, 10, 34, 0.55); }
+      .hub__list { display: block; position: absolute; inset: 0; }
+      /* cada item é um ponto no centro do satélite; ícone e rótulo se posicionam a partir dele */
+      .hub__node { position: absolute; left: calc(var(--x) * 1cqw); top: calc(var(--y) * 1cqw); width: 0; height: 0; padding: 0; gap: 0; background: none; border: 0; box-shadow: none; border-radius: 0; display: block; }
+      .hub__icon { position: absolute; left: -7cqw; top: -7cqw; width: 14cqw; height: 14cqw; transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out), border-color .3s var(--ease-out); }
+      .hub__icon svg { width: 36%; height: 36%; }
+      .hub__node:hover .hub__icon { transform: scale(1.07); border-color: #FD562A; box-shadow: 0 0 28px rgba(253, 86, 42, 0.4); }
+      .hub__label { position: absolute; width: 17cqw; }
+      .hub__title { font-size: clamp(.8125rem, 2.1cqw, .9375rem); }
+      .hub__sub { font-size: clamp(.6875rem, 1.7cqw, .8125rem); }
+      .hub__node--top .hub__label { bottom: 8.6cqw; left: -10cqw; width: 20cqw; text-align: center; }
+      .hub__node--bottom .hub__label { top: 8.6cqw; left: -10cqw; width: 20cqw; text-align: center; }
+      .hub__node--right .hub__label { left: 8.6cqw; top: 0; width: 14.5cqw; transform: translateY(-50%); text-align: left; }
+      .hub__node--left .hub__label { right: 8.6cqw; top: 0; width: 14.5cqw; transform: translateY(-50%); text-align: right; }
+    }
+
+    /* ---------- Sétima dobra: sobre mim (reprodução da seção do site antigo) ---------- */
+    .about {
+      position: relative; isolation: isolate; overflow: hidden;
+      padding: clamp(3.5rem, 7vw, 6.5rem) var(--gutter);
+      scroll-margin-top: 4.5rem;
+      background:
+        radial-gradient(50% 55% at 12% 70%, rgba(253, 86, 42, 0.13) 0%, rgba(253, 86, 42, 0) 70%),
+        radial-gradient(45% 50% at 100% 0%, rgba(44, 38, 107, 0.55) 0%, rgba(44, 38, 107, 0) 70%),
+        var(--color-navy-900);
+      color: #fff;
+    }
+    .about__inner { max-width: 1180px; margin-inline: auto; display: grid; gap: clamp(2.5rem, 6vw, 3.5rem); align-items: center; }
+
+    /* composição das duas fotos: a principal à direita, a segunda sobreposta embaixo à esquerda */
+    .about__media { width: 100%; max-width: 27rem; margin-inline: auto; }
+    .about__stage { perspective: 900px; }
+    .about__photos { position: relative; aspect-ratio: 1 / 1.27; transform-style: preserve-3d; transition: transform .25s var(--ease-out); will-change: transform; }
+    .about__photo { position: absolute; display: block; height: auto; border-radius: 10px; box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .about__photo--main { right: 0; top: 0; width: 76%; }
+    .about__photo--second { left: 0; top: 47.5%; width: 54%; z-index: 1; }
+    .about__square { position: absolute; display: block; background: none; }
+    .about__square--outline { left: 4.6%; top: 30.8%; width: 11%; aspect-ratio: 1; border: 5px solid var(--color-orange-500); border-radius: 7px; }
+    .about__square--solid { left: 64.5%; top: 78%; width: 7.2%; aspect-ratio: 1; background: var(--color-orange-500); border-radius: 5px; z-index: 2; animation: aboutFloat 5s ease-in-out infinite; }
+    @keyframes aboutFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(18px); } }
+
+
+    .about__text { max-width: 36rem; }
+    .about__kicker { margin: 0; font: 700 .875rem/1.2 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--color-orange-500); }
+    .about__title { margin: .35rem 0 1.5rem; font: 700 clamp(2.25rem, 1.6rem + 2.6vw, 3.25rem)/1.15 var(--font-display); letter-spacing: -.02em; }
+    .about__text p:not(.about__kicker) { margin: 0 0 1.1rem; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-secondary); text-wrap: pretty; }
+    .about__cta { margin-top: 1rem; }
+
+    @media (min-width: 900px) {
+      .about__inner { grid-template-columns: 1fr 1fr; }
+      .about__media { margin-inline: 0 auto; }
+    }
+    @media (prefers-reduced-motion: reduce) { .about__square--solid { animation: none; } }
+
+    /* ---------- Banner de fechamento: cruza a emenda entre a última dobra e o rodapé ---------- */
+    .cta {
+      position: relative; padding: 5.75rem var(--gutter) 3.5rem; scroll-margin-top: 4.5rem;
+      /* faixa clara em cima, rodapé escuro embaixo: o banner fica a cavalo na divisa */
+      background: linear-gradient(#F6F8FC, #F6F8FC) top / 100% 13rem no-repeat, var(--color-navy-950);
+    }
+    .cta__inner { max-width: 1180px; margin-inline: auto; }
+    .cta__banner {
+      position: relative; isolation: isolate; overflow: visible;
+      padding: 6.25rem clamp(1.25rem, 5vw, 4rem) clamp(2.25rem, 4vw, 3.25rem);
+      border-radius: 20px; text-align: center; color: #fff;
+      background: linear-gradient(100deg, #E8481A 0%, #DF3D12 45%, #BF2902 100%);
+      box-shadow: 0 30px 60px -24px rgba(191, 41, 2, 0.6), 0 12px 28px -12px rgba(13, 10, 34, 0.5);
+    }
+    /* marca d'água: o símbolo da logo, grande, em branco translúcido, preso dentro do banner */
+    .cta__clip {
+      position: absolute; inset: 0; z-index: -1; border-radius: inherit; overflow: hidden; pointer-events: none;
+      background: radial-gradient(60% 90% at 50% 0%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 70%);
+    }
+    .cta__mark {
+      position: absolute; left: 50%; top: 50%; height: 118%; aspect-ratio: 377 / 475; transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.13);
+      -webkit-mask: url("assets/images/logo-simbolo.png") center / contain no-repeat;
+              mask: url("assets/images/logo-simbolo.png") center / contain no-repeat;
+      pointer-events: none;
+    }
+    /* selo redondo com a logo, metade para fora do topo do banner */
+    .cta__badge {
+      position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%);
+      width: 9rem; height: 9rem; border-radius: 50%; display: grid; place-items: center;
+      background: #fff; box-shadow: 0 18px 36px -12px rgba(13, 10, 34, 0.45), 0 0 0 6px rgba(246, 248, 252, 0.9);
+    }
+    .cta__ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .cta__ring text { font: 600 10.5px var(--font-display); fill: #3D395E; letter-spacing: .3em; }
+    .cta__badge img { position: relative; height: 3.9rem; width: auto; }
+    .cta__title { margin: 0 auto; max-width: 40rem; font: 700 clamp(1.625rem, 1.1rem + 2vw, 2.5rem)/1.2 var(--font-display); letter-spacing: -.02em; text-wrap: balance; }
+    /* peso 600 em 19px conta como texto grande: contraste mínimo de 3:1 sobre o laranja */
+    .cta__text { margin: 1rem auto 1.75rem; max-width: 40rem; font: 600 1.1875rem/1.55 var(--font-body); text-wrap: balance; }
+    .btn.cta__btn { background: #fff; color: #BF2902; border-color: #fff; box-shadow: 0 12px 24px -10px rgba(13, 10, 34, 0.45); }
+    .btn.cta__btn:hover { background: transparent; color: #fff; border-color: #fff; transform: translateY(-2px); }
+    @media (max-width: 599px) { .btn.cta__btn { width: 100%; } }
+
+    /* ---------- Rodapé (navegação, legal, contato; direitos e redes embaixo) ---------- */
+    .footer { background: var(--color-navy-950); color: var(--color-text-secondary); padding: 0 var(--gutter) 2rem; }
+    .footer__inner { max-width: 1180px; margin-inline: auto; border-top: 1px solid rgba(253, 86, 42, 0.6); padding-top: clamp(2.5rem, 5vw, 3.5rem); }
+    .footer__top { display: grid; gap: 2.25rem; grid-template-columns: 1fr; }
+    @media (min-width: 640px)  { .footer__top { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1000px) { .footer__top { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 2rem; } }
+    .footer__brand img { height: 2.5rem; width: auto; }
+    .footer__brand p { margin: 1rem 0 0; max-width: 18rem; font-size: .9375rem; line-height: 1.55; color: var(--color-text-muted); }
+    .footer__col h3 { margin: 0 0 1rem; font: 700 1rem/1.3 var(--font-display); color: #fff; }
+    .footer__col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .7rem; }
+    .footer__col a, .footer__seo { font: 400 .9375rem/1.4 var(--font-body); color: var(--color-text-secondary); transition: color .15s var(--ease-out); }
+    .footer__col a:hover, .footer__seo:hover { color: var(--color-orange-300); }
+    /* o botão SEO parece um link do rodapé, mas abre o pop-up de palavras-chave */
+    .footer__seo { padding: 0; margin: 0; background: none; border: 0; cursor: pointer; text-align: left; }
+    .footer__bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+    .footer__copy { margin: 0; font-size: .875rem; line-height: 1.5; color: var(--color-text-muted); }
+    .footer__social a { color: var(--color-text-muted); }
+    .footer__social a:hover { color: var(--color-orange-300); }
+
+    /* ---------- Pop-up de SEO ---------- */
+    .seo { width: min(92vw, 36rem); max-height: 86vh; padding: 0; border: 1px solid rgba(253, 86, 42, 0.4); border-radius: 20px; background: var(--color-navy-900); color: #fff; box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(253, 86, 42, 0.12); }
+    .seo[open] { animation: seoIn .3s var(--ease-expo); }
+    .seo::backdrop { background: rgba(6, 4, 18, 0.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+    .seo__box { position: relative; padding: clamp(1.5rem, 4vw, 2.25rem); }
+    .seo__close { position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; cursor: pointer; font-size: 1.5rem; line-height: 1; color: #fff; background: rgba(255, 255, 255, 0.1); transition: background-color .2s var(--ease-out); }
+    .seo__close:hover { background: var(--color-orange-500); color: var(--color-navy-950); }
+    .seo__title { margin: 0; padding-right: 3rem; font: 700 1.5rem/1.2 var(--font-display); }
+    .seo__lead { margin: .5rem 0 1.25rem; font-size: .9375rem; color: var(--color-text-muted); }
+    .seo__list { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; }
+    .seo__list li { padding: .4rem .9rem; font: 600 .875rem/1.3 var(--font-display); color: var(--color-orange-300); background: rgba(253, 86, 42, 0.12); border: 1px solid rgba(253, 86, 42, 0.35); border-radius: var(--radius-pill); }
+    @keyframes seoIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+
     /* entrada ao rolar: sobe uma vez, em sequência, e devolve o controle ao hover */
     .js-reveal .sol-reveal:not(.is-in) { opacity: 0; }
     .sol-reveal.is-in { animation: rise .95s var(--ease-expo) var(--d, 0s) backwards; }
@@ -1210,7 +1387,204 @@
 
       </div>
     </section>
+
+    <!-- SEÇÃO 6: CLAREZA PARA O PRÓXIMO NÍVEL (diagrama com a logo no centro) -->
+    <section class="clarity" id="clareza" aria-labelledby="clarity-title">
+      <div class="clarity__inner">
+
+        <div class="clarity__text sol-reveal">
+          <h2 class="clarity__title" id="clarity-title">Tenha <strong>clareza</strong> sobre o que fazer <strong>para chegar ao próximo nível</strong></h2>
+          <p class="clarity__lead">Saiba exatamente onde agir. O método do Vitor organiza o desenvolvimento da sua equipe, ou da sua carreira, em cinco frentes práticas, do primeiro passo ao resultado.</p>
+          <a class="btn btn--primary" href="contato.html">Quero conhecer
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <p class="clarity__note">Cada projeto começa com um diagnóstico. Sem compromisso.</p>
+        </div>
+
+        <div class="hub sol-reveal" style="--d:.1s">
+          <svg class="hub__svg" viewBox="0 0 100 95" aria-hidden="true" focusable="false">
+            <circle class="hub__ring" cx="50" cy="54" r="28"/>
+        <line x1="50.00" y1="39.50" x2="50.00" y2="33.30"/>
+        <line x1="63.79" y1="49.52" x2="69.69" y2="47.60"/>
+        <line x1="58.52" y1="65.73" x2="62.17" y2="70.75"/>
+        <line x1="41.48" y1="65.73" x2="37.83" y2="70.75"/>
+        <line x1="36.21" y1="49.52" x2="30.31" y2="47.60"/>
+          </svg>
+          <div class="hub__core">
+            <img src="assets/images/logo-simbolo.png" width="377" height="475" alt="Símbolo da marca Vitor Ferreira" loading="lazy" decoding="async">
+          </div>
+          <ul class="hub__list" aria-label="As cinco frentes do método">
+        <li class="hub__node hub__node--top" style="--x:50.00;--y:26.00">
+          <span class="hub__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </span>
+          <span class="hub__label">
+            <span class="hub__title">Vendas</span>
+            <span class="hub__sub">Abordagem, objeções e fechamento</span>
+          </span>
+        </li>
+        <li class="hub__node hub__node--right" style="--x:76.63;--y:45.35">
+          <span class="hub__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </span>
+          <span class="hub__label">
+            <span class="hub__title">Atendimento</span>
+            <span class="hub__sub">Experiência que encanta e fideliza</span>
+          </span>
+        </li>
+        <li class="hub__node hub__node--right" style="--x:66.46;--y:76.65">
+          <span class="hub__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </span>
+          <span class="hub__label">
+            <span class="hub__title">Comunicação</span>
+            <span class="hub__sub">Clareza, escuta e influência</span>
+          </span>
+        </li>
+        <li class="hub__node hub__node--left" style="--x:33.54;--y:76.65">
+          <span class="hub__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </span>
+          <span class="hub__label">
+            <span class="hub__title">Protagonismo</span>
+            <span class="hub__sub">Iniciativa e postura de dono</span>
+          </span>
+        </li>
+        <li class="hub__node hub__node--left" style="--x:23.37;--y:45.35">
+          <span class="hub__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </span>
+          <span class="hub__label">
+            <span class="hub__title">Liderança</span>
+            <span class="hub__sub">Feedback, delegação e engajamento</span>
+          </span>
+        </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 7: SOBRE MIM (texto do site antigo, copiado sem alterações) -->
+    <section class="about" id="sobre" aria-labelledby="about-title">
+      <div class="about__inner">
+
+        <div class="about__media sol-reveal">
+          <div class="about__stage" data-tilt>
+            <div class="about__photos">
+              <img class="about__photo about__photo--main" src="assets/images/img-vitor-1.jpg" width="380" height="436" alt="Vitor Ferreira, palestrante e mentor de vendas" loading="lazy" decoding="async">
+              <img class="about__photo about__photo--second" src="assets/images/img-vitor-2.jpg" width="280" height="340" alt="Vitor Ferreira sorrindo enquanto usa o celular" loading="lazy" decoding="async">
+              <i class="about__square about__square--outline" aria-hidden="true"></i>
+              <i class="about__square about__square--solid" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__text sol-reveal" style="--d:.1s">
+          <p class="about__kicker">Sobre mim</p>
+          <h2 class="about__title" id="about-title">Vitor Ferreira</h2>
+          <p>Eu vivo de vendas há mais de 28 anos e sou totalmente apaixonado pelo que faço. Me formei em Marketing e fiz um MBA com foco em gestão empresarial.</p>
+          <p>Depois de tantas experiências no campo e nos bastidores, de ter sido treinado por alguns dos melhores do mundo e obter bons resultados por todo lugar que passei, hoje sou qualificado e tenho uma missão de ajudar o empreendedor a VENDER MAIS, VENDER MELHOR E VENDER PARA SEMPRE.</p>
+          <p>Entendo que muitos pensam assim: “Eu não sei vender.” ou “Eu não nasci com esse dom.” Porém eu tenho diversos casos de pessoas que, após serem mentoradas por mim de forma leve e simples, se desbloquearam e se descobriram como excelentes vendedores e tiveram resultados acima da média.</p>
+          <p>Deixe-me pegar na sua mão e vamos juntos começar uma jornada de sucesso que levará você e o seu negócio para resultados extraordinários!</p>
+          <p>Quer mudar agora o resultado do seu negócio e ir para outro nível? Fala comigo e vamos começar essa mudança já!</p>
+          <a class="btn btn--primary about__cta" href="contato.html">Entrar em contato
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 8: BANNER DE FECHAMENTO (cruza a emenda entre a última dobra e o rodapé) -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="cta__inner">
+        <div class="cta__banner sol-reveal">
+          <div class="cta__badge" aria-hidden="true">
+            <svg class="cta__ring" viewBox="0 0 144 144" focusable="false">
+              <defs><path id="cta-ring-path" d="M 72,72 m -53,0 a 53,53 0 1,1 106,0 a 53,53 0 1,1 -106,0"/></defs>
+              <circle cx="72" cy="72" r="64" fill="none" stroke="rgba(253, 86, 42, 0.35)" stroke-width="1.5"/>
+              <text><textPath href="#cta-ring-path">VITOR FERREIRA · DESENVOLVA PESSOAS · </textPath></text>
+            </svg>
+            <img src="assets/images/logo-simbolo.png" width="377" height="475" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="cta__clip" aria-hidden="true"><div class="cta__mark"></div></div>
+          <h2 class="cta__title" id="cta-title">Pronto para transformar os resultados da sua equipe?</h2>
+          <p class="cta__text">Vamos agendar uma reunião estratégica para diagnosticar o momento da sua empresa e desenhar a solução ideal.</p>
+          <a class="btn cta__btn" href="contato.html">Agendar reunião estratégica
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#inicio" aria-label="Vitor Ferreira, voltar ao início"><img src="assets/images/logo1-1.png" width="148" height="40" alt="Vitor Ferreira" loading="lazy" decoding="async"></a>
+          <p>Desenvolva pessoas. Transforme comportamentos. Gere resultados.</p>
+        </div>
+        <nav class="footer__col" aria-label="Navegação do rodapé">
+          <h3>Navegue</h3>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#metodo">Método</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#avaliacoes">Avaliações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><button class="footer__seo" type="button" data-seo-open aria-haspopup="dialog">SEO</button></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Informações legais">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="termos.html">Termos e Condições</a></li>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="seguranca.html">Segurança</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <h3>Fale conosco</h3>
+          <ul>
+            <li><a href="https://wa.me/5521990587160" target="_blank" rel="noopener">(21) 99058-7160</a></li>
+            <li><a href="mailto:contato@vitorferreiraoficial.com">contato@vitorferreiraoficial.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© <span data-year>2026</span> Vitor Ferreira — Treinador &amp; Mentor Comercial. Todos os direitos reservados.</p>
+        <ul class="social footer__social">
+            <li><a href="https://www.instagram.com/vitorferreiravendas?igsh=MzczMXBuMWNua3Zm" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/vitor-ferreira-vendas-94643a25/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-linkedin" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.youtube.com/@vitmorfer2312" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-youtube" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.tiktok.com/@vitorferreiravenda" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-tiktok" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- POP-UP DE SEO: as palavras-chave ficam na lista abaixo (um <li> por termo). Edite aqui. -->
+  <dialog class="seo" id="seo-dialog" aria-labelledby="seo-title">
+    <div class="seo__box">
+      <button class="seo__close" type="button" data-seo-close aria-label="Fechar">&times;</button>
+      <h2 class="seo__title" id="seo-title">Palavras-chave</h2>
+      <p class="seo__lead">Os temas e termos que este site trabalha.</p>
+      <ul class="seo__list">
+        <li>treinamento de vendas</li>
+        <li>palestra corporativa</li>
+        <li>mentoria de vendas</li>
+        <li>treinamento de equipes comerciais</li>
+        <li>desenvolvimento de pessoas</li>
+        <li>atendimento ao cliente</li>
+        <li>liderança na prática</li>
+        <li>comunicação assertiva</li>
+        <li>consultoria comercial</li>
+        <li>workshop para empresas</li>
+      </ul>
+    </div>
+  </dialog>
 
   <script>
     (function () {
@@ -1282,6 +1656,39 @@
           track.appendChild(copy);
         });
       });
+    })();
+
+    /* Sobre mim: leve inclinação 3D das fotos com o mouse. */
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var stage = document.querySelector('.about__stage');
+      var photos = document.querySelector('.about__photos');
+      if (stage && photos && !reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        stage.addEventListener('pointermove', function (e) {
+          var r = stage.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5;
+          var y = (e.clientY - r.top) / r.height - 0.5;
+          photos.style.transform = 'rotateY(' + (x * 8).toFixed(2) + 'deg) rotateX(' + (-y * 8).toFixed(2) + 'deg)';
+        });
+        stage.addEventListener('pointerleave', function () { photos.style.transform = ''; });
+      }
+    })();
+
+    /* Rodapé: ano atual e pop-up de SEO (<dialog>: Esc fecha, foco volta ao botão, clique fora fecha). */
+    (function () {
+      document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+      var dlg = document.getElementById('seo-dialog');
+      if (!dlg) return;
+      var opener = null;
+      document.querySelectorAll('[data-seo-open]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          opener = b;
+          if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+        });
+      });
+      function close() { if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open'); if (opener) opener.focus(); }
+      dlg.querySelectorAll('[data-seo-close]').forEach(function (b) { b.addEventListener('click', close); });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) close(); });
     })();
   </script>
 </body>
