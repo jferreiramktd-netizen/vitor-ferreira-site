@@ -7,13 +7,28 @@
   <meta name="description" content="Declaração de propriedade autoral, integridade de marca e proteção do acervo pessoal de Vitor Ferreira.">
   <meta name="theme-color" content="#060412">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+  <link rel="canonical" href="https://vitorferreiraoficial.com/seguranca.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="Vitor Ferreira">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Segurança &amp; Propriedade Intelectual | Vitor Ferreira">
+  <meta property="og:description" content="Declaração de propriedade autoral, integridade de marca e proteção do acervo pessoal de Vitor Ferreira.">
+  <meta property="og:url" content="https://vitorferreiraoficial.com/seguranca.html">
+  <meta property="og:image" content="https://vitorferreiraoficial.com/assets/images/hero-bg-01-3.jpg">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Segurança &amp; Propriedade Intelectual | Vitor Ferreira">
+  <meta name="twitter:description" content="Declaração de propriedade autoral, integridade de marca e proteção do acervo pessoal de Vitor Ferreira.">
+  <meta name="twitter:image" content="https://vitorferreiraoficial.com/assets/images/hero-bg-01-3.jpg">
 
   <style>
     @font-face { font-family: "Poppins"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-400.woff2") format("woff2"); }
     @font-face { font-family: "Poppins"; font-weight: 600; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-600.woff2") format("woff2"); }
     @font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: swap; src: url("assets/fonts/poppins-700.woff2") format("woff2"); }
     @font-face { font-family: "Open Sans"; font-weight: 400 600; font-style: normal; font-display: swap; src: url("assets/fonts/open-sans.woff2") format("woff2"); }
-    @font-face { font-family: "FA Brands"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/fa-brands-400.woff2") format("woff2"); }
 
     :root {
       --color-orange-300: #FFA086;
@@ -46,6 +61,9 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
@@ -69,13 +87,16 @@
     .nav__logo img { height: 2rem; width: auto; }
     .nav__links { display: flex; align-items: center; gap: .5rem; margin: 0; padding: 0; list-style: none; }
     .nav__links a {
-      display: block; padding: .45rem .85rem;
+      display: inline-flex; align-items: center; padding: .45rem .85rem; min-height: 2.25rem;
       font: 600 .875rem/1 var(--font-display);
       color: var(--color-text-secondary);
       border-radius: var(--radius-pill);
       transition: color .15s ease;
     }
     .nav__links a:hover { color: var(--color-orange-300); }
+    @media (max-width: 540px) {
+      .nav__links { display: none; }
+    }
 
     /* Conteúdo Legal */
     .legal-page {

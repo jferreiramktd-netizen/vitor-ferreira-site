@@ -4,9 +4,10 @@
 Site institucional de alta autoridade e conversão em arquitetura **Multi-Page** para **Vitor Ferreira**, Treinador, Mentor e Especialista em Vendas e Desenvolvimento de Pessoas. Apresenta o posicionamento comercial e humano, a bifurcação de soluções, o método em tríade, os temas de capacitação, avaliações reais do Google Meu Negócio e direciona para a página dedicada de agendamento de reunião estratégica integrada ao WhatsApp. Desenvolvido em HTML + CSS + JS estático e ultra-otimizado, sem dependência de backend.
 
 ## Arquitetura de Páginas
-1. **Homepage (`index.html`):** Hub de autoridade, bifurcação de público, método, temas, avaliações e CTAs de conversão.
+1. **Homepage (`index.html`):** Hub de autoridade, bifurcação de público, método, temas, avaliações, CTAs de conversão e pop-ups modais para SEO, Termos, Privacidade e Segurança.
 2. **Página de Contato (`contato.html`):** Página dedicada com formulário qualificador de reunião estratégica e card de suporte para dúvidas rápidas.
-3. *Páginas Futuras (Roadmap):* `/para-empresas` e `/para-profissionais`.
+3. **Páginas Legais Estáticas (`termos.html`, `privacidade.html`, `seguranca.html`):** Páginas dedicadas e pop-ups integrados para Termos e Condições, Política de Privacidade (LGPD) e Segurança & Propriedade Intelectual.
+4. *Páginas Futuras (Roadmap):* `/para-empresas` e `/para-profissionais`.
 
 ## Para quem
 1. **Empresas & Gestores (B2B):** Donos de empresas, diretores comerciais e líderes de RH que buscam treinamentos, palestras e programas de capacitação para elevar vendas, atendimento, liderança e protagonismo.

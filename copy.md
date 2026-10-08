@@ -37,7 +37,7 @@
 Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram suposições):
 - **Instagram:** `https://www.instagram.com/vitorferreiravendas?igsh=MzczMXBuMWNua3Zm`
 - **LinkedIn:** `https://www.linkedin.com/in/vitor-ferreira-vendas-94643a25/`
-- **YouTube:** `https://www.youtube.com/@vitmorfer2312`
+- **YouTube:** `https://www.youtube.com/@vitorferreiravendas`
 - **TikTok:** `https://www.tiktok.com/@vitorferreiravenda`
 
 {{Nenhum botão de CTA duplicado dentro do Header. Os ícones sociais dão autoridade e presença multicanal imediata.}}
@@ -349,6 +349,8 @@ Links reais, tirados do site antigo (os endereços anteriores deste arquivo eram
 
 {{Implementado no estilo de rodapé de referência: à esquerda logo e assinatura; colunas **Navegue** (Início, Método, Soluções, Avaliações, Contato e um botão **SEO**), **Legal** (Termos e Condições, Política de Privacidade, Segurança) e **Fale conosco** (WhatsApp e e-mail); linha inferior com "© [ano atual] Vitor Ferreira — Treinador & Mentor Comercial. Todos os direitos reservados." à esquerda e as redes sociais à direita.
 
-**Botão SEO:** abre um pop-up (`<dialog id="seo-dialog">`) com as palavras-chave do site. Para editar, troque os `<li>` dentro de `.seo__list` no `index.html`. As 10 palavras que estão lá hoje são exemplos tirados da oferta do site (treinamento de vendas, palestra corporativa, mentoria de vendas…): substituir pelas definitivas.
-
-**Páginas legais ainda não existem:** os links apontam para `termos.html`, `privacidade.html` e `seguranca.html`.}}
+**Botão SEO:** abre um pop-up (`<dialog id="seo-dialog">`) com as palavras-chave do site.
+**Pop-ups Legais no Rodapé:**
+- **Termos e Condições (`#termos-dialog` / `termos.html`):** Condições de uso, contratação bilateral e diretrizes gerais.
+- **Política de Privacidade (`#privacidade-dialog` / `privacidade.html`):** Tratamento mínimo de dados, finalidade comercial exclusiva e direitos LGPD (Lei nº 13.709/2018).
+- **Segurança & Propriedade Intelectual (`#seguranca-dialog` / `seguranca.html`):** Declaração explícita de propriedade autoral e pessoal de Vitor Ferreira, proibição de plágio/cópia de métodos (Tríade), proteção de imagem e canais oficiais protegidos pela Lei nº 9.610/1998.}}
