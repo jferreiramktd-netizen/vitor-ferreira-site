@@ -960,12 +960,13 @@
     .hub { width: 100%; max-width: 40rem; margin-inline: auto; }
     .hub__svg { display: none; }
     .hub__core {
-      display: grid; place-items: center; width: 7.5rem; height: 7.5rem; margin: 0 auto 1.75rem; border-radius: 50%;
+      position: relative; display: grid; place-items: center; width: 7.5rem; height: 7.5rem; margin: 0 auto 1.75rem; border-radius: 50%;
       background: radial-gradient(circle at 50% 30%, #2C266B 0%, #0D0A22 72%);
       border: 2px solid rgba(253, 86, 42, 0.6);
       box-shadow: 0 0 0 7px rgba(253, 86, 42, 0.1), 0 0 36px rgba(253, 86, 42, 0.35), 0 18px 36px -14px rgba(13, 10, 34, 0.55);
     }
-    .hub__core img { height: 54%; width: auto; filter: drop-shadow(0 4px 14px rgba(253, 86, 42, 0.5)); }
+    /* a bolinha laranja (≈48,5% x 61% da imagem) é o ponto de ancoragem: fica no centro exato do círculo */
+    .hub__core img { position: absolute; left: 50%; top: 44%; height: 44%; width: auto; aspect-ratio: 377 / 475; max-width: none; transform: translate(-48.5%, -61%); filter: drop-shadow(0 4px 14px rgba(253, 86, 42, 0.5)); }
     .hub__list { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
     @media (max-width: 479px) { .hub__list { grid-template-columns: 1fr; } }
     .hub__node {
@@ -1816,11 +1817,14 @@
         <div class="about__text sol-reveal" style="--d:.1s">
           <p class="about__kicker">Sobre mim</p>
           <h2 class="about__title" id="about-title">Vitor Ferreira</h2>
-          <p>Eu vivo de vendas há mais de 28 anos e sou totalmente apaixonado pelo que faço. Me formei em Marketing e fiz um MBA com foco em gestão empresarial.</p>
-          <p>Depois de tantas experiências no campo e nos bastidores, de ter sido treinado por alguns dos melhores do mundo e obter bons resultados por todo lugar que passei, hoje sou qualificado e tenho uma missão de ajudar o empreendedor a VENDER MAIS, VENDER MELHOR E VENDER PARA SEMPRE.</p>
-          <p>Entendo que muitos pensam assim: “Eu não sei vender.” ou “Eu não nasci com esse dom.” Porém eu tenho diversos casos de pessoas que, após serem mentoradas por mim de forma leve e simples, se desbloquearam e se descobriram como excelentes vendedores e tiveram resultados acima da média.</p>
-          <p>Deixe-me pegar na sua mão e vamos juntos começar uma jornada de sucesso que levará você e o seu negócio para resultados extraordinários!</p>
-          <p>Quer mudar agora o resultado do seu negócio e ir para outro nível? Fala comigo e vamos começar essa mudança já!</p>
+          <p>Comecei cedo no mundo das vendas e, há mais de 30 anos, transformo experiências, desafios e aprendizados reais em conhecimento para ajudar pessoas e empresas a crescerem.</p>
+          <p>Sou profissional de Marketing, empreendedor, treinador e mentor. Ao longo dessa trajetória, descobri que os melhores resultados não dependem apenas de conhecimento técnico, mas também da forma como nos comunicamos, atendemos, nos relacionamos, encaramos desafios e assumimos a responsabilidade pelo que fazemos.</p>
+          <p>É por isso que dedico meu trabalho ao <em>desenvolvimento de pessoas e competências que fazem a diferença na vida profissional e nos resultados das empresas.</em></p>
+          <p>Ajudo vendedores a venderem melhor, equipes a oferecerem um atendimento de excelência, profissionais a se comunicarem com mais clareza e pessoas a desenvolverem uma mentalidade mais protagonista, produtiva e preparada para os desafios do dia a dia.</p>
+          <p>Afinal, independentemente da profissão ou do segmento em que você atua, sempre existe uma habilidade capaz de transformar a maneira como você trabalha e os resultados que conquista.</p>
+          <p><em>Minha missão é ajudar pessoas a descobrirem seu potencial, desenvolverem suas habilidades e transformarem conhecimento em atitude e resultados.</em></p>
+          <p>Seja para vender mais, atender melhor, se comunicar com confiança ou assumir um novo nível de responsabilidade, o próximo passo começa com uma decisão: a de continuar evoluindo.</p>
+          <p><strong>Vamos dar esse próximo passo juntos?</strong></p>
           <a class="btn btn--primary about__cta" href="contato.html">Entrar em contato
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
