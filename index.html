@@ -480,9 +480,10 @@
       .hero__inner { justify-content: center; min-height: 100svh; }
       .hero__media {
         position: absolute; right: 0; bottom: 0; margin: 0;
-        width: clamp(21rem, 42vw, 41rem);
-        max-height: 94svh;
+        width: clamp(20rem, 38vw, 36rem);
+        max-height: 85svh;
       }
+      .hero__photo { object-position: right bottom; }
       .hero__copy {
         margin: 0; max-width: min(55vw, 42rem); width: 100%;
         padding: 7rem var(--gutter) 4rem;
@@ -1845,9 +1846,9 @@
           </p>
         </header>
 
-        <ul class="vf-process-stack sol-reveal" id="process-stack" role="list">
+        <div class="vf-process-stack sol-reveal" id="process-stack" role="region" aria-label="A Tríade Prática: passos da metodologia">
           <!-- Passo 1: Conhecimento -->
-          <li class="vf-process-card active" data-step="1" tabindex="0" role="button" aria-expanded="true">
+          <div class="vf-process-card active" data-step="1" tabindex="0" role="button" aria-expanded="true" aria-label="Passo 1: Conhecimento Prático">
             <div class="top">
               <span class="step-num">01</span>
               <p class="title">Conhecimento Prático</p>
@@ -1856,10 +1857,10 @@
               <span class="tag-pill">Pilar 1 · Fundamento</span>
               <p class="description">Conceitos claros, técnicas de comunicação e métodos aplicáveis à realidade do seu setor — seja para equipes de vendas, atendimento ao cliente, escritórios contábeis ou prestadores de serviços.</p>
             </div>
-          </li>
+          </div>
 
           <!-- Passo 2: Comportamento -->
-          <li class="vf-process-card" data-step="2" tabindex="0" role="button" aria-expanded="false">
+          <div class="vf-process-card" data-step="2" tabindex="0" role="button" aria-expanded="false" aria-label="Passo 2: Mudança de Comportamento">
             <div class="top">
               <span class="step-num">02</span>
               <p class="title">Mudança de Comportamento</p>
@@ -1868,10 +1869,10 @@
               <span class="tag-pill">Pilar 2 · Transformação</span>
               <p class="description">Desenvolvimento de postura profissional, escuta ativa, iniciativa, inteligência emocional e compromisso genuíno com a satisfação do cliente e com o sucesso da empresa.</p>
             </div>
-          </li>
+          </div>
 
           <!-- Passo 3: Resultado -->
-          <li class="vf-process-card" data-step="3" tabindex="0" role="button" aria-expanded="false">
+          <div class="vf-process-card" data-step="3" tabindex="0" role="button" aria-expanded="false" aria-label="Passo 3: Resultado Sustentável">
             <div class="top">
               <span class="step-num">03</span>
               <p class="title">Resultado Sustentável</p>
@@ -1880,8 +1881,8 @@
               <span class="tag-pill">Pilar 3 · Evolução</span>
               <p class="description">Profissionais protagonistas, clientes fidelizados, processos de atendimento e negociação mais fluidos e crescimento sustentável para o negócio.</p>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -1966,15 +1967,15 @@
               <div class="vf-bento-grid">
 
                 <!-- Item 1: Wide -->
-                <button type="button" class="vf-bento-card vf-bento-card--wide" data-gallery-item data-index="0" data-img="assets/galeria/IMG_7165.webp" data-title="Treinamentos In Company & Imersões" data-desc="Metodologia prática aplicada diretamente às dores e desafios da equipe comercial." aria-label="Ampliar foto: Treinamentos In Company & Imersões">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_7165.webp" width="700" height="400" alt="Treinamento com auditório cheio e equipe participando ativamente" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--wide" data-gallery-item data-index="0" data-img="assets/galeria/IMG_7165.webp" data-title="Niver de 26 anos Digicont Contábil Araruama" data-desc="Capacitação comercial e celebração dos 26 anos da Digicont Contábil em Araruama." aria-label="Ampliar foto: Niver de 26 anos Digicont Contábil Araruama">
+                  <img class="vf-bento-card__img" style="object-position: center 68%;" src="assets/galeria/IMG_7165.webp" width="700" height="400" alt="Equipe reunida no Niver de 26 anos da Digicont Contábil em Araruama" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
                   </span>
                   <div class="vf-bento-card__content">
-                    <h4 class="vf-bento-card__title">Treinamentos In Company & Imersões</h4>
-                    <p class="vf-bento-card__desc">Metodologia prática aplicada diretamente às dores e desafios da equipe comercial.</p>
+                    <h4 class="vf-bento-card__title">Niver de 26 anos Digicont Contábil Araruama</h4>
+                    <p class="vf-bento-card__desc">Capacitação comercial e celebração dos 26 anos da Digicont Contábil em Araruama.</p>
                   </div>
                 </button>
 
@@ -1992,28 +1993,28 @@
                 </button>
 
                 <!-- Item 3: Normal -->
-                <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="2" data-img="assets/galeria/IMG_4521.webp" data-title="Atendimento de Excelência" data-desc="Construção de processos focados na experiência do consumidor." aria-label="Ampliar foto: Atendimento de Excelência">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_4521.webp" width="400" height="300" alt="Participantes com cadernos e materiais anotando insights do treinamento" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="2" data-img="assets/galeria/IMG_3123.webp" data-title="Curso Avançado - Alpha Benefícios Vila da Penha" data-desc="Capacitação prática e avançada com a equipe da Alpha Benefícios na Vila da Penha." aria-label="Ampliar foto: Curso Avançado - Alpha Benefícios Vila da Penha">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_3123.webp" width="400" height="300" alt="Treinamento Curso Avançado na Alpha Benefícios Vila da Penha" style="object-position: center 70%;" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
                   </span>
                   <div class="vf-bento-card__content">
-                    <h4 class="vf-bento-card__title">Atendimento de Excelência</h4>
-                    <p class="vf-bento-card__desc">Construção de processos focados na experiência do cliente.</p>
+                    <h4 class="vf-bento-card__title">Curso Avançado - Alpha Benefícios Vila da Penha</h4>
+                    <p class="vf-bento-card__desc">Capacitação prática e avançada com a equipe da Alpha Benefícios na Vila da Penha.</p>
                   </div>
                 </button>
 
                 <!-- Item 4: Tall -->
-                <button type="button" class="vf-bento-card vf-bento-card--tall" data-gallery-item data-index="3" data-img="assets/galeria/IMG_0262.webp" data-title="Vitor Ferreira no Palco" data-desc="Mais de 30 anos de bagagem compartilhados com clareza, energia e didática envolvente." aria-label="Ampliar foto: Vitor Ferreira no Palco">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_0262.webp" width="450" height="600" alt="Vitor Ferreira ministrando palestra no palco com microfone na mão" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--tall" data-gallery-item data-index="3" data-img="assets/galeria/IMG_0606.webp" data-title="Evento Hotel Mont Blanc Duque de Caxias" data-desc="Palestra e treinamento exclusivo realizado no Hotel Mont Blanc em Duque de Caxias." aria-label="Ampliar foto: Evento Hotel Mont Blanc Duque de Caxias">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_0606.webp" width="450" height="600" alt="Vitor Ferreira no Evento Hotel Mont Blanc Duque de Caxias" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
                   </span>
                   <div class="vf-bento-card__content">
-                    <h4 class="vf-bento-card__title">Vitor Ferreira no Palco</h4>
-                    <p class="vf-bento-card__desc">Mais de 30 anos de bagagem compartilhados com energia e clareza.</p>
+                    <h4 class="vf-bento-card__title">Evento Hotel Mont Blanc Duque de Caxias</h4>
+                    <p class="vf-bento-card__desc">Palestra e treinamento exclusivo realizado no Hotel Mont Blanc em Duque de Caxias.</p>
                   </div>
                 </button>
 
@@ -2031,15 +2032,15 @@
                 </button>
 
                 <!-- Item 6: Normal -->
-                <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="5" data-img="assets/galeria/IMG_4524.webp" data-title="Alinhamento e Trabalho em Equipe" data-desc="Troca ativa e exercícios colaborativos que integram áreas e pessoas." aria-label="Ampliar foto: Alinhamento e Trabalho em Equipe">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_4524.webp" width="400" height="300" alt="Colaboradores interagindo e sorrindo durante dinâmica de capacitação" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="5" data-img="assets/galeria/IMG_4902.webp" data-title="Treinamento Revendedores - Feirão do Lu - Duque de Caxias" data-desc="Capacitação prática com revendedores no Feirão do Lu em Duque de Caxias." aria-label="Ampliar foto: Treinamento Revendedores - Feirão do Lu - Duque de Caxias">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_4902.webp" width="400" height="300" alt="Treinamento Revendedores no Feirão do Lu Duque de Caxias com Vitor Ferreira" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
                   </span>
                   <div class="vf-bento-card__content">
-                    <h4 class="vf-bento-card__title">Alinhamento e Trabalho em Equipe</h4>
-                    <p class="vf-bento-card__desc">Troca ativa e exercícios colaborativos.</p>
+                    <h4 class="vf-bento-card__title">Treinamento Revendedores - Feirão do Lu - Duque de Caxias</h4>
+                    <p class="vf-bento-card__desc">Capacitação prática com revendedores no Feirão do Lu em Duque de Caxias.</p>
                   </div>
                 </button>
 
@@ -2057,34 +2058,34 @@
                 </button>
 
                 <!-- Item 8: Tall -->
-                <button type="button" class="vf-bento-card vf-bento-card--tall" data-gallery-item data-index="7" data-img="assets/galeria/IMG_4174.webp" data-title="Comunicação e Oratória Assertiva" data-desc="Técnicas de presença, argumentação e segurança para fechar vendas." aria-label="Ampliar foto: Comunicação e Oratória Assertiva">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_4174.webp" width="450" height="600" alt="Vitor Ferreira apontando e enfatizando conceito importante para a equipe" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--tall" data-gallery-item data-index="7" data-img="assets/galeria/IMG_4174.webp" data-title="Palestra - Hábitos de Sucesso - Dia da Autossuficiência Instituto Madureira" data-desc="Palestra de alta energia e aplicação prática sobre hábitos de sucesso no Instituto Madureira." aria-label="Ampliar foto: Palestra - Hábitos de Sucesso - Dia da Autossuficiência Instituto Madureira">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_4174.webp" width="450" height="600" alt="Palestra Hábitos de Sucesso no Dia da Autossuficiência no Instituto Madureira" style="object-position: center 75%;" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
                   </span>
                   <div class="vf-bento-card__content">
-                    <h4 class="vf-bento-card__title">Comunicação e Oratória Assertiva</h4>
-                    <p class="vf-bento-card__desc">Técnicas de presença, postura e segurança para negociar.</p>
+                    <h4 class="vf-bento-card__title">Palestra - Hábitos de Sucesso - Dia da Autossuficiência Instituto Madureira</h4>
+                    <p class="vf-bento-card__desc">Palestra de alta energia sobre hábitos e resultados no Instituto Madureira.</p>
                   </div>
                 </button>
 
                 <!-- Item 9: Wide -->
-                <button type="button" class="vf-bento-card vf-bento-card--wide" data-gallery-item data-index="8" data-img="assets/galeria/IMG_5625.webp" data-title="Equipes Transformadas e Engajadas" data-desc="Celebração e entrega de resultados práticos após as etapas do método." aria-label="Ampliar foto: Equipes Transformadas e Engajadas">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_5625.webp" width="700" height="400" alt="Foto oficial do grupo de treinamento reunido com Vitor Ferreira" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--wide" data-gallery-item data-index="8" data-img="assets/galeria/IMG_8846.webp" data-title="Treinamento Intensivo de Vendas - Grupo Hinode - Worldwide Barra da Tijuca" data-desc="Treinamento intensivo de vendas realizado com a equipe do Grupo Hinode no Worldwide na Barra da Tijuca." aria-label="Ampliar foto: Treinamento Intensivo de Vendas - Grupo Hinode - Worldwide Barra da Tijuca">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_8846.webp" width="700" height="400" alt="Treinamento Intensivo de Vendas no Grupo Hinode Worldwide Barra da Tijuca com Vitor Ferreira" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
                   </span>
                   <div class="vf-bento-card__content">
-                    <h4 class="vf-bento-card__title">Equipes Transformadas e Engajadas</h4>
-                    <p class="vf-bento-card__desc">Sensação de conquista e ferramentas prontas para aplicar na rotina.</p>
+                    <h4 class="vf-bento-card__title">Treinamento Intensivo de Vendas - Grupo Hinode - Worldwide Barra da Tijuca</h4>
+                    <p class="vf-bento-card__desc">Treinamento intensivo com a equipe do Grupo Hinode no Worldwide Barra da Tijuca.</p>
                   </div>
                 </button>
 
                 <!-- Item 10: Normal -->
-                <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="9" data-img="assets/galeria/IMG_5845.webp" data-title="Workshops Mão na Massa" data-desc="Menos teoria abstrata, mais ferramentas que a equipe usa na segunda-feira." aria-label="Ampliar foto: Workshops Mão na Massa">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_5845.webp" width="400" height="300" alt="Material de apoio e folhas de exercícios práticos na mesa de reunião" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="9" data-img="assets/galeria/IMG_4524.webp" data-title="Workshops Mão na Massa" data-desc="Menos teoria abstrata, mais ferramentas que a equipe usa na segunda-feira." aria-label="Ampliar foto: Workshops Mão na Massa">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_4524.webp" width="400" height="300" alt="Dinâmica prática e exercícios em treinamento com Vitor Ferreira" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
@@ -2097,7 +2098,7 @@
 
                 <!-- Item 11: Wide -->
                 <button type="button" class="vf-bento-card vf-bento-card--wide" data-gallery-item data-index="10" data-img="assets/galeria/IMG_6512.webp" data-title="Visão Panorâmica da Experiência" data-desc="Ambientes imersivos desenhados para aprendizado rápido e duradouro." aria-label="Ampliar foto: Visão Panorâmica da Experiência">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_6512.webp" width="700" height="400" alt="Visão panorâmica da plateia atenta e focada durante treinamento" loading="lazy" decoding="async">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_6512.webp" width="700" height="400" alt="Visão panorâmica da plateia com Vitor Ferreira" style="object-position: center 75%;" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
@@ -2109,21 +2110,21 @@
                 </button>
 
                 <!-- Item 12: Tall -->
-                <button type="button" class="vf-bento-card vf-bento-card--tall" data-gallery-item data-index="11" data-img="assets/galeria/IMG_3123.webp" data-title="Mentoria Individual e em Grupo" data-desc="Acompanhamento detalhado para destravar competências e acelerar metas." aria-label="Ampliar foto: Mentoria Individual e em Grupo">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_3123.webp" width="450" height="600" alt="Vitor conversando de perto com profissional em mentoria focada" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--tall" data-gallery-item data-index="11" data-img="assets/galeria/IMG_0262.webp" data-title="Vitor Ferreira no Palco" data-desc="Mais de 30 anos de bagagem compartilhados com energia, autoridade e didática envolvente." aria-label="Ampliar foto: Vitor Ferreira no Palco">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_0262.webp" width="450" height="600" alt="Vitor Ferreira ministrando palestra no palco com microfone na mão" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
                   </span>
                   <div class="vf-bento-card__content">
-                    <h4 class="vf-bento-card__title">Mentoria Individual e em Grupo</h4>
-                    <p class="vf-bento-card__desc">Atenção próxima para desbloquear o potencial de cada profissional.</p>
+                    <h4 class="vf-bento-card__title">Vitor Ferreira no Palco</h4>
+                    <p class="vf-bento-card__desc">Mais de 30 anos de bagagem compartilhados com energia e autoridade.</p>
                   </div>
                 </button>
 
                 <!-- Item 13: Normal -->
                 <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="12" data-img="assets/galeria/IMG_0579.webp" data-title="Liderança de Alta Performance" data-desc="Feedback estruturado, metas claras e acompanhamento de rotina." aria-label="Ampliar foto: Liderança de Alta Performance">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_0579.webp" width="400" height="300" alt="Momento de alinhamento com foco em liderança e metas" loading="lazy" decoding="async">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_0579.webp" width="400" height="300" alt="Momento de alinhamento com foco em liderança e metas" style="object-position: center 50%;" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
@@ -2135,21 +2136,21 @@
                 </button>
 
                 <!-- Item 14: Normal -->
-                <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="13" data-img="assets/galeria/IMG_0606.webp" data-title="Conexão Real com a Plateia" data-desc="Linguagem humana, empática e conectada à realidade de quem vende." aria-label="Ampliar foto: Conexão Real com a Plateia">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_0606.webp" width="400" height="300" alt="Ambiente acolhedor e dinâmico com interação da equipe" loading="lazy" decoding="async">
+                <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="13" data-img="assets/galeria/IMG_5845.webp" data-title="Workshops & Aplicação Prática" data-desc="Troca ativa e exercícios colaborativos que integram áreas e pessoas." aria-label="Ampliar foto: Workshops & Aplicação Prática">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_5845.webp" width="400" height="300" alt="Treinamento com equipe participando ativamente de workshop com Vitor Ferreira" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
                   </span>
                   <div class="vf-bento-card__content">
-                    <h4 class="vf-bento-card__title">Conexão Real com a Plateia</h4>
-                    <p class="vf-bento-card__desc">Linguagem humana, empática e conectada à realidade.</p>
+                    <h4 class="vf-bento-card__title">Workshops & Aplicação Prática</h4>
+                    <p class="vf-bento-card__desc">Troca ativa e exercícios colaborativos.</p>
                   </div>
                 </button>
 
                 <!-- Item 15: Tall -->
                 <button type="button" class="vf-bento-card vf-bento-card--tall" data-gallery-item data-index="14" data-img="assets/galeria/IMG_6045.webp" data-title="Presença & Didática Envolvente" data-desc="O método em três passos: Conhecimento, Comportamento e Resultado." aria-label="Ampliar foto: Presença & Didática Envolvente">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_6045.webp" width="450" height="600" alt="Vitor Ferreira palestrando com postura confiante e didática" loading="lazy" decoding="async">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_6045.webp" width="450" height="600" alt="Vitor Ferreira palestrando com postura confiante e didática" style="object-position: center 65%;" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
@@ -2162,7 +2163,7 @@
 
                 <!-- Item 16: Normal -->
                 <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="15" data-img="assets/galeria/IMG_7046.webp" data-title="Foco em Crescimento Sustentável" data-desc="Construção de processos de vendas sólidos e consistentes." aria-label="Ampliar foto: Foco em Crescimento Sustentável">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_7046.webp" width="400" height="300" alt="Registro fotográfico em treinamento com equipe engajada" loading="lazy" decoding="async">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_7046.webp" width="400" height="300" alt="Registro fotográfico em treinamento com equipe engajada" style="object-position: center 50%;" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
@@ -2175,7 +2176,7 @@
 
                 <!-- Item 17: Normal -->
                 <button type="button" class="vf-bento-card vf-bento-card--normal" data-gallery-item data-index="16" data-img="assets/galeria/IMG_4766.webp" data-title="Cultura Comercial Fortalecida" data-desc="Vendedores conscientes de seu papel e do valor que geram para os clientes." aria-label="Ampliar foto: Cultura Comercial Fortalecida">
-                  <img class="vf-bento-card__img" src="assets/galeria/IMG_4766.webp" width="400" height="300" alt="Equipe atenta durante encerramento de programa de capacitação" loading="lazy" decoding="async">
+                  <img class="vf-bento-card__img" src="assets/galeria/IMG_4766.webp" width="400" height="300" alt="Equipe atenta durante encerramento de programa de capacitação" style="object-position: center 60%;" loading="lazy" decoding="async">
                   <div class="vf-bento-card__overlay" aria-hidden="true"></div>
                   <span class="vf-bento-card__zoom" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
